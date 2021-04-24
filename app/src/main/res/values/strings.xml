@@ -10,4 +10,22 @@
     <string name="check_box_tec">I am a Teacher</string>
     <string name="link_create">New to BioTech? Create Account</string>
     <string name="splash_name">BioTech</string>
+
+    <!--profile part-->
+    <string name="topic_name">BioTech</string>
+    <string name="menu_Quiz">Quiz</string>
+    <string name="menu_Forum">Forum</string>
+    <string name="menu_Assignment">Assignment</string>
+    <string name="menu_Profile">Profile</string>
+    <string name="title">My Profile</string>
+    <string name="title_quiz">Quiz</string>
+    <string name="title_forum">Forum</string>
+    <string name="title_assignment">Assignment</string>
+    <string name="title_profile">Profile</string>
+    <string name="textView_01">Name :</string>
+    <string name="textView_02">Email :</string>
+    <string name="textView_04">Name of the user</string>
+    <string name="textView_05">Email of the user</string>
+    <string name="btn_01">Edit Profile</string>
+
 </resources>

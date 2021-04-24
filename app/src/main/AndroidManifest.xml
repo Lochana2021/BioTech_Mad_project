@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BioTechGeneral">
+        <activity android:name=".single_student"></activity>
         <activity android:name=".ass_teacher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

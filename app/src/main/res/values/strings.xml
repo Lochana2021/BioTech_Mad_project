@@ -142,6 +142,31 @@
         <item>Parasitism</item>
         <item>Competition</item>
     </string-array>
+    <!--Teacher-->
+    <string name="weekView">Week</string>
+    <string name="label_week">Week :</string>
+    <string name="label_date">Date :</string>
+    <string name="label_weather">Weather :</string>
+    <string name="label_place">Place :</string>
+    <string name="label_description">Description :</string>
+    <string name="testView_date_te"></string>
+    <string name="testView_weather_te"></string>
+    <string name="testView_place_te"></string>
+    <string name="testView_des_te"></string>
+    <string name="type_txt">Type_01</string>
+    <string name="tot_students">No of Students attempted : </string>
+    <string name="pass_per">Pass students percentage : </string>
+    <string name="btn_mutu">Mutualism</string>
+    <string name="btn_comm">Commensolism</string>
+    <string name="btn_para">Parasitism</string>
+    <string name="btn_compe">Competition</string>
+    <string name="title_inter_inter">Interspecific Interactions</string>
+    <string name="title_std_ass">Student Assignment</string>
+    <string name="title_type">Type_01</string>
+    <string name="title_std">student_01</string>
+    <string name="input_marks">Enter Marks : </string>
+    <string name="weekEnter">Enter the week</string>
+
     <!--End of Loch-->
 
 

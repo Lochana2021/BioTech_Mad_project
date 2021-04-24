@@ -32,10 +32,11 @@
     <string name="loch1_3">TODO</string>
     <string name="loch1_4">TODO</string>
     <string name="loch1_5">TODO</string>
+    <!--end of profile part-->
 
     <!-- ACHI - START -->
     <!-- Quiz List Activity -->
-   <!-- <string name="menu_Quiz">Quiz</string>
+    <!-- <string name="menu_Quiz">Quiz</string>
     <string name="menu_Forum">Forum</string>
     <string name="menu_Assignment">Assignment</string>
     <string name="menu_Profile">Profile</string>-->
@@ -118,6 +119,30 @@
     <string name="inputDeadline" />
     <string name="labelDeadline">Deadline :</string>
     <!-- ACHI - END -->
+
+    <!--Beginning of Loch-->
+    <!--Student input-->
+    <string name="label_week_std">Week :</string>
+    <string name="label_type_std">Type :</string>
+    <string name="label_date_std">Date :</string>
+    <string name="label_weather_std">Weather :</string>
+    <string name="label_place_std">Place :</string>
+    <string name="label_des_std">Description :</string>
+    <string name="topic_ass_std">Interspecific Interactions</string>
+    <string name="btn_submit">Submit</string>
+    <string name="input_week">Enter the week</string>
+    <string name="input_date">Enter the date</string>
+    <string name="input_weather">Enter the weather</string>
+    <string name="input_place">Enter the place</string>
+    <string name="input_desc">Enter the description</string>
+
+    <string-array name="types">
+        <item>Mutualism</item>
+        <item>Commensolism</item>
+        <item>Parasitism</item>
+        <item>Competition</item>
+    </string-array>
+    <!--End of Loch-->
 
 
 </resources>

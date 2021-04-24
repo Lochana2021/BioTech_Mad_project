@@ -9,23 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BioTechGeneral">
-        <activity android:name=".single_student"></activity>
-        <activity android:name=".ass_teacher">
+        <activity android:name=".CreateQuiz">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".sigle_type" />
-        <activity android:name=".std_ass_input" />
-        <activity android:name=".navigation">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".navigation" />
         <activity
             android:name=".splash"
             android:theme="@style/SplashScreen" />

@@ -33,4 +33,91 @@
     <string name="loch1_4">TODO</string>
     <string name="loch1_5">TODO</string>
 
+    <!-- ACHI - START -->
+    <!-- Quiz List Activity -->
+   <!-- <string name="menu_Quiz">Quiz</string>
+    <string name="menu_Forum">Forum</string>
+    <string name="menu_Assignment">Assignment</string>
+    <string name="menu_Profile">Profile</string>-->
+    <string name="labelQuizList">Quiz List</string>
+    <string name="labelCreateNewQuiz">Create New Quiz</string>
+
+    <!--Create Quiz Activity-->
+    <string name="labelTopCreateQuiz">Create New Quiz</string>
+    <string name="labelQuizNumber">Quiz</string>
+    <string name="labelInputQ1">Question 1</string>
+    <string name="inputQ1" />
+    <string name="hintInputQ1">Enter Question 1 here</string>
+    <string name="descriptBtnIconAddQuiz">TODO</string>
+    <string name="hintInputQ1Ans4">Enter Answer 4 here</string>
+    <string name="hintInputQ1Ans3">Enter Answer 3 here</string>
+    <string name="hintInputQ1Ans2">Enter Answer 2 here</string>
+    <string name="hintInputQ1Ans1">Enter Answer 1 here</string>
+    <string name="inputQuizNumber" />
+    <string name="labelInputQ2">Question 2</string>
+    <string name="hintInputQ2">Enter Question 2 here</string>
+    <string name="labelInputQ3">Question 3</string>
+
+    <string name="hintInputQ3">Enter Question 3 here</string>
+    <string name="inputQ3" />
+    <string name="action_settings">Settings</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="btnSave">Save</string>
+    <string name="labelInputCorrectQ1">Correct Answer : </string>
+    <string name="hintInputCorrectQ1">Correct Answer</string>
+    <string name="labelInputCorrectQ2">Correct Answer : </string>
+    <string name="hintInputCorrectQ2">Correct Answer</string>
+    <string name="inputPassMark" />
+    <string name="hintInputPassMark">100</string>
+    <string name="labelPassMark">Pass Mark : </string>
+    <string name="hintInputQuizNumber">1</string>
+    <string name="labelInputCorrectQ3">Correct Answer : </string>
+    <string name="hintInputCorrectQ3">Correct Answer</string>
+    <string name="labelTopViewQuiz">View Quiz</string>
+
+    <!--View Quiz Activity-->
+    <string name="labelInputCorrectQ3_View">Correct Answer :</string>
+    <string name="labelTopCreateQuiz_View">View Quiz</string>
+    <string name="labelQuizNumber_View">Quiz</string>
+    <string name="labelInputQuizNumber_View" />
+    <string name="labelPassMark_View">Pass Mark : </string>
+    <string name="labelInputPassMark_View" />
+    <string name="labelInputQ1_View">Question 1</string>
+    <string name="lbl_InputQ1_View" />
+
+    <string name="labelInputQ1Ans1_View" />
+    <string name="labelInputQ1Ans2_View" />
+    <string name="labelInputQ1Ans3_View" />
+    <string name="labelInputQ1Ans4_View" />
+    <string name="labelInputCorrectQ1_View">Correct Answer : </string>
+    <string name="labelInputQ2_View">Question 2</string>
+    <string name="lbl_InputQ2_View" />
+    <string name="labelInputQ2Ans1_View" />
+    <string name="labelPassList">Pass List</string>
+    <string name="descriptBtnIconPassList" />
+    <string name="labelInputQ2Ans2_View" />
+    <string name="labelInputQ2Ans3_View" />
+    <string name="labelInputQ2Ans4_View" />
+    <string name="labelInputCorrectQ2_View">Correct Answer : </string>
+    <string name="lbl_InputCorrectQ2_View" />
+    <string name="labelInputQ3_View">Question 3</string>
+    <string name="lbl_InputQ3_View" />
+    <string name="labelInputQ3Ans1_View" />
+    <string name="labelInputQ3Ans2_View" />
+    <string name="labelInputQ3Ans3_View" />
+    <string name="labelInputQ3Ans4_View" />
+    <string name="lbl_InputCorrectQ1_View" />
+    <string name="lbl_InputCorrectQ3_View" />
+
+    <!--Pass List Activity-->
+    <string name="labelTopPassList">Pass List</string>
+    <string name="labelPassPercentage_PassList">Pass Percentage : </string>
+    <string name="labelInputPassPercentage_PassList" />
+    <string name="logo_menu">BioTech</string>
+    <string name="hintInputDeadline">Date</string>
+    <string name="inputDeadline" />
+    <string name="labelDeadline">Deadline :</string>
+    <!-- ACHI - END -->
+
+
 </resources>

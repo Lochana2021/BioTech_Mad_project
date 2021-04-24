@@ -73,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/QuizImage"
         android:layout_width="138dp"
         android:layout_height="111dp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"

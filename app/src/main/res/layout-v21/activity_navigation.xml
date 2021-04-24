@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0ECEA"
+    android:foregroundTint="#FFFFFF"
+    tools:context=".navigation">
+
+
+    <TextView
+        android:id="@+id/BioTechTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:text="@string/topic_name"
+        android:textColor="#355723"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageIconMain"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageIconMain"
+        android:layout_width="61dp"
+        android:layout_height="58dp"
+        android:contentDescription="@string/loch1_5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/BioTechTopic"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.172"
+        app:srcCompat="@drawable/baseline_eco_black_36dp"
+        app:tint="#355723" />
+
+    <ImageView
+        android:id="@+id/imageAssignment"
+        android:layout_width="116dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginBottom="4dp"
+        android:contentDescription="@string/loch1_3"
+        app:layout_constraintBottom_toTopOf="@+id/textViewAssignment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewQuiz"
+        app:srcCompat="@drawable/baseline_assignment_black_36dp" />
+
+    <ImageView
+        android:id="@+id/imageProfile"
+        android:layout_width="119dp"
+        android:layout_height="109dp"
+        android:layout_marginTop="44dp"
+        android:contentDescription="@string/loch1_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toEndOf="@+id/imageAssignment"
+        app:layout_constraintTop_toBottomOf="@+id/textViewForum"
+        app:srcCompat="@drawable/baseline_account_box_black_36dp" />
+
+    <ImageView
+        android:id="@+id/imageForum"
+        android:layout_width="116dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="156dp"
+        android:contentDescription="@string/loch1_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toEndOf="@+id/QuizImage"
+        app:layout_constraintTop_toBottomOf="@+id/imageIconMain"
+        app:srcCompat="@drawable/baseline_question_answer_black_36dp" />
+
+    <ImageView
+        android:id="@+id/QuizImage"
+        android:layout_width="110dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="160dp"
+        android:contentDescription="@string/loch1_1"
+        android:foregroundTint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BioTechTopic"
+        app:srcCompat="@drawable/baseline_fact_check_black_36dp" />
+
+    <TextView
+        android:id="@+id/textViewQuiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/title_quiz"
+        android:textColor="#355723"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/QuizImage" />
+
+    <TextView
+        android:id="@+id/textViewProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/title_profile"
+        android:textColor="#355723"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toEndOf="@+id/textViewQuiz"
+        app:layout_constraintTop_toBottomOf="@+id/imageProfile" />
+
+    <TextView
+        android:id="@+id/textViewAssignment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/title_assignment"
+        android:textColor="#355723"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageAssignment" />
+
+    <TextView
+        android:id="@+id/textViewForum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/menu_Forum"
+        android:textColor="#355723"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textViewAssignment"
+        app:layout_constraintTop_toBottomOf="@+id/imageForum" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

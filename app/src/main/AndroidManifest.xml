@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BioTechGeneral">
+
+        <!--Achi START-->
         <activity android:name=".CreateQuiz">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,6 +42,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--Achi END-->
+
+        <!--Loch START-->
+        <activity android:name=".ass_teacher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".std_ass_input">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".sigle_type"/>
+        <activity android:name=".single_student"/>
+
+        <!--Loch ENDS-->
 
         <activity android:name=".navigation" />
         <activity

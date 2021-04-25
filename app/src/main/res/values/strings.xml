@@ -170,4 +170,28 @@
     <!--End of Loch-->
 
 
+    <!-- Ashu Forum-->
+    <string name="Forum" />
+    <string name="forum">Forum</string>
+    <string name="Fname">Forum Name</string>
+    <string name="description">Description</string>
+    <string name="checkBox">Display description on course page</string>
+    <string name="forumType">Forum Type</string>
+    <string name="forumTypetxtview" />
+    <string name="descriptionArea" />
+    <string name="Fnametxtview" />
+    <string name="btn_1">Create</string>
+    <string name="btn_Cancel">Cancel</string>
+    <string name="quetion">Quetion</string>
+    <string name="quetion_plantxt" />
+    <string name="RAnswer">Recommend Answer</string>
+    <string name="RAnswerplaintxt" />
+    <string name="addAnswer">Add Answer</string>
+    <string name="btn_fsubmit">Submit</string>
+    <string name="typeHere">Type here</string>
+
+    <!-- End Ashu-->
+
+
+
 </resources>

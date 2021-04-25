@@ -34,6 +34,7 @@ public class std_ass_input extends AppCompatActivity {
         myAdapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinnerType.setAdapter(myAdapterType);
 
+        /*assigning to id*/
         txtWeek = findViewById(R.id.AssWeekinput);
         txtDate = findViewById(R.id.AssDateinput);
         txtWeather = findViewById(R.id.AssWeatherinput);
@@ -66,10 +67,12 @@ public class std_ass_input extends AppCompatActivity {
                          ass.setDescription(txtDescription.getText().toString().trim());
 
                          //Insert into the database...
-                         dbRef.push().setValue(ass);
+                         //dbRef.push().setValue(ass);
+                         dbRef.child("ASS1").setValue(ass);
 
                          //Feedback to the user via a Toast...
                          Toast.makeText(getApplicationContext(),"Submitted Successfully",Toast.LENGTH_LONG).show();
+                         clearControls();
                      }
 
                 }

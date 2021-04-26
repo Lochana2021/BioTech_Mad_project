@@ -1,19 +1,17 @@
 package com.example.biotechgeneral;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.os.Build;
-import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
-
-import com.example.biotechgeneral.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -57,7 +55,7 @@ public class sigle_type extends AppCompatActivity {
         stdAssListView.setAdapter(assStdArrayAdapter);
 
         //dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
-        dbRef = FirebaseDatabase.getInstance().getReference();
+        dbRef = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("3");
 
         dbRef.addChildEventListener(new ChildEventListener() {
             @Override
@@ -85,6 +83,30 @@ public class sigle_type extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        /*testing*/
+        /*dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Assignment assignment = snapshot.getValue(Assignment.class);
+                System.out.println(assignment);
+                *//*public void onDataChange(DataSnapshot snapshot) {
+                    Assignment assignment = snapshot.getValue(Assignment.class);
+                    System.out.println(assignment);*//*
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                //System.out.println("The read failed: " + DatabaseError);
+            }
+        });*/
+        /*testing*/
+        stdAssListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(getApplicationContext(),single_student.class));
             }
         });
     }

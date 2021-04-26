@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -18,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class QuizList extends AppCompatActivity {
 
@@ -42,7 +44,7 @@ public class QuizList extends AppCompatActivity {
 
         // Associate the quiz Firebase Database Reference with the database's quiz object
         dbRef = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("Quiz1");
-        //dbRef = dbRef.child("QuizClass");
+
 
         // Attach a ChildEventListener to the quiz database, so we can retrieve the quiz entries
         dbRef.addChildEventListener(new ChildEventListener() {
@@ -85,6 +87,7 @@ public class QuizList extends AppCompatActivity {
 
             }
         } );
+
 
     }// onCreate ends
 

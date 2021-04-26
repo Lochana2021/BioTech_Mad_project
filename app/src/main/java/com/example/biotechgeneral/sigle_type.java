@@ -49,7 +49,7 @@ public class sigle_type extends AppCompatActivity {
         txtTopicType.setText(topicName);
         //etn.setText(week);
 
-        /*adapter retrieve*/
+        /*adapter retrieve listView*/
         //ArrayAdapter<String> assStdArrayAdapter = new ArrayAdapter<String>(sigle_type.this.android.R.layout.simple_list_item_1,assStdArrayList);
         ArrayAdapter<String> assStdArrayAdapter = new ArrayAdapter<String>(this,R.layout.liststdass_item,assStdArrayList);
 

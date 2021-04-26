@@ -25,7 +25,7 @@ public class ViewQuiz extends AppCompatActivity {
             quizQ1A1, quizQ1A2, quizQ1A3, quizQ1A4, quizQ2, quizQ2CorrectAnswer,
             quizQ2A1, quizQ2A2, quizQ2A3, quizQ2A4, quizQ3, quizQ3CorrectAnswer,
             quizQ3A1, quizQ3A2, quizQ3A3, quizQ3A4;
-    //Button idBtnCancel, idBtnSave;
+
     long quizID = 0;
 
     @Override
@@ -34,9 +34,10 @@ public class ViewQuiz extends AppCompatActivity {
         setContentView(R.layout.activity_view_quiz);
 
         Intent getIntentQuizListActivity = getIntent();
+        String clickedQuizNo = getIntentQuizListActivity.getStringExtra("QUIZ_NUM");
 
         quiz = new QuizClass();
-        dbRef = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("2");
+        dbRef = FirebaseDatabase.getInstance().getReference().child("QuizClass").child(clickedQuizNo);
 
         quizNo = findViewById(R.id.idInputQuizNumber_View);
         quizPassMark = findViewById(R.id.idInputPassMark_View);
@@ -62,10 +63,14 @@ public class ViewQuiz extends AppCompatActivity {
         quizQ3A4 = findViewById(R.id.inputQ3Ans4_View);
 
         //Add a click listener to ListView items
+        //.child("QuizClass").orderByChild("quizNo").equalTo(clickedQuizNo)
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.hasChildren()){
+
+                    //Toast.makeText(getApplicationContext(), clickedQuizNo , Toast.LENGTH_SHORT).show();
+
                     quizNo.setText(snapshot.child("quizNo").getValue().toString());
                     quizPassMark.setText(snapshot.child("quizPassMark").getValue().toString());
                     quizDeadline.setText(snapshot.child("quizDeadline").getValue().toString());
@@ -89,7 +94,7 @@ public class ViewQuiz extends AppCompatActivity {
                     quizQ3A4.setText(snapshot.child("quizQ3A4").getValue().toString());
                 }
                 else {
-                    Toast.makeText(getApplicationContext(),"No Quiz records available", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "No Quiz records are found." , Toast.LENGTH_SHORT).show();
                 }
             }
 

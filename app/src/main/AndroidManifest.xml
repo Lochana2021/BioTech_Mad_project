@@ -61,7 +61,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".sigle_type"/>
         <activity android:name=".single_student"/>
 
         <!--Loch ENDS-->

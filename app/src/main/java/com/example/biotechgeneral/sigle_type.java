@@ -26,11 +26,10 @@ public class sigle_type extends AppCompatActivity {
 
     TextView txtTopicType;
     TextView etn;
+
     ListView stdAssListView;
-
     ArrayList<String> assStdArrayList = new ArrayList<>();
-
-    DatabaseReference dbref;
+    DatabaseReference dbRef;
 
 
     @Override
@@ -51,18 +50,20 @@ public class sigle_type extends AppCompatActivity {
 
         /*adapter retrieve listView*/
         //ArrayAdapter<String> assStdArrayAdapter = new ArrayAdapter<String>(sigle_type.this.android.R.layout.simple_list_item_1,assStdArrayList);
+        stdAssListView = (ListView) findViewById(R.id.stdListAss);
         ArrayAdapter<String> assStdArrayAdapter = new ArrayAdapter<String>(this,R.layout.liststdass_item,assStdArrayList);
 
-        stdAssListView = (ListView) findViewById(R.id.stdListAss);
+
         stdAssListView.setAdapter(assStdArrayAdapter);
 
-        dbref = FirebaseDatabase.getInstance().getReference();
+        //dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
+        dbRef = FirebaseDatabase.getInstance().getReference();
 
-        dbref.addChildEventListener(new ChildEventListener() {
+        dbRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String value = snapshot.getValue(String.class);
-                assStdArrayList.add(value);
+                String assMapped = snapshot.getValue(String.class);
+                assStdArrayList.add(assMapped);
                 assStdArrayAdapter.notifyDataSetChanged();
             }
 

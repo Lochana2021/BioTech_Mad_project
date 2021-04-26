@@ -62,6 +62,17 @@
         app:layout_constraintEnd_toStartOf="@+id/idBtnIconAddQuiz"
         app:layout_constraintTop_toBottomOf="@+id/idDivider" />
 
+    <ListView
+        android:id="@+id/idQuizListView"
+        android:layout_width="match_parent"
+        android:layout_height="493dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idBtnIconAddQuiz" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation_view"
         android:layout_width="match_parent"

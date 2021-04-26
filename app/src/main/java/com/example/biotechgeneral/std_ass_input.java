@@ -1,5 +1,6 @@
 package com.example.biotechgeneral;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -11,15 +12,20 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class std_ass_input extends AppCompatActivity {
 
     EditText txtStdID, txtWeek, txtDate, txtWeather, txtPlace, txtDescription;
     Button btnSubmit;
     DatabaseReference dbRef;
-    Assignment ass;
+
+
+    long assID = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,9 @@ public class std_ass_input extends AppCompatActivity {
         myAdapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinnerType.setAdapter(myAdapterType);
 
+        Assignment ass;
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
+
         /*assigning to id*/
         txtStdID = findViewById(R.id.AssIDinput);
         txtWeek = findViewById(R.id.AssWeekinput);
@@ -44,12 +53,26 @@ public class std_ass_input extends AppCompatActivity {
 
         btnSubmit = findViewById(R.id.stdSubmitbtn);
 
+        // auto increment if any changes made to the data in database
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists())
+                    assID = (snapshot.getChildrenCount());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         ass = new Assignment();
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
+
                 try{
                      if (TextUtils.isEmpty(txtStdID.getText().toString()))
                          Toast.makeText(getApplicationContext(),"Please enter your Student ID",Toast.LENGTH_LONG).show();
@@ -72,7 +95,8 @@ public class std_ass_input extends AppCompatActivity {
 
                          //Insert into the database...
                          //dbRef.push().setValue(ass);
-                         dbRef.child("ASS2").setValue(ass);
+                         //dbRef.child("ASS2").setValue(ass);
+                         dbRef.child(String.valueOf(assID+1)).setValue(ass);
 
                          //Feedback to the user via a Toast...
                          Toast.makeText(getApplicationContext(),"Submitted Successfully",Toast.LENGTH_LONG).show();

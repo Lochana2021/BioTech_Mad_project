@@ -55,7 +55,7 @@ public class sigle_type extends AppCompatActivity {
         stdAssListView.setAdapter(assStdArrayAdapter);
 
         //dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
-        dbRef = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("3");
+        dbRef = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("2");
 
         dbRef.addChildEventListener(new ChildEventListener() {
             @Override

@@ -62,7 +62,13 @@
         </activity>
 
         <activity android:name=".sigle_type"/>
-        <activity android:name=".single_student"/>
+        <activity android:name=".single_student">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <!--Loch ENDS-->
 

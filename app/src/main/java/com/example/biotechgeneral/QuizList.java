@@ -41,14 +41,15 @@ public class QuizList extends AppCompatActivity {
         quizListView.setAdapter(quizArrayAdapter);
 
         // Associate the quiz Firebase Database Reference with the database's quiz object
-        dbRef = FirebaseDatabase.getInstance().getReference();
-        dbRef = dbRef.child("Quiz1");
+        dbRef = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("Quiz1");
+        //dbRef = dbRef.child("QuizClass");
 
         // Attach a ChildEventListener to the quiz database, so we can retrieve the quiz entries
         dbRef.addChildEventListener(new ChildEventListener() {
 
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
 
                 // Get the value from the DataSnapshot and add it to the quiz' list
                 String quizMapped = snapshot.getValue(String.class);

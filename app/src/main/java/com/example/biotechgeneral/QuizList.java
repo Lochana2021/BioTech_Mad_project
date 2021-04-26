@@ -17,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,18 +44,38 @@ public class QuizList extends AppCompatActivity {
         quizListView.setAdapter(quizArrayAdapter);
 
         // Associate the quiz Firebase Database Reference with the database's quiz object
-        dbRef = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("Quiz1");
+        dbRef = FirebaseDatabase.getInstance().getReference();
+                //.child("QuizClass").child("2");
+
+
+        /*
+        dbRef.child("QuizClass")
+                .orderByChild("quizNo")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (snapshot childSnapshot : snapshot.getChildren()){
+                            String quizNoKeyValue = childSnapshot.getValue();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+    */
 
 
         // Attach a ChildEventListener to the quiz database, so we can retrieve the quiz entries
-        dbRef.addChildEventListener(new ChildEventListener() {
+        dbRef.child("QuizClass").addChildEventListener(new ChildEventListener() {
 
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
 
                 // Get the value from the DataSnapshot and add it to the quiz' list
-                String quizMapped = snapshot.getValue(String.class);
+                String quizMapped = snapshot.child("quizNo").getValue(String.class);
                 quizArrayList.add(quizMapped);
 
                 // Notify the ArrayAdapter that there was a change

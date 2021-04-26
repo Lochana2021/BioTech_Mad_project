@@ -1,5 +1,6 @@
 package com.example.biotechgeneral;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,8 +25,18 @@ public class single_student extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_student);
 
+        /*Intent intent = getIntent();
+        String topicName = intent.getStringExtra("TYPE_01");
+        //int week = intent.getIntExtra("WEEK",0);
+
+        txtTopicType.setText(topicName);
+        //etn.setText(week);*/
+        Intent intent = getIntent();
+        String stdID = intent.getStringExtra("stdID");
+
         ass = new Assignment();
-        dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child("ASS2");
+        dbRef = FirebaseDatabase.getInstance().getReference();
+        //dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child("1");
 
         /*assigning variables*/
         txtStdID = findViewById(R.id.StdNameView);
@@ -34,10 +45,11 @@ public class single_student extends AppCompatActivity {
         txtPlace = findViewById(R.id.TechPlaceView);
         txtDescription = findViewById(R.id.TechDescriptionView);
 
-        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        dbRef.child("Assignment").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.hasChildren()){
+                //String stdID = intent.getStringExtra("stdID");
+                if (snapshot.child("stdAssID").equals(stdID)){
                     txtStdID.setText(snapshot.child("stdAssID").getValue().toString());
                     txtDate.setText(snapshot.child("date").getValue().toString());
                     txtWeather.setText(snapshot.child("weather").getValue().toString());

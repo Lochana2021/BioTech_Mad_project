@@ -1,6 +1,7 @@
 package com.example.biotechgeneral;
 
 public class Assignment {
+    private String StdAssID;
     private Integer Week;
     private String Type;
     private String Date;
@@ -9,6 +10,14 @@ public class Assignment {
     private String Description;
 
     public Assignment() {
+    }
+
+    public String getStdAssID() {
+        return StdAssID;
+    }
+
+    public void setStdAssID(String stdAssID) {
+        StdAssID = stdAssID;
     }
 
     public Integer getWeek() {

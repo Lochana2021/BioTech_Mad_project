@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class std_ass_input extends AppCompatActivity {
 
-    EditText txtWeek, txtDate, txtWeather, txtPlace, txtDescription;
+    EditText txtStdID, txtWeek, txtDate, txtWeather, txtPlace, txtDescription;
     Button btnSubmit;
     DatabaseReference dbRef;
     Assignment ass;
@@ -35,6 +35,7 @@ public class std_ass_input extends AppCompatActivity {
         mySpinnerType.setAdapter(myAdapterType);
 
         /*assigning to id*/
+        txtStdID = findViewById(R.id.AssIDinput);
         txtWeek = findViewById(R.id.AssWeekinput);
         txtDate = findViewById(R.id.AssDateinput);
         txtWeather = findViewById(R.id.AssWeatherinput);
@@ -50,7 +51,9 @@ public class std_ass_input extends AppCompatActivity {
             public void onClick(View v) {
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
                 try{
-                     if (TextUtils.isEmpty(txtDate.getText().toString()))
+                     if (TextUtils.isEmpty(txtStdID.getText().toString()))
+                         Toast.makeText(getApplicationContext(),"Please enter your Student ID",Toast.LENGTH_LONG).show();
+                     else if (TextUtils.isEmpty(txtDate.getText().toString()))
                          Toast.makeText(getApplicationContext(),"Please enter the Date",Toast.LENGTH_LONG).show();
                      else if (TextUtils.isEmpty(txtWeather.getText().toString()))
                          Toast.makeText(getApplicationContext(),"Please enter the Weather",Toast.LENGTH_LONG).show();
@@ -60,6 +63,7 @@ public class std_ass_input extends AppCompatActivity {
                          Toast.makeText(getApplicationContext(),"Please enter the Place",Toast.LENGTH_LONG).show();
                      else{
                          //Take inputs from the user and assigning them to this instance (ass) of the Assignment...
+                         ass.setStdAssID(txtStdID.getText().toString().trim());
                          ass.setWeek(Integer.parseInt(txtWeek.getText().toString().trim()));
                          ass.setDate(txtDate.getText().toString().trim());
                          ass.setWeather(txtWeather.getText().toString().trim());
@@ -68,7 +72,7 @@ public class std_ass_input extends AppCompatActivity {
 
                          //Insert into the database...
                          //dbRef.push().setValue(ass);
-                         dbRef.child("ASS1").setValue(ass);
+                         dbRef.child("ASS2").setValue(ass);
 
                          //Feedback to the user via a Toast...
                          Toast.makeText(getApplicationContext(),"Submitted Successfully",Toast.LENGTH_LONG).show();
@@ -86,6 +90,7 @@ public class std_ass_input extends AppCompatActivity {
 
     //Method to clear all user inputs
     private void clearControls(){
+        txtStdID.setText("");
         txtWeek.setText("");
         txtDate.setText("");
         txtWeather.setText("");

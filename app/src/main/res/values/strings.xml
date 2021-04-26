@@ -122,6 +122,7 @@
 
     <!--Beginning of Loch-->
     <!--Student input-->
+    <string name="label_ID_std">Student ID :</string>
     <string name="label_week_std">Week :</string>
     <string name="label_type_std">Type :</string>
     <string name="label_date_std">Date :</string>
@@ -130,6 +131,7 @@
     <string name="label_des_std">Description :</string>
     <string name="topic_ass_std">Interspecific Interactions</string>
     <string name="btn_submit">Submit</string>
+    <string name="input_ID">Enter Student ID</string>
     <string name="input_week">Enter the week</string>
     <string name="input_date">Enter the date</string>
     <string name="input_weather">Enter the weather</string>

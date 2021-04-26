@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Please enter your email Address",Toast.LENGTH_LONG).show();
                 else if (TextUtils.isEmpty(txtPassword.getText().toString()))
                     Toast.makeText(getApplicationContext(),"Please enter the Password",Toast.LENGTH_LONG).show();
+                else if (txtPassword.getText().toString().length() < 6){
+                    Toast.makeText(getApplicationContext(),"Password must contain SIX characters",Toast.LENGTH_LONG).show();
+                }
                 else{
                     //Take inputs from the user and assigning them to this instance (ass) of the Assignment...
                     std.setFull_name(txtFull_name.getText().toString().trim());

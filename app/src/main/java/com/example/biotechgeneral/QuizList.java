@@ -55,10 +55,12 @@ public class QuizList extends AppCompatActivity {
 
                 // Get the value from the DataSnapshot and add it to the quiz' list
                 String quizMapped = snapshot.child("quizNo").getValue(String.class);
-                quizArrayList.add("Quiz "+quizMapped);
+                //quizArrayList.add("Quiz "+quizMapped);
+                quizArrayList.add(quizMapped);
 
                 // Notify the ArrayAdapter that there was a change
                 quizArrayAdapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -83,12 +85,16 @@ public class QuizList extends AppCompatActivity {
         quizListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                String clickedQuizNumber = String.valueOf(parent.getItemAtPosition(position));
+                final Intent intent = new Intent(getApplicationContext(),ViewQuiz.class);
+                intent.putExtra("QUIZ_NUM", clickedQuizNumber);
+                startActivity(intent);
             }
         });
 
     }// onCreate ends
 
+    /*
     public void gotoViewQuizActivity (View view) {
 
         Intent intent2 = new Intent(this, ViewQuiz.class);
@@ -104,4 +110,5 @@ public class QuizList extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "Navigating....", Toast.LENGTH_SHORT).show();
     }
+    */
 }

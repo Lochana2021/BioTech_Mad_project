@@ -63,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/idDivider" />
 
     <ListView
-        android:id="@+id/idQuizListView"
+        android:id="@+id/ForumListView"
         android:layout_width="match_parent"
         android:layout_height="493dp"
         android:layout_marginTop="20dp"

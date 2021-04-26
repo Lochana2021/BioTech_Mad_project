@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#E0ECEA"
-        tools:context=".ForumDisplay">
+        tools:context=".Forum_AskQuetion">
 
 
         <TextView
@@ -111,17 +111,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.522" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.806"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.319"
-            app:srcCompat="@drawable/ic_baseline_mic_none_24" />
+
 
         <CheckBox
             android:id="@+id/checkBox2"

@@ -191,9 +191,10 @@
     <string name="addAnswer">Add Answer</string>
     <string name="btn_fsubmit">Submit</string>
     <string name="typeHere">Type here</string>
+    <string name="F_List">Forum List</string>
+    <string name="Create_Forum">Create New Forum</string>
 
     <!-- End Ashu-->
-
 
 
 </resources>

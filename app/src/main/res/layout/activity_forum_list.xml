@@ -69,11 +69,11 @@
             app:srcCompat="@drawable/ic_baseline_fiber_new_24" />
 
         <ListView
-            android:id="@+id/Forum_ListView"
-            android:layout_width="407dp"
-            android:layout_height="493dp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="179dp" />
+            android:id="@+id/ListView_Forum"
+            android:layout_width="415dp"
+            android:layout_height="455dp"
+            tools:layout_editor_absoluteX="-2dp"
+            tools:layout_editor_absoluteY="181dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

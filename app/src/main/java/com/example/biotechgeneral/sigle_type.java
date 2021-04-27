@@ -1,19 +1,18 @@
 package com.example.biotechgeneral;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.os.Build;
-import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
-
-import com.example.biotechgeneral.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -59,12 +58,22 @@ public class sigle_type extends AppCompatActivity {
         //dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
         dbRef = FirebaseDatabase.getInstance().getReference();
 
-        dbRef.addChildEventListener(new ChildEventListener() {
+        /*// Attach a ChildEventListener to the quiz database, so we can retrieve the quiz entries
+        dbRef.child("QuizClass").addChildEventListener(new ChildEventListener() {*/
+
+        dbRef.child("Assignment").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String assMapped = snapshot.getValue(String.class);
+                String assMapped = snapshot.child("stdAssID").getValue(String.class);
                 assStdArrayList.add(assMapped);
                 assStdArrayAdapter.notifyDataSetChanged();
+
+                /*// Get the value from the DataSnapshot and add it to the quiz' list
+                String quizMapped = snapshot.child("quizNo").getValue(String.class);
+                quizArrayList.add("Quiz "+quizMapped);
+
+                // Notify the ArrayAdapter that there was a change
+                quizArrayAdapter.notifyDataSetChanged();*/
             }
 
             @Override
@@ -85,6 +94,44 @@ public class sigle_type extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        /*testing*/
+        /*dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Assignment assignment = snapshot.getValue(Assignment.class);
+                System.out.println(assignment);
+                *//*public void onDataChange(DataSnapshot snapshot) {
+                    Assignment assignment = snapshot.getValue(Assignment.class);
+                    System.out.println(assignment);*//*
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                //System.out.println("The read failed: " + DatabaseError);
+            }
+        });*/
+        /*testing*/
+        stdAssListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final Intent intent = new Intent(getApplicationContext(),single_student.class);
+
+                //startActivity(new Intent(getApplicationContext(),single_student.class));
+                //startActivity(new Intent(getApplicationContext(),single_student.class));
+                String studentID = String.valueOf(parent.getItemAtPosition(position));
+                Toast.makeText(getApplicationContext(),"Moving to " +studentID,Toast.LENGTH_LONG).show();
+                startActivity(intent);
+
+                intent.putExtra("stdID",studentID);
+
+                /*//create intent
+                final Intent intent = new Intent(this,sigle_type.class);
+                String typeName = "Mutualism";
+
+                intent.putExtra("TYPE_01",typeName);*/
             }
         });
     }

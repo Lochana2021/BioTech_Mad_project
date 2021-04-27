@@ -168,6 +168,8 @@
     <string name="title_std">student_01</string>
     <string name="input_marks">Enter Marks : </string>
     <string name="weekEnter">Enter the week</string>
+    <string name="labelDeadline_View">Deadline :</string>
+    <string name="labelInputDeadline_View" />
 
     <!--End of Loch-->
 

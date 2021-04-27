@@ -134,6 +134,37 @@
             android:gravity="center_horizontal"
             android:layout_marginRight="30dp" />
 
+        <!--Deadline-->
+        <TextView
+            android:id="@+id/idLabelDeadline_View"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/allerta"
+            android:text="@string/labelDeadline_View"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idLabelQuizNumber_View"
+            android:layout_marginLeft="35dp" />
+
+        <TextView
+            android:id="@+id/idInputDeadline_View"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:text="@string/labelInputDeadline_View"
+            android:textAlignment="center"
+            android:textColor="#355723"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/idLabelDeadline_View"
+            app:layout_constraintTop_toBottomOf="@+id/idLabelQuizNumber_View"
+            android:gravity="center_horizontal" />
+
         <!--Question 1-->
 
         <TextView
@@ -148,7 +179,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idLabelQuizNumber_View"
+            app:layout_constraintTop_toBottomOf="@+id/idLabelDeadline_View"
             android:layout_marginLeft="35dp" />
 
         <TextView

@@ -22,10 +22,23 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.272"
+            app:layout_constraintHorizontal_bias="0.225"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.178" />
+            app:layout_constraintTop_toBottomOf="@+id/divider6"
+            app:layout_constraintVertical_bias="0.336" />
+
+        <ImageView
+            android:id="@+id/img_NewForum"
+            android:layout_width="55dp"
+            android:layout_height="47dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginRight="48dp"
+            android:onClick="onClick"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider6"
+            app:layout_constraintVertical_bias="0.332"
+            app:srcCompat="@drawable/ic_baseline_fiber_new_24" />
 
         <View
             android:id="@+id/divider6"
@@ -53,27 +66,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            android:id="@+id/img_CreateForum"
-            android:layout_width="56dp"
-            android:layout_height="52dp"
-            android:onClick="onClick"
-            android:scrollbarThumbHorizontal="@color/black"
-            android:scrollbarThumbVertical="@color/black"
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:text="@string/View_Forums"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.901"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.172"
-            app:srcCompat="@drawable/ic_baseline_fiber_new_24" />
+            app:layout_constraintVertical_bias="0.586" />
 
-        <ListView
-            android:id="@+id/ListView_Forum"
-            android:layout_width="415dp"
-            android:layout_height="455dp"
-            tools:layout_editor_absoluteX="-2dp"
-            tools:layout_editor_absoluteY="181dp" />
+        <ImageButton
+            android:id="@+id/View_Forums"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="52dp"
+            android:layout_marginRight="52dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.579"
+            app:srcCompat="@drawable/ic_baseline_pageview_24"
+            android:onClick="ViewForums"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BioTechGeneral">
 
-        <!--Achi START-->
+        <!-- Achi START -->
         <activity android:name=".CreateQuiz">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".PassList">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".QuizList">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,17 +32,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".ViewQuiz">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!--Achi END-->
-
-        <!--Loch START-->
+        </activity> <!-- Achi END -->
+        <!-- Loch START -->
         <activity android:name=".ass_teacher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,7 +47,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".std_ass_input">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,11 +54,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".single_student"/>
-
-        <!--Loch ENDS-->
-
+        <activity android:name=".single_student" /> <!-- Loch ENDS -->
         <activity android:name=".navigation" />
         <activity
             android:name=".splash"
@@ -83,9 +73,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-       <!--Ashu Start-->
-
+        <!-- Ashu Start -->
         <activity android:name=".CreateForum">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -107,15 +95,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<activity android:name=".ForumDisplay">
+        <activity android:name=".ForumView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>-->
 
-        <!--Ashu End -->
+        </activity>
     </application>
 
 </manifest>

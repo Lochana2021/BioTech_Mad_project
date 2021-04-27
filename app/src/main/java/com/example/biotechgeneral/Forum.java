@@ -6,6 +6,11 @@ public class Forum {
     private String Description;
     private String Type;
 
+
+    public Forum() {
+
+    }
+
     public Forum(String name, String description, String type) {
         Name = name;
         Description = description;
@@ -36,3 +41,5 @@ public class Forum {
         Type = type;
     }
 }
+
+

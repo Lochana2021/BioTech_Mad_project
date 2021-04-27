@@ -117,15 +117,19 @@ public class sigle_type extends AppCompatActivity {
         stdAssListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                final Intent intent = new Intent(getApplicationContext(),single_student.class);
+                final Intent intent1 = new Intent(getApplicationContext(),single_student.class);
 
                 //startActivity(new Intent(getApplicationContext(),single_student.class));
                 //startActivity(new Intent(getApplicationContext(),single_student.class));
                 String studentID = String.valueOf(parent.getItemAtPosition(position));
                 Toast.makeText(getApplicationContext(),"Moving to " +studentID,Toast.LENGTH_LONG).show();
-                startActivity(intent);
 
-                intent.putExtra("stdID",studentID);
+
+                intent1.putExtra("stdID",studentID);
+
+                intent1.putExtra("TOPIC_NAME",topicName);
+                Toast.makeText(getApplicationContext(),topicName,Toast.LENGTH_LONG).show();
+                startActivity(intent1);
 
                 /*//create intent
                 final Intent intent = new Intent(this,sigle_type.class);

@@ -18,26 +18,29 @@ public class single_student extends AppCompatActivity {
 
     Assignment ass;
     DatabaseReference dbRef;
-    TextView txtStdID, txtDate, txtWeather, txtPlace, txtDescription;
+    TextView txtStdID, txtDate, txtWeather, txtPlace, txtDescription, txtTopic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_student);
 
-        /*Intent intent = getIntent();
-        String topicName = intent.getStringExtra("TYPE_01");
-        //int week = intent.getIntExtra("WEEK",0);
+        txtTopic = findViewById(R.id.singleStdTopic);
 
-        txtTopicType.setText(topicName);
-        //etn.setText(week);*/
+
         Intent intent = getIntent();
         String stdID = intent.getStringExtra("stdID");
+        String topicName = intent.getStringExtra("TOPIC_NAME");
+
+        txtTopic.setText(topicName);
+
+        //Toast.makeText(getApplicationContext(),stdID,Toast.LENGTH_LONG).show();
 
         ass = new Assignment();
-        dbRef = FirebaseDatabase.getInstance().getReference();
-        //dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child("1");
-
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child(stdID);
+        //dbRef = FirebaseDatabase.getInstance().getReference();
+        //.child("Assignment").child(stdID)
+        //.child("Assignment").child("1")
         /*assigning variables*/
         txtStdID = findViewById(R.id.StdNameView);
         txtDate = findViewById(R.id.TechDateView);
@@ -45,11 +48,16 @@ public class single_student extends AppCompatActivity {
         txtPlace = findViewById(R.id.TechPlaceView);
         txtDescription = findViewById(R.id.TechDescriptionView);
 
-        dbRef.child("Assignment").addListenerForSingleValueEvent(new ValueEventListener() {
+
+        //.child("Assignment").orderByChild("stdAssID").equalTo(stdID)
+        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 //String stdID = intent.getStringExtra("stdID");
-                if (snapshot.child("stdAssID").equals(stdID)){
+                Toast.makeText(getApplicationContext(),stdID,Toast.LENGTH_LONG).show();
+                if (snapshot.hasChildren()){
+
                     txtStdID.setText(snapshot.child("stdAssID").getValue().toString());
                     txtDate.setText(snapshot.child("date").getValue().toString());
                     txtWeather.setText(snapshot.child("weather").getValue().toString());

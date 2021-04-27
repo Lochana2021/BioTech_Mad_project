@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 public class std_ass_input extends AppCompatActivity {
 
     EditText txtStdID, txtWeek, txtDate, txtWeather, txtPlace, txtDescription;
+    Spinner mySpinnerType;
     Button btnSubmit;
     DatabaseReference dbRef;
 
@@ -32,7 +33,7 @@ public class std_ass_input extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_std_ass_input);
 
-        Spinner mySpinnerType = (Spinner) findViewById(R.id.spinner);
+        mySpinnerType = (Spinner) findViewById(R.id.spinner);
 
         ArrayAdapter<String> myAdapterType = new ArrayAdapter<String>(std_ass_input.this, android.R.layout.simple_list_item_1,
                 getResources().getStringArray(R.array.types));
@@ -88,6 +89,7 @@ public class std_ass_input extends AppCompatActivity {
                          //Take inputs from the user and assigning them to this instance (ass) of the Assignment...
                          ass.setStdAssID(txtStdID.getText().toString().trim());
                          ass.setWeek(Integer.parseInt(txtWeek.getText().toString().trim()));
+                         ass.setType(mySpinnerType.getSelectedItem().toString().trim());
                          ass.setDate(txtDate.getText().toString().trim());
                          ass.setWeather(txtWeather.getText().toString().trim());
                          ass.setPlace(txtPlace.getText().toString().trim());

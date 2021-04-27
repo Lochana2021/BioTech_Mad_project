@@ -56,12 +56,13 @@ public class sigle_type extends AppCompatActivity {
         stdAssListView.setAdapter(assStdArrayAdapter);
 
         //dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
-        dbRef = FirebaseDatabase.getInstance().getReference();
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child(topicName);
+        Toast.makeText(getApplicationContext(),topicName,Toast.LENGTH_LONG).show();
 
         /*// Attach a ChildEventListener to the quiz database, so we can retrieve the quiz entries
         dbRef.child("QuizClass").addChildEventListener(new ChildEventListener() {*/
-
-        dbRef.child("Assignment").addChildEventListener(new ChildEventListener() {
+        //dbRef.child("Assignment").addChildEventListener(new ChildEventListener()
+        dbRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String assMapped = snapshot.child("stdAssID").getValue(String.class);
@@ -128,7 +129,7 @@ public class sigle_type extends AppCompatActivity {
                 intent1.putExtra("stdID",studentID);
 
                 intent1.putExtra("TOPIC_NAME",topicName);
-                Toast.makeText(getApplicationContext(),topicName,Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),topicName,Toast.LENGTH_LONG).show();
                 startActivity(intent1);
 
                 /*//create intent

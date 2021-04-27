@@ -37,7 +37,7 @@ public class single_student extends AppCompatActivity {
         //Toast.makeText(getApplicationContext(),stdID,Toast.LENGTH_LONG).show();
 
         ass = new Assignment();
-        dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child(stdID);
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child(topicName).child(stdID);
         //dbRef = FirebaseDatabase.getInstance().getReference();
         //.child("Assignment").child(stdID)
         //.child("Assignment").child("1")
@@ -51,11 +51,9 @@ public class single_student extends AppCompatActivity {
 
         //.child("Assignment").orderByChild("stdAssID").equalTo(stdID)
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
-
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                //String stdID = intent.getStringExtra("stdID");
-                Toast.makeText(getApplicationContext(),stdID,Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),stdID,Toast.LENGTH_LONG).show();
                 if (snapshot.hasChildren()){
 
                     txtStdID.setText(snapshot.child("stdAssID").getValue().toString());

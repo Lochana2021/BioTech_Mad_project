@@ -26,7 +26,7 @@ public class std_ass_input extends AppCompatActivity {
     DatabaseReference dbRef;
 
 
-    long assID = 0;
+    //long assID = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,7 @@ public class std_ass_input extends AppCompatActivity {
         btnSubmit = findViewById(R.id.stdSubmitbtn);
 
         // auto increment if any changes made to the data in database
-        dbRef.addValueEventListener(new ValueEventListener() {
+       /* dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())
@@ -66,14 +66,15 @@ public class std_ass_input extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        });*/
 
         ass = new Assignment();
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                    String inputStdID = txtStdID.getText().toString().trim();
+                    String inputSpinner = mySpinnerType.getSelectedItem().toString().trim();
                 try{
                      if (TextUtils.isEmpty(txtStdID.getText().toString()))
                          Toast.makeText(getApplicationContext(),"Please enter your Student ID",Toast.LENGTH_LONG).show();
@@ -87,9 +88,9 @@ public class std_ass_input extends AppCompatActivity {
                          Toast.makeText(getApplicationContext(),"Please enter the Place",Toast.LENGTH_LONG).show();
                      else{
                          //Take inputs from the user and assigning them to this instance (ass) of the Assignment...
-                         ass.setStdAssID(txtStdID.getText().toString().trim());
+                         ass.setStdAssID(inputStdID);
                          ass.setWeek(Integer.parseInt(txtWeek.getText().toString().trim()));
-                         ass.setType(mySpinnerType.getSelectedItem().toString().trim());
+                         ass.setType(inputSpinner);
                          ass.setDate(txtDate.getText().toString().trim());
                          ass.setWeather(txtWeather.getText().toString().trim());
                          ass.setPlace(txtPlace.getText().toString().trim());
@@ -98,7 +99,8 @@ public class std_ass_input extends AppCompatActivity {
                          //Insert into the database...
                          //dbRef.push().setValue(ass);
                          //dbRef.child("ASS2").setValue(ass);
-                         dbRef.child(String.valueOf(assID+1)).setValue(ass);
+                         //dbRef.child(String.valueOf(assID+1)).setValue(ass);
+                         dbRef.child(inputSpinner).child(inputStdID).setValue(ass);
 
                          //Feedback to the user via a Toast...
                          Toast.makeText(getApplicationContext(),"Submitted Successfully",Toast.LENGTH_LONG).show();

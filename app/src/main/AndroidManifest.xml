@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BioTechGeneral">
-        <activity android:name=".activity_quiz_attendance"></activity>
+
         <!-- Achi START -->
         <activity android:name=".CreateQuiz">
             <intent-filter>
@@ -74,6 +74,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Dev START -->
+        <activity android:name=".activity_quiz_attendance">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

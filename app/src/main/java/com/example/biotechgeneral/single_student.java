@@ -89,7 +89,7 @@ public class single_student extends AppCompatActivity {
             public void onClick(View v) {
                 //Take inputs from the user and assigning them to this instance (ass) of the Assignment...
 
-                ass.setStdMarksAss(txtStdMarksAss.getText().toString().trim());
+                ass.setStdMarksAss(Integer.parseInt(txtStdMarksAss.getText().toString().trim()));
                 dbRef.child(topicName).child(stdID).push().setValue(ass);
 
                 Toast.makeText(getApplicationContext(), "Marks saved", Toast.LENGTH_LONG).show();

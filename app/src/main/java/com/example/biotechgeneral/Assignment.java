@@ -8,16 +8,16 @@ public class Assignment {
     private String Weather;
     private String Place;
     private String Description;
-    private String StdMarksAss;
+    private Integer StdMarksAss;
 
     public Assignment() {
     }
 
-    public String getStdMarksAss() {
+    public Integer getStdMarksAss() {
         return StdMarksAss;
     }
 
-    public void setStdMarksAss(String stdMarksAss) {
+    public void setStdMarksAss(Integer stdMarksAss) {
         StdMarksAss = stdMarksAss;
     }
 

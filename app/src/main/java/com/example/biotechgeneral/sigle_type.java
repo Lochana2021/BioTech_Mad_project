@@ -18,17 +18,20 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class sigle_type extends AppCompatActivity {
 
-    TextView txtTopicType;
+    TextView txtTopicType, txtStdAttCount;
     TextView etn;
 
     ListView stdAssListView;
     ArrayList<String> assStdArrayList = new ArrayList<>();
-    DatabaseReference dbRef;
+    DatabaseReference dbRef, attCountRef;
+
+    int attCount = 0;
 
 
     @Override
@@ -39,6 +42,7 @@ public class sigle_type extends AppCompatActivity {
         /*intent passing*/
         txtTopicType = findViewById(R.id.txtTopicType);
         etn = findViewById(R.id.textViewWeek);
+        txtStdAttCount = findViewById(R.id.stdAttemView);
 
         Intent intent = getIntent();
         String topicName = intent.getStringExtra("TYPE_01");
@@ -57,7 +61,9 @@ public class sigle_type extends AppCompatActivity {
 
         //dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
         dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child(topicName);
-        Toast.makeText(getApplicationContext(),topicName,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),topicName,Toast.LENGTH_LONG).show();
+
+
 
         /*// Attach a ChildEventListener to the quiz database, so we can retrieve the quiz entries
         dbRef.child("QuizClass").addChildEventListener(new ChildEventListener() {*/
@@ -98,23 +104,6 @@ public class sigle_type extends AppCompatActivity {
             }
         });
 
-        /*testing*/
-        /*dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Assignment assignment = snapshot.getValue(Assignment.class);
-                System.out.println(assignment);
-                *//*public void onDataChange(DataSnapshot snapshot) {
-                    Assignment assignment = snapshot.getValue(Assignment.class);
-                    System.out.println(assignment);*//*
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                //System.out.println("The read failed: " + DatabaseError);
-            }
-        });*/
-        /*testing*/
         stdAssListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -139,5 +128,29 @@ public class sigle_type extends AppCompatActivity {
                 intent.putExtra("TYPE_01",typeName);*/
             }
         });
+        /*getting student count*/
+        attCountRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
+        attCountRef.child(topicName).addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    attCount = (int) snapshot.getChildrenCount();
+                    String stdCount = String.valueOf(attCount);
+                    //Toast.makeText(getApplicationContext(),String.valueOf(attCount),Toast.LENGTH_LONG).show();
+                    txtStdAttCount.setText(stdCount);
+                }
+                else{
+                    txtStdAttCount.setText("0");
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 }

@@ -2,6 +2,9 @@ package com.example.biotechgeneral;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,9 +19,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class single_student extends AppCompatActivity {
 
-    Assignment ass;
-    DatabaseReference dbRef;
+    Assignment ass, ass1;
+    DatabaseReference dbRef, dbRef1;
     TextView txtStdID, txtDate, txtWeather, txtPlace, txtDescription, txtTopic;
+    EditText txtStdMarksAss;
+    Button btnSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +75,26 @@ public class single_student extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+        });
+
+        //insert student marks
+        txtStdMarksAss = findViewById(R.id.techMarksEnter);
+        btnSave = findViewById(R.id.asstechmarksbtn);
+
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
+        //ass = new Assignment();
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Take inputs from the user and assigning them to this instance (ass) of the Assignment...
+
+                ass.setStdMarksAss(txtStdMarksAss.getText().toString().trim());
+                dbRef.child(topicName).child(stdID).push().setValue(ass);
+
+                Toast.makeText(getApplicationContext(), "Marks saved", Toast.LENGTH_LONG).show();
+            }
+
         });
     }
 }

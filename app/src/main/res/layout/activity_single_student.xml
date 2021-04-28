@@ -116,22 +116,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/singleStdTopic" />
 
+
     <EditText
         android:id="@+id/techMarksEnter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
         android:layout_marginTop="10dp"
+        android:autofillHints=""
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/input_marks"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.865"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TechDescriptionView"
-        app:layout_constraintVertical_bias="0.221"
-        android:autofillHints="" />
-
+        app:layout_constraintVertical_bias="0.268" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation_view"
@@ -175,5 +175,15 @@
         app:layout_constraintStart_toEndOf="@+id/TechWeatherLabel"
         app:layout_constraintTop_toBottomOf="@+id/TechDateView"
         app:layout_constraintVertical_bias="0.521" />
+
+    <Button
+        android:id="@+id/asstechmarksbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/techStdMarksInputBtn"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/techMarksEnter"
+        app:layout_constraintTop_toBottomOf="@+id/TechDescriptionView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

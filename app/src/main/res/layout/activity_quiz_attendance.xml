@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_quiz_attendance">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="672dp"
+        android:background="#A8355723"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="#2D2F31"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.983"
+        app:menu="@menu/navigation_menu" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/amaranth_bold"
+        android:text="@string/quiz_attendance"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/AttQuizName"
+        android:layout_width="216dp"
+        android:layout_height="41dp"
+        android:fontFamily="@font/amaranth_bold"
+        android:text="@string/name"
+        android:textColor="#919791"
+        app:layout_constraintBottom_toTopOf="@+id/AttQuizReg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/AttQuizID"
+        android:layout_width="213dp"
+        android:layout_height="39dp"
+        android:fontFamily="@font/amaranth_bold"
+        android:text="@string/quiz_id"
+        android:textColor="#919791"
+        app:layout_constraintBottom_toTopOf="@+id/AttQuizDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AttQuizReg" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/AttQuizReg"
+        android:layout_width="216dp"
+        android:layout_height="41dp"
+        android:fontFamily="@font/amaranth_bold"
+        android:text="@string/registered_number"
+        android:textColor="#919791"
+        app:layout_constraintBottom_toTopOf="@+id/AttQuizID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AttQuizName" />
+
+    <EditText
+        android:id="@+id/AttQuizDate"
+        android:layout_width="216dp"
+        android:layout_height="38dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:fontFamily="@font/amaranth_bold"
+        android:inputType="date"
+        android:text="@string/date"
+        android:textColor="#919791"
+        app:layout_constraintBottom_toTopOf="@+id/AttCanB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AttQuizID" />
+
+    <Button
+        android:id="@+id/AttCanB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#000000"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        app:layout_constraintEnd_toStartOf="@+id/AttSubB"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AttQuizDate"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/AttSubB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#000000"
+        android:text="@string/submit"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/AttCanB"
+        app:layout_constraintTop_toBottomOf="@+id/AttQuizDate"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="408dp"
+        android:layout_height="3dp"
+        android:background="#355723"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.071" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

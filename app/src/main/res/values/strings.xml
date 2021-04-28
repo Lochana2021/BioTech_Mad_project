@@ -168,8 +168,19 @@
     <string name="title_std">student_01</string>
     <string name="input_marks">Enter Marks : </string>
     <string name="weekEnter">Enter the week</string>
-
     <!--End of Loch-->
+
+
+    <!--Devinda insert-->
+    <string name="quiz_attendance">Quiz_attendance</string>
+    <string name="name">Quiz Name</string>
+    <string name="quiz_id">Quiz ID</string>
+    <string name="registered_number">Registration Number</string>
+    <string name="date">Quiz Date</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+
+
 
 
 </resources>

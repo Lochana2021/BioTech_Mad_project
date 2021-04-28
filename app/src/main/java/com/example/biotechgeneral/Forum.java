@@ -1,11 +1,26 @@
 package com.example.biotechgeneral;
 
+import android.widget.ImageView;
+
 public class Forum {
 
     private String Name;
     private String Description;
     private String Type;
 
+    private ImageView image;
+
+    public Forum(ImageView image) {
+        this.image = image;
+    }
+
+    public ImageView getImage() {
+        return image;
+    }
+
+    public void setImage(ImageView image) {
+        this.image = image;
+    }
 
     public Forum() {
 
@@ -16,6 +31,7 @@ public class Forum {
         Description = description;
         Type = type;
     }
+
 
     public String getName() {
         return Name;

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Forum_Dashboard">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/FDash_FList"
+            android:layout_width="254dp"
+            android:layout_height="52dp"
+            android:text="@string/FDash_FList"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.265" />
+
+        <Button
+            android:id="@+id/FDash_PostAnswer"
+            android:layout_width="254dp"
+            android:layout_height="52dp"
+            android:text="@string/FDash_PostAnswer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.478" />
+
+        <Button
+            android:id="@+id/FDash_AddQuetion"
+            android:layout_width="254dp"
+            android:layout_height="52dp"
+            android:text="@string/FDash_AddQuetion"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.74" />
+
+        <Button
+            android:id="@+id/FDash_DisplayForum"
+            android:layout_width="254dp"
+            android:layout_height="52dp"
+            android:text="@string/FDash_DisplayForum"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.837" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation_bar"
+            android:layout_width="411dp"
+            android:layout_height="0dp"
+            android:layout_alignParentBottom="true"
+            android:background="#A8355723"
+            app:itemIconTint="@color/black"
+            app:itemTextColor="#2D2F31"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/navigation_menu" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.471"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.075"
+            app:srcCompat="@drawable/baseline_question_answer_black_36dp" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="173dp"
+            android:layout_height="26dp"
+            android:autoText="false"
+            android:freezesText="false"
+            android:text="@string/txtView_ForTeacher"
+            android:textColorHighlight="@color/black"
+            android:textColorLink="@color/black"
+            android:textIsSelectable="false"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.668"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.402" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txtDash_ForStudent"
+            android:textColorHighlight="@color/black"
+            android:textColorHint="@color/black"
+            android:textColorLink="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.639" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

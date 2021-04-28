@@ -196,8 +196,15 @@
     <string name="F_List">Forum List</string>
     <string name="Create_Forum">Create New Forum</string>
     <string name="View_Forums">View Forums</string>
+    <string name="textView_quetionNo">Quetion No</string>
+    <string name="FDash_FList">Forum List</string>
+    <string name="FDash_PostAnswer">Post Answer</string>
+    <string name="FDash_AddQuetion">Add Quetion</string>
+    <string name="FDash_DisplayForum">View Forum</string>
+    <string name="txtView_ForTeacher">For Teaches</string>
+    <string name="txtDash_ForStudent">For Student</string>
 
-    <!-- End Ashu-->
+    <!-- End of Ashu-->
 
 
 </resources>

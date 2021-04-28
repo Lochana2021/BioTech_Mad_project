@@ -1,5 +1,6 @@
 package com.example.biotechgeneral;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +14,14 @@ import java.util.List;
 public class ForumAdapter extends RecyclerView.Adapter {
 
     List<Forum> forumList;
+    Context context;
 
     public ForumAdapter(List<Forum> forumList) {
         this.forumList = forumList;
+    }
+
+    public ForumAdapter(Context context) {
+        this.context = context;
     }
 
     @NonNull
@@ -32,6 +38,7 @@ public class ForumAdapter extends RecyclerView.Adapter {
         ViewHolderclass.name.setText(forum.getName());
         ViewHolderclass.description.setText(forum.getDescription());
         ViewHolderclass.type.setText(forum.getType());
+
 
     }
 
@@ -52,5 +59,8 @@ public class ForumAdapter extends RecyclerView.Adapter {
             type = itemView.findViewById(R.id.Ftype);
 
         }
+
     }
+
+
 }

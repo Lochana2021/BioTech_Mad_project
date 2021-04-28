@@ -10,7 +10,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Forum_ListView"
         android:layout_width="match_parent"
-        android:layout_height="691dp" />
+        android:layout_height="691dp"
+       />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation_bar"

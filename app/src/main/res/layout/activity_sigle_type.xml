@@ -67,6 +67,8 @@
         android:layout_height="26dp"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/assStdAttemt"
         app:layout_constraintStart_toEndOf="@+id/assStdAttemt" />
 
@@ -76,6 +78,8 @@
         android:layout_height="29dp"
         android:layout_marginStart="52dp"
         android:layout_marginLeft="52dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/assStdpercentage"
         app:layout_constraintStart_toEndOf="@+id/assStdpercentage" />
 

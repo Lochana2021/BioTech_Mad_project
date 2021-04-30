@@ -24,12 +24,14 @@ import java.util.ArrayList;
 
 public class sigle_type extends AppCompatActivity {
 
-    TextView txtTopicType, txtStdAttCount;
+    TextView txtTopicType, txtStdAttCount, txtPercentage;
     TextView etn;
 
     ListView stdAssListView;
     ArrayList<String> assStdArrayList = new ArrayList<>();
-    DatabaseReference dbRef, attCountRef;
+    DatabaseReference dbRef, attCountRef, dbRef2;
+
+    public String studentID;
 
     int attCount = 0;
 
@@ -43,6 +45,7 @@ public class sigle_type extends AppCompatActivity {
         txtTopicType = findViewById(R.id.txtTopicType);
         etn = findViewById(R.id.textViewWeek);
         txtStdAttCount = findViewById(R.id.stdAttemView);
+        txtPercentage = findViewById(R.id.stdAssPerView);
 
         Intent intent = getIntent();
         String topicName = intent.getStringExtra("TYPE_01");
@@ -111,7 +114,7 @@ public class sigle_type extends AppCompatActivity {
 
                 //startActivity(new Intent(getApplicationContext(),single_student.class));
                 //startActivity(new Intent(getApplicationContext(),single_student.class));
-                String studentID = String.valueOf(parent.getItemAtPosition(position));
+                studentID = String.valueOf(parent.getItemAtPosition(position));
                 Toast.makeText(getApplicationContext(),"Moving to " +studentID,Toast.LENGTH_LONG).show();
 
 
@@ -126,8 +129,12 @@ public class sigle_type extends AppCompatActivity {
                 String typeName = "Mutualism";
 
                 intent.putExtra("TYPE_01",typeName);*/
+
+
+
             }
         });
+
         /*getting student count*/
         attCountRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
         attCountRef.child(topicName).addValueEventListener(new ValueEventListener() {
@@ -139,6 +146,12 @@ public class sigle_type extends AppCompatActivity {
                     String stdCount = String.valueOf(attCount);
                     //Toast.makeText(getApplicationContext(),String.valueOf(attCount),Toast.LENGTH_LONG).show();
                     txtStdAttCount.setText(stdCount);
+
+                    int percentage = 0;
+                    percentage = (attCount / 60) * 100;
+                    String perString = String.valueOf(percentage);
+                    txtPercentage.setText(perString);
+
                 }
                 else{
                     txtStdAttCount.setText("0");
@@ -151,6 +164,28 @@ public class sigle_type extends AppCompatActivity {
 
             }
         });
+
+       //catching marks
+        /*dbRef2 = FirebaseDatabase.getInstance().getReference().child("Assignment");
+
+       dbRef2.child(topicName).child(studentID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.hasChildren()){
+                    //String marksVal = snapshot.child("stdMarksAss").getValue().toString();
+                    //Toast.makeText(getApplicationContext(),marksVal,Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"No error",Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"No Source to Display",Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });*/
 
     }
 }

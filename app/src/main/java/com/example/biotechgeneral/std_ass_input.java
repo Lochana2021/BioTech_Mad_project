@@ -2,7 +2,15 @@ package com.example.biotechgeneral;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -25,6 +33,11 @@ public class std_ass_input extends AppCompatActivity {
     Button btnSubmit;
     DatabaseReference dbRef;
 
+    //notification
+    String name = "Notification_channel";
+    String CHANNEL_ID = "ID_1";
+    String description = "Project Notification";
+
 
     //long assID = 0;
 
@@ -43,6 +56,20 @@ public class std_ass_input extends AppCompatActivity {
 
         Assignment ass;
         dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
+
+        //notification
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+
+            //Register the channel with the system
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+
+        }
 
         /*assigning to id*/
         txtStdID = findViewById(R.id.AssIDinput);
@@ -104,6 +131,24 @@ public class std_ass_input extends AppCompatActivity {
 
                          //Feedback to the user via a Toast...
                          Toast.makeText(getApplicationContext(),"Submitted Successfully",Toast.LENGTH_LONG).show();
+
+                         //notification
+                         Intent intent = new Intent(std_ass_input.this, ass_teacher.class);
+                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+                         PendingIntent pendingIntent = PendingIntent.getActivity(std_ass_input.this, 0,intent,0);
+
+                         NotificationCompat.Builder builder = new NotificationCompat.Builder(std_ass_input.this,CHANNEL_ID)
+                                 .setSmallIcon(R.drawable.ic_launcher_background)
+                                 .setContentTitle("BioTech")
+                                 .setContentText(txtStdID.getText()+" has attempted to "+mySpinnerType.getSelectedItem())
+                                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                 .setContentIntent(pendingIntent)
+                                 .setAutoCancel(true);
+
+                         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(std_ass_input.this);
+                         notificationManagerCompat.notify(0,builder.build());
+
                          clearControls();
                      }
 

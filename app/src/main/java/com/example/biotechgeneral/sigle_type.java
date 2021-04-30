@@ -1,36 +1,37 @@
 package com.example.biotechgeneral;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.os.Build;
-import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
-
-import com.example.biotechgeneral.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class sigle_type extends AppCompatActivity {
 
-    TextView txtTopicType;
+    TextView txtTopicType, txtStdAttCount;
     TextView etn;
+
     ListView stdAssListView;
-
     ArrayList<String> assStdArrayList = new ArrayList<>();
+    DatabaseReference dbRef, attCountRef;
 
-    DatabaseReference dbref;
+    int attCount = 0;
 
 
     @Override
@@ -41,6 +42,7 @@ public class sigle_type extends AppCompatActivity {
         /*intent passing*/
         txtTopicType = findViewById(R.id.txtTopicType);
         etn = findViewById(R.id.textViewWeek);
+        txtStdAttCount = findViewById(R.id.stdAttemView);
 
         Intent intent = getIntent();
         String topicName = intent.getStringExtra("TYPE_01");
@@ -51,19 +53,34 @@ public class sigle_type extends AppCompatActivity {
 
         /*adapter retrieve listView*/
         //ArrayAdapter<String> assStdArrayAdapter = new ArrayAdapter<String>(sigle_type.this.android.R.layout.simple_list_item_1,assStdArrayList);
+        stdAssListView = (ListView) findViewById(R.id.stdListAss);
         ArrayAdapter<String> assStdArrayAdapter = new ArrayAdapter<String>(this,R.layout.liststdass_item,assStdArrayList);
 
-        stdAssListView = (ListView) findViewById(R.id.stdListAss);
+
         stdAssListView.setAdapter(assStdArrayAdapter);
 
-        dbref = FirebaseDatabase.getInstance().getReference();
+        //dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child(topicName);
+        //Toast.makeText(getApplicationContext(),topicName,Toast.LENGTH_LONG).show();
 
-        dbref.addChildEventListener(new ChildEventListener() {
+
+
+        /*// Attach a ChildEventListener to the quiz database, so we can retrieve the quiz entries
+        dbRef.child("QuizClass").addChildEventListener(new ChildEventListener() {*/
+        //dbRef.child("Assignment").addChildEventListener(new ChildEventListener()
+        dbRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String value = snapshot.getValue(String.class);
-                assStdArrayList.add(value);
+                String assMapped = snapshot.child("stdAssID").getValue(String.class);
+                assStdArrayList.add(assMapped);
                 assStdArrayAdapter.notifyDataSetChanged();
+
+                /*// Get the value from the DataSnapshot and add it to the quiz' list
+                String quizMapped = snapshot.child("quizNo").getValue(String.class);
+                quizArrayList.add("Quiz "+quizMapped);
+
+                // Notify the ArrayAdapter that there was a change
+                quizArrayAdapter.notifyDataSetChanged();*/
             }
 
             @Override
@@ -86,5 +103,54 @@ public class sigle_type extends AppCompatActivity {
 
             }
         });
+
+        stdAssListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final Intent intent1 = new Intent(getApplicationContext(),single_student.class);
+
+                //startActivity(new Intent(getApplicationContext(),single_student.class));
+                //startActivity(new Intent(getApplicationContext(),single_student.class));
+                String studentID = String.valueOf(parent.getItemAtPosition(position));
+                Toast.makeText(getApplicationContext(),"Moving to " +studentID,Toast.LENGTH_LONG).show();
+
+
+                intent1.putExtra("stdID",studentID);
+
+                intent1.putExtra("TOPIC_NAME",topicName);
+                //Toast.makeText(getApplicationContext(),topicName,Toast.LENGTH_LONG).show();
+                startActivity(intent1);
+
+                /*//create intent
+                final Intent intent = new Intent(this,sigle_type.class);
+                String typeName = "Mutualism";
+
+                intent.putExtra("TYPE_01",typeName);*/
+            }
+        });
+        /*getting student count*/
+        attCountRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
+        attCountRef.child(topicName).addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    attCount = (int) snapshot.getChildrenCount();
+                    String stdCount = String.valueOf(attCount);
+                    //Toast.makeText(getApplicationContext(),String.valueOf(attCount),Toast.LENGTH_LONG).show();
+                    txtStdAttCount.setText(stdCount);
+                }
+                else{
+                    txtStdAttCount.setText("0");
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 }

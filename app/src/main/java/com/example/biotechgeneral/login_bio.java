@@ -24,6 +24,8 @@ public class login_bio extends AppCompatActivity {
     DatabaseReference dbRef;
     FirebaseAuth fAuth;
 
+    String emailLog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +40,7 @@ public class login_bio extends AppCompatActivity {
         btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbRef = FirebaseDatabase.getInstance().getReference().child("Student");
+                dbRef = FirebaseDatabase.getInstance().getReference().child("Student").child("STD1");
                 String email = txtEmail.getText().toString().trim();
                 String password = txtPassword.getText().toString().trim();
 
@@ -52,7 +54,7 @@ public class login_bio extends AppCompatActivity {
                             startActivity(new Intent(getApplicationContext(),navigation.class));
                         }
                         else {
-                            //error message
+                            Toast.makeText(login_bio.this,"Logged in Unsuccessful",Toast.LENGTH_LONG).show();
                         }
                     }
                 });

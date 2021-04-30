@@ -55,8 +55,8 @@ public class QuizList extends AppCompatActivity {
 
                 // Get the value from the DataSnapshot and add it to the quiz' list
                 String quizMapped = snapshot.child("quizNo").getValue(String.class);
-                //quizArrayList.add("Quiz "+quizMapped);
-                quizArrayList.add(quizMapped);
+                quizArrayList.add("Quiz "+quizMapped);
+               // quizArrayList.add(quizMapped);
 
                 // Notify the ArrayAdapter that there was a change
                 quizArrayAdapter.notifyDataSetChanged();

@@ -2,8 +2,14 @@ package com.example.biotechgeneral;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.app.DatePickerDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.os.Build;
 import android.os.Bundle;
 import android.content.Intent;
 import android.text.InputType;
@@ -37,6 +43,10 @@ public class CreateQuiz extends AppCompatActivity {
             quizQ3A1, quizQ3A2, quizQ3A3, quizQ3A4;
     Button idBtnCancel, idBtnSave;
     long quizID = 0;
+    // Notification variables
+    String name = "Notification Channel";
+    String CHANNEL_ID = "ID_1";
+    String description = "Sample Description";
 
     // Clear out all user inputs
     public void clearControls() {
@@ -112,6 +122,21 @@ public class CreateQuiz extends AppCompatActivity {
 
             }
         });
+
+        // NOTIFICATION
+        //checking the API for Notification Channel and Create a new channel
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+
+            ///////  Register the created Notification Channel
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+
+            notificationManager.createNotificationChannel(channel);
+        }
 
         // calender
         quizDeadline.setInputType(InputType.TYPE_NULL);
@@ -204,6 +229,32 @@ public class CreateQuiz extends AppCompatActivity {
                             //Feedback to the user via a Toast
                             Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_LONG).show();
 
+                            /////////////// NOTIFICATION  ////////////////////
+
+                            // Create Explicit Intent to navigate from Notification --> QuizList Activity
+                            Intent intentNotify = new Intent(CreateQuiz.this, QuizList.class);
+                            intentNotify.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+                            ///////    Intent will be in Pending state until we tap on the Notification
+                            PendingIntent pendingIntent = PendingIntent.getActivity(CreateQuiz.this, 0, intentNotify, 0);
+
+                            /////      Set the content of the notification. --> Title / Context / Icon
+                            NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID)
+                                    .setSmallIcon(R.drawable.ic_launcher_background)
+                                    .setContentTitle("MAD Notification Title")
+                                    .setContentText("Hello " + quizNo.getText() + " !! Welcome to MAD team.")
+                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+                                    .setContentIntent(pendingIntent)
+                                    .setAutoCancel(true);     // when we tap the notification, it automatically disappears.
+
+                            ////////  Call the Notification Manager object
+                            NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(CreateQuiz.this);
+
+                            // builder object and unique ID
+                            notificationManagerCompat.notify(0, builder.build());
+
+
                             // Reset input fields
                             clearControls();
                         } // else ends
@@ -223,13 +274,5 @@ public class CreateQuiz extends AppCompatActivity {
 
     }// end of onCreate
 
-/*
-    public void gotoQuizListActivity (View view) {
 
-        Intent intent = new Intent(this, QuizList.class);
-        startActivity(intent);
-
-        Toast.makeText(getApplicationContext(), "Saving the Quiz....", Toast.LENGTH_LONG).show();
-    }
-    */
 }

@@ -1,5 +1,6 @@
 package com.example.biotechgeneral;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -139,6 +140,7 @@ public class sigle_type extends AppCompatActivity {
         attCountRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
         attCountRef.child(topicName).addValueEventListener(new ValueEventListener() {
 
+            @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
@@ -147,10 +149,10 @@ public class sigle_type extends AppCompatActivity {
                     //Toast.makeText(getApplicationContext(),String.valueOf(attCount),Toast.LENGTH_LONG).show();
                     txtStdAttCount.setText(stdCount);
 
-                    int percentage = 0;
-                    percentage = (attCount / 60) * 100;
+                    float percentage = (float) 0.0;
+                    percentage = (float) Math.round(((attCount / 60.0) * 100));
                     String perString = String.valueOf(percentage);
-                    txtPercentage.setText(perString);
+                    txtPercentage.setText(perString+"%");
 
                 }
                 else{

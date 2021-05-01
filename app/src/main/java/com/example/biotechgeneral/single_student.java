@@ -2,6 +2,9 @@ package com.example.biotechgeneral;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,28 +19,33 @@ import com.google.firebase.database.ValueEventListener;
 
 public class single_student extends AppCompatActivity {
 
-    Assignment ass;
-    DatabaseReference dbRef;
-    TextView txtStdID, txtDate, txtWeather, txtPlace, txtDescription;
+    Assignment ass, ass1;
+    DatabaseReference dbRef, dbRef1;
+    TextView txtStdID, txtDate, txtWeather, txtPlace, txtDescription, txtTopic;
+    EditText txtStdMarksAss;
+    Button btnSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_student);
 
-        /*Intent intent = getIntent();
-        String topicName = intent.getStringExtra("TYPE_01");
-        //int week = intent.getIntExtra("WEEK",0);
+        txtTopic = findViewById(R.id.singleStdTopic);
 
-        txtTopicType.setText(topicName);
-        //etn.setText(week);*/
+
         Intent intent = getIntent();
         String stdID = intent.getStringExtra("stdID");
+        String topicName = intent.getStringExtra("TOPIC_NAME");
+
+        txtTopic.setText(topicName);
+
+        //Toast.makeText(getApplicationContext(),stdID,Toast.LENGTH_LONG).show();
 
         ass = new Assignment();
-        dbRef = FirebaseDatabase.getInstance().getReference();
-        //dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child("1");
-
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child(topicName).child(stdID);
+        //dbRef = FirebaseDatabase.getInstance().getReference();
+        //.child("Assignment").child(stdID)
+        //.child("Assignment").child("1")
         /*assigning variables*/
         txtStdID = findViewById(R.id.StdNameView);
         txtDate = findViewById(R.id.TechDateView);
@@ -45,11 +53,14 @@ public class single_student extends AppCompatActivity {
         txtPlace = findViewById(R.id.TechPlaceView);
         txtDescription = findViewById(R.id.TechDescriptionView);
 
-        dbRef.child("Assignment").addListenerForSingleValueEvent(new ValueEventListener() {
+
+        //.child("Assignment").orderByChild("stdAssID").equalTo(stdID)
+        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                //String stdID = intent.getStringExtra("stdID");
-                if (snapshot.child("stdAssID").equals(stdID)){
+                //Toast.makeText(getApplicationContext(),stdID,Toast.LENGTH_LONG).show();
+                if (snapshot.hasChildren()){
+
                     txtStdID.setText(snapshot.child("stdAssID").getValue().toString());
                     txtDate.setText(snapshot.child("date").getValue().toString());
                     txtWeather.setText(snapshot.child("weather").getValue().toString());
@@ -64,6 +75,26 @@ public class single_student extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+        });
+
+        //insert student marks
+        txtStdMarksAss = findViewById(R.id.techMarksEnter);
+        btnSave = findViewById(R.id.asstechmarksbtn);
+
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
+        //ass = new Assignment();
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Take inputs from the user and assigning them to this instance (ass) of the Assignment...
+
+                ass.setStdMarksAss(Integer.parseInt(txtStdMarksAss.getText().toString().trim()));
+                dbRef.child(topicName).child(stdID).push().setValue(ass);
+
+                Toast.makeText(getApplicationContext(), "Marks saved", Toast.LENGTH_LONG).show();
+            }
+
         });
     }
 }

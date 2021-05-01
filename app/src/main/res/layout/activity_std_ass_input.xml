@@ -150,7 +150,7 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/input_date"
-        android:inputType="textPersonName"
+        android:inputType="date|textPersonName"
         app:layout_constraintBaseline_toBaselineOf="@+id/AssDateLabel"
         app:layout_constraintStart_toEndOf="@+id/AssDateLabel" />
 

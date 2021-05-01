@@ -1,5 +1,6 @@
 package com.example.biotechgeneral;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,17 +19,22 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class sigle_type extends AppCompatActivity {
 
-    TextView txtTopicType;
+    TextView txtTopicType, txtStdAttCount, txtPercentage;
     TextView etn;
 
     ListView stdAssListView;
     ArrayList<String> assStdArrayList = new ArrayList<>();
-    DatabaseReference dbRef;
+    DatabaseReference dbRef, attCountRef, dbRef2;
+
+    public String studentID;
+
+    int attCount = 0;
 
 
     @Override
@@ -39,6 +45,8 @@ public class sigle_type extends AppCompatActivity {
         /*intent passing*/
         txtTopicType = findViewById(R.id.txtTopicType);
         etn = findViewById(R.id.textViewWeek);
+        txtStdAttCount = findViewById(R.id.stdAttemView);
+        txtPercentage = findViewById(R.id.stdAssPerView);
 
         Intent intent = getIntent();
         String topicName = intent.getStringExtra("TYPE_01");
@@ -56,12 +64,15 @@ public class sigle_type extends AppCompatActivity {
         stdAssListView.setAdapter(assStdArrayAdapter);
 
         //dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
-        dbRef = FirebaseDatabase.getInstance().getReference();
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child(topicName);
+        //Toast.makeText(getApplicationContext(),topicName,Toast.LENGTH_LONG).show();
+
+
 
         /*// Attach a ChildEventListener to the quiz database, so we can retrieve the quiz entries
         dbRef.child("QuizClass").addChildEventListener(new ChildEventListener() {*/
-
-        dbRef.child("Assignment").addChildEventListener(new ChildEventListener() {
+        //dbRef.child("Assignment").addChildEventListener(new ChildEventListener()
+        dbRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String assMapped = snapshot.child("stdAssID").getValue(String.class);
@@ -97,42 +108,86 @@ public class sigle_type extends AppCompatActivity {
             }
         });
 
-        /*testing*/
-        /*dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Assignment assignment = snapshot.getValue(Assignment.class);
-                System.out.println(assignment);
-                *//*public void onDataChange(DataSnapshot snapshot) {
-                    Assignment assignment = snapshot.getValue(Assignment.class);
-                    System.out.println(assignment);*//*
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                //System.out.println("The read failed: " + DatabaseError);
-            }
-        });*/
-        /*testing*/
         stdAssListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                final Intent intent = new Intent(getApplicationContext(),single_student.class);
+                final Intent intent1 = new Intent(getApplicationContext(),single_student.class);
 
                 //startActivity(new Intent(getApplicationContext(),single_student.class));
                 //startActivity(new Intent(getApplicationContext(),single_student.class));
-                String studentID = String.valueOf(parent.getItemAtPosition(position));
+                studentID = String.valueOf(parent.getItemAtPosition(position));
                 Toast.makeText(getApplicationContext(),"Moving to " +studentID,Toast.LENGTH_LONG).show();
-                startActivity(intent);
 
-                intent.putExtra("stdID",studentID);
+
+                intent1.putExtra("stdID",studentID);
+
+                intent1.putExtra("TOPIC_NAME",topicName);
+                //Toast.makeText(getApplicationContext(),topicName,Toast.LENGTH_LONG).show();
+                startActivity(intent1);
 
                 /*//create intent
                 final Intent intent = new Intent(this,sigle_type.class);
                 String typeName = "Mutualism";
 
                 intent.putExtra("TYPE_01",typeName);*/
+
+
+
             }
         });
+
+        /*getting student count*/
+        attCountRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
+        attCountRef.child(topicName).addValueEventListener(new ValueEventListener() {
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    attCount = (int) snapshot.getChildrenCount();
+                    String stdCount = String.valueOf(attCount);
+                    //Toast.makeText(getApplicationContext(),String.valueOf(attCount),Toast.LENGTH_LONG).show();
+                    txtStdAttCount.setText(stdCount);
+
+                    float percentage = (float) 0.0;
+                    percentage = (float) Math.round(((attCount / 60.0) * 100));
+                    String perString = String.valueOf(percentage);
+                    txtPercentage.setText(perString+"%");
+
+                }
+                else{
+                    txtStdAttCount.setText("0");
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+       //catching marks
+        /*dbRef2 = FirebaseDatabase.getInstance().getReference().child("Assignment");
+
+       dbRef2.child(topicName).child(studentID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.hasChildren()){
+                    //String marksVal = snapshot.child("stdMarksAss").getValue().toString();
+                    //Toast.makeText(getApplicationContext(),marksVal,Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"No error",Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"No Source to Display",Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });*/
+
     }
 }

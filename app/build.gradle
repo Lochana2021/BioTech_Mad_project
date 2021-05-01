@@ -51,4 +51,7 @@ dependencies {
 
    // implementation platform('com.google.firebase:firebase-bom:27.1.0')
    // implementation 'com.google.firebase:firebase-analytics'
+
+    //testing NOTIFICATION
+    //implementation 'com.android.support:support-v4:30.0.0'
 }

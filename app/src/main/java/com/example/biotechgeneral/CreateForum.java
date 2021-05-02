@@ -50,6 +50,9 @@ public class CreateForum extends AppCompatActivity {
 
         F_dbRef.push().setValue(forum);
         Toast.makeText(CreateForum.this,"data  inserted",Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(this,Forum_Dashboard.class);
+        startActivity(i);
+
 
 
     }

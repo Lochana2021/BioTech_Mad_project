@@ -16,34 +16,31 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ForumDisplay extends AppCompatActivity {
-
-    List<ForumStudent>forumStudentList;
+public class Forum_QuetionView extends AppCompatActivity {
+    List<ForumQuetions> forumQuetionsList;
     RecyclerView recyclerView;
-    ForumStudentAdapter forumStudentAdapter;
+
+    ForumQDisplayAdapter forumQDisplayAdapter;
     DatabaseReference F_dbRef;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forum_display);
-        recyclerView = findViewById(R.id.display_RecycleView);
+        setContentView(R.layout.activity_forum__quetion_view);
+        recyclerView = findViewById(R.id.QDisplay_View);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        forumStudentList = new ArrayList<>();
+        forumQuetionsList = new ArrayList<>();
 
-        F_dbRef = FirebaseDatabase.getInstance().getReference("ForumStudent");
+        F_dbRef = FirebaseDatabase.getInstance().getReference("ForumQuetions");
         F_dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()){
-                    ForumStudent data = ds.getValue(ForumStudent.class);
-                    forumStudentList.add(data);
+                    ForumQuetions data = ds.getValue(ForumQuetions.class);
+                    forumQuetionsList.add(data);
                 }
-                forumStudentAdapter =  new ForumStudentAdapter(forumStudentList);
-                recyclerView.setAdapter(forumStudentAdapter);
+                forumQDisplayAdapter = new ForumQDisplayAdapter(forumQuetionsList);
+                recyclerView.setAdapter(forumQDisplayAdapter);
             }
 
             @Override
@@ -51,27 +48,5 @@ public class ForumDisplay extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
 }

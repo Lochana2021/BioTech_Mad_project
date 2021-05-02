@@ -1,35 +1,24 @@
 package com.example.biotechgeneral;
 
-public class ForumStudent {
+public class ForumStudent  {
 
 
-    private String Quetion;
-    private String Answer;
-    private String FName;
-    private String QuetionNo;
 
-    public ForumStudent( String answer) {
 
+    private  String Answer;
+    private  String  FName;
+    private  String QuetionNo;
+
+    public ForumStudent(String answer, String FName, String quetionNo) {
         Answer = answer;
-
-    }
-
-
-    public ForumStudent(String fName, String quetion, String quetionNo) {
-        FName = fName;
-        Quetion = quetion;
+        this.FName = FName;
         QuetionNo = quetionNo;
+    }
+    public ForumStudent(){
 
     }
 
 
-    public String getQuetion() {
-        return Quetion;
-    }
-
-    public void setQuetion(String quetion) {
-        Quetion = quetion;
-    }
 
     public String getAnswer() {
         return Answer;

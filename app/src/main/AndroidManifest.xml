@@ -73,9 +73,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Ashu Start -->
+        </activity> <!-- Ashu Start -->
         <activity android:name=".CreateForum">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -117,10 +115,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
         <activity android:name=".Forum_PostAnswer">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Forum_QuetionView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -128,12 +131,6 @@
             </intent-filter>
 
         </activity>
-
-
-
-
-        <!-- Ashu End-->
     </application>
-
 
 </manifest>

@@ -13,16 +13,16 @@ import java.util.List;
 
 public class ForumAdapter extends RecyclerView.Adapter {
 
-    List<Forum> forumList;
-    Context context;
+     List<Forum> forumList;
+     Context context;
 
-    public ForumAdapter(List<Forum> forumList) {
+     public ForumAdapter(List<Forum> forumList) {
         this.forumList = forumList;
     }
-
     public ForumAdapter(Context context) {
         this.context = context;
     }
+
 
     @NonNull
     @Override
@@ -34,11 +34,12 @@ public class ForumAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        Forum forum = forumList.get(position);
+        ViewHolderclass viewHolderclass = (ViewHolderclass) holder;
+
+         Forum forum = forumList.get(position);
         ViewHolderclass.name.setText(forum.getName());
         ViewHolderclass.description.setText(forum.getDescription());
         ViewHolderclass.type.setText(forum.getType());
-
 
     }
 
@@ -52,6 +53,8 @@ public class ForumAdapter extends RecyclerView.Adapter {
        static  TextView description;
         static TextView type;
 
+
+
         public  ViewHolderclass(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.Fname);
@@ -64,3 +67,4 @@ public class ForumAdapter extends RecyclerView.Adapter {
 
 
 }
+

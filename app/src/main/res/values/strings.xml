@@ -204,6 +204,11 @@
     <string name="FDash_DisplayForum">View Forum</string>
     <string name="txtView_ForTeacher">For Teaches</string>
     <string name="txtDash_ForStudent">For Student</string>
+    <string name="txtView_F_PostName">Forum Name</string>
+    <string name="txtView_FPostName">Forum Name</string>
+    <string name="txtView_PostAnswer">Post Answer</string>
+    <string name="txtxView_PostQuetionNo">Quetion No</string>
+    <string name="btn_PostAnswerSubmit">Share Answer</string>
 
     <!-- End of Ashu-->
 

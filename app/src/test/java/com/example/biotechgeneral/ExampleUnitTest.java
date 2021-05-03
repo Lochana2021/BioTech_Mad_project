@@ -22,4 +22,11 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+
+    @Test
+    public void percentage_isCorrect(){
+        float result = singleType.attPerCal(5);
+        assertEquals(8.0,result,0.001);
+
+    }
 }

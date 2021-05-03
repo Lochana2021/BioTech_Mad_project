@@ -156,7 +156,7 @@ public class sigle_type extends AppCompatActivity {
                         String perString = String.valueOf(percentage);
                         txtPercentage.setText(perString + "%");*/
 
-                    txtPercentage.setText(attPerCal(attCount) + "%");
+                    txtPercentage.setText(String.valueOf(attPerCal(attCount)) + "%");
 
 
 
@@ -197,14 +197,14 @@ public class sigle_type extends AppCompatActivity {
 
 
     }
-    public static String attPerCal (int attCountLocal){
+    public static float attPerCal (int attCountLocal){
 
         //attCountLocal = attCount;
 
         percentage = (float) Math.round(((attCountLocal / 60.0) * 100));
-        String perString = String.valueOf(percentage);
+        //String perString = String.valueOf(percentage);
         //txtPercentage.setText(perString + "%");
-        return perString;
+        return percentage;
     }
 
 }

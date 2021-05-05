@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BioTechGeneral">
 
-        <!-- Achi START -->
+        <!--Achi START-->
         <activity android:name=".CreateQuiz">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,6 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".PassList">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".QuizList">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".ViewQuiz">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,18 +42,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--Achi END-->
 
-        <activity android:name=".TeacherDashboard">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <!-- Achi END -->
-
-        <!-- Loch START -->
+        <!--Loch START-->
         <activity android:name=".ass_teacher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -58,6 +52,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".std_ass_input">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -65,27 +60,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".sigle_type" />
+
+        <activity android:name=".sigle_type"/>
         <activity android:name=".single_student">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- Loch ENDS -->
-        <activity android:name=".navigation" />
-
-        <activity
-            android:name=".splash"
-            android:theme="@style/SplashScreen" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
 
+        <!--Loch ENDS-->
+
+        <activity android:name=".navigation" />
+        <activity
+            android:name=".splash"
+            android:theme="@style/SplashScreen" />
         <activity android:name=".login_bio">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

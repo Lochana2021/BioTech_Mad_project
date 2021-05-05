@@ -11,14 +11,13 @@
         android:id="@+id/viewtechAssType"
         android:layout_width="wrap_content"
         android:layout_height="3dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="16dp"
         android:background="#355723"
-        app:layout_constraintBottom_toTopOf="@+id/editTextweek"
+        app:layout_constraintBottom_toTopOf="@+id/assTechsubTopic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/navigation_view"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/techAssTopic"
+        app:layout_constraintVertical_bias="0.277" />
 
     <Button
         android:id="@+id/btnMutu"
@@ -126,20 +125,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/navigation_menu" />
-
-    <EditText
-        android:id="@+id/editTextweek"
-        android:layout_width="179dp"
-        android:layout_height="50dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/weekEnter"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/assTechsubTopic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.869" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

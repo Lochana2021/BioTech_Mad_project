@@ -45,7 +45,6 @@ public class sigle_type extends AppCompatActivity {
 
         /*intent passing*/
         txtTopicType = findViewById(R.id.txtTopicType);
-        etn = findViewById(R.id.textViewWeek);
         txtStdAttCount = findViewById(R.id.stdAttemView);
         txtPercentage = findViewById(R.id.stdAssPerView);
 

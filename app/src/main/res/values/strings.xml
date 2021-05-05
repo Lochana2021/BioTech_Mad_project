@@ -151,6 +151,7 @@
     <string name="label_weather">Weather :</string>
     <string name="label_place">Place :</string>
     <string name="label_description">Description :</string>
+    <string name="testView_week_te"></string>
     <string name="testView_date_te"></string>
     <string name="testView_weather_te"></string>
     <string name="testView_place_te"></string>

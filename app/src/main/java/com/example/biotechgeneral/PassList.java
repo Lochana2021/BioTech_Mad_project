@@ -50,17 +50,17 @@ public class PassList extends AppCompatActivity {
 
                 // Get the value from the DataSnapshot and add it to the quiz' list
                 String quizMapped = snapshot.child("quizNo").getValue(String.class);
-                quizArrayList.add("Quiz "+quizMapped);
+                passArrayList.add("Quiz "+quizMapped);
                 // quizArrayList.add(quizMapped);
 
                 // Notify the ArrayAdapter that there was a change
-                quizArrayAdapter.notifyDataSetChanged();
+                passArrayAdapter.notifyDataSetChanged();
 
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                quizArrayAdapter.notifyDataSetChanged();
+                passArrayAdapter.notifyDataSetChanged();
             }
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {

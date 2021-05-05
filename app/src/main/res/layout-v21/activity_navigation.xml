@@ -13,13 +13,13 @@
         android:id="@+id/BioTechTopic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="112dp"
         android:text="@string/topic_name"
         android:textColor="#355723"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/imageIconMain"
-        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintHorizontal_bias="0.854"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -138,5 +138,16 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textViewAssignment"
         app:layout_constraintTop_toBottomOf="@+id/imageForum" />
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="logout"
+        android:text="@string/btnLogOut"
+        app:layout_constraintBottom_toTopOf="@+id/imageForum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BioTechTopic" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

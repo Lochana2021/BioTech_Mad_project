@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
 
-        /*if(fAuth.getCurrentUser() != null){
+        if(fAuth.getCurrentUser() != null){
             startActivity(new Intent(getApplicationContext(),navigation.class));
             finish();
-        }*/
+        }
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override

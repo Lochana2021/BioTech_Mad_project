@@ -171,6 +171,10 @@
     <string name="techStdMarksInputBtn">Save</string>
     <string name="labelDeadline_View">Deadline :</string>
     <string name="labelInputDeadline_View" />
+    <string name="Tmenu_Quiz">Quiz</string>
+    <string name="Tmenu_Forum">Forum</string>
+    <string name="Tmenu_Assignment">Assignment</string>
+    <string name="Tmenu_Profile">Profile</string>
 
     <!--End of Loch-->
 

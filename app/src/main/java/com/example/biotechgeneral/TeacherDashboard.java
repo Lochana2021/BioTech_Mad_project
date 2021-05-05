@@ -16,7 +16,7 @@ public class TeacherDashboard extends AppCompatActivity {
     }
 
     public void TeacherDashtoQuizList (View view) {
-        Intent intentQuizList = new Intent(this, PassList.class);
+        Intent intentQuizList = new Intent(this, QuizList.class);
         startActivity(intentQuizList);
         Toast.makeText(getApplicationContext(), "Navigating to QuizList", Toast.LENGTH_SHORT).show();
     }

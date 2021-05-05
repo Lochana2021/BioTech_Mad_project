@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -18,10 +19,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class PassList extends AppCompatActivity {
-
-
+    TextView passPercentage;
     ListView passListView;
     ArrayList<String> passArrayList = new ArrayList<>();
+    ArrayList<String> allArrayList = new ArrayList<>();
     DatabaseReference dbRef;
     ArrayAdapter<String> passArrayAdapter;
 
@@ -30,7 +31,13 @@ public class PassList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pass_list);
 
-        Intent getIntentMainActivity = getIntent();
+        Intent getIntentViewQuiz = getIntent();
+
+        String clickedQuizNo = getIntentViewQuiz.getStringExtra("QUIZ_NUM");
+        String passMarkExtra = getIntentViewQuiz.getStringExtra("PASS_MARK");
+        //int passMark = Integer.parseInt(passMarkExtra);
+        passPercentage = findViewById(R.id.idPassPercentage_PassList);
+
 
         // Associate the quiz list with the corresponding ListView
         passListView = (ListView) findViewById(R.id.idPassListView);
@@ -40,23 +47,37 @@ public class PassList extends AppCompatActivity {
         passListView.setAdapter(passArrayAdapter);
 
         // Associate the quiz Firebase Database Reference with the database's quiz object
-        dbRef = FirebaseDatabase.getInstance().getReference();
+        dbRef = FirebaseDatabase.getInstance().getReference().child("QuizStdResults").child(clickedQuizNo);
+                //child(clickedQuizNo);
 
         // Attach a ChildEventListener to the quiz database, so we can retrieve the quiz entries
-        dbRef.child("QuizClass").addChildEventListener(new ChildEventListener() {
+        dbRef.addChildEventListener(new ChildEventListener() {
 
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
                 // Get the value from the DataSnapshot and add it to the quiz' list
-                String quizMapped = snapshot.child("quizNo").getValue(String.class);
-                passArrayList.add("Quiz "+quizMapped);
-                // quizArrayList.add(quizMapped);
+                int resultMapped = Integer.parseInt(snapshot.child("result").getValue(String.class));
+                int passMark = Integer.parseInt(passMarkExtra);
+                String stdIDMapped = snapshot.child("stdID").getValue(String.class);
 
-                // Notify the ArrayAdapter that there was a change
-                passArrayAdapter.notifyDataSetChanged();
+                allArrayList.add(stdIDMapped);
+                int allStdCount = allArrayList.size();
+
+                if(resultMapped >= passMark){
+                    passArrayList.add(stdIDMapped + " - " + resultMapped);
+
+                    // Notify the ArrayAdapter that there was a change
+                    passArrayAdapter.notifyDataSetChanged();
+                }
+                int passStdCount = passArrayList.size();
+
+                // Calculate pass percentage and display
+                //passPercentage.setText(Double.toString(((passStdCount*100.0)/allStdCount)));
+                passPercentage.setText(Double.toString(((passStdCount*100)/allStdCount))+"%");
 
             }
+
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {

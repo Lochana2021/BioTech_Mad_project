@@ -81,19 +81,6 @@ public class std_ass_input extends AppCompatActivity {
 
         btnSubmit = findViewById(R.id.stdSubmitbtn);
 
-        // auto increment if any changes made to the data in database
-       /* dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists())
-                    assID = (snapshot.getChildrenCount());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });*/
 
         ass = new Assignment();
 
@@ -103,16 +90,33 @@ public class std_ass_input extends AppCompatActivity {
                     String inputStdID = txtStdID.getText().toString().trim();
                     String inputSpinner = mySpinnerType.getSelectedItem().toString().trim();
                 try{
-                     if (TextUtils.isEmpty(txtStdID.getText().toString()))
-                         Toast.makeText(getApplicationContext(),"Please enter your Student ID",Toast.LENGTH_LONG).show();
-                     else if (TextUtils.isEmpty(txtDate.getText().toString()))
-                         Toast.makeText(getApplicationContext(),"Please enter the Date",Toast.LENGTH_LONG).show();
-                     else if (TextUtils.isEmpty(txtWeather.getText().toString()))
-                         Toast.makeText(getApplicationContext(),"Please enter the Weather",Toast.LENGTH_LONG).show();
-                     else if (TextUtils.isEmpty(txtPlace.getText().toString()))
-                         Toast.makeText(getApplicationContext(),"Please enter the Place",Toast.LENGTH_LONG).show();
-                     else if (TextUtils.isEmpty(txtDescription.getText().toString()))
-                         Toast.makeText(getApplicationContext(),"Please enter the Place",Toast.LENGTH_LONG).show();
+                     if (TextUtils.isEmpty(txtStdID.getText().toString())) {
+                         txtStdID.setError("Student ID Date must be filled out");
+                         return;
+                     }
+                     else if (TextUtils.isEmpty(txtWeek.getText().toString())){
+                         txtWeek.setError("Week must be filled out");
+                         return;
+                     }
+                     else if (TextUtils.isEmpty(txtDate.getText().toString())){
+                         txtDate.setError("Date must be filled out");
+                         return;
+                     }
+                     else if (TextUtils.isEmpty(txtWeather.getText().toString())){
+                         txtWeather.setError("Weather must be filled out");
+                         return;
+                     }
+
+                     else if (TextUtils.isEmpty(txtPlace.getText().toString())){
+                         txtPlace.setError("Place must be filled out");
+                         return;
+                     }
+
+                     else if (TextUtils.isEmpty(txtDescription.getText().toString())){
+                         txtDescription.setError("Description must be filled out");
+                         return;
+                     }
+
                      else{
                          //Take inputs from the user and assigning them to this instance (ass) of the Assignment...
                          ass.setStdAssID(inputStdID);

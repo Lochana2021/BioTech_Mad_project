@@ -21,4 +21,20 @@ public class navigation extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),login_bio.class));
         finish();
     }
+
+    public void assignmentNav(View view){
+        startActivity(new Intent(getApplicationContext(),std_ass_input.class));
+    }
+
+    /*public void quizNav(View view){
+        startActivity(new Intent(getApplicationContext(),std_ass_input.class));
+    }
+
+    public void forumNav(View view){
+        startActivity(new Intent(getApplicationContext(),std_ass_input.class));
+    }
+
+    public void profileNav(View view){
+        startActivity(new Intent(getApplicationContext(),std_ass_input.class));
+    }*/
 }

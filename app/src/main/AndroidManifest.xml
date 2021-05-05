@@ -11,14 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BioTechGeneral">
+        <activity android:name=".std_profile"></activity>
         <activity android:name=".lecturer_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!-- Achi START -->
+        </activity> <!-- Achi START -->
         <activity android:name=".CreateQuiz">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

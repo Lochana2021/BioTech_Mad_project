@@ -14,7 +14,7 @@
         tools:context=".ViewQuiz">
 
         <TextView
-            android:id="@+id/idLabelTopCreateQuiz_View"
+            android:id="@+id/StuQuizName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
@@ -35,7 +35,7 @@
             android:layout_marginTop="20dp"
             android:background="#355723"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idLabelTopCreateQuiz_View" />
+            app:layout_constraintTop_toBottomOf="@+id/StuQuizName" />
 
         <!-- Pass List -->
 
@@ -72,7 +72,7 @@
         <!-- Quiz Number -->
 
         <TextView
-            android:id="@+id/idLabelQuizNumber_View"
+            android:id="@+id/QQ"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
@@ -87,7 +87,7 @@
             android:layout_marginLeft="35dp" />
 
         <TextView
-            android:id="@+id/idInputQuizNumber_View"
+            android:id="@+id/Qnumber"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="90dp"
@@ -97,7 +97,7 @@
             android:textColor="#355723"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/idLabelQuizNumber_View"
+            app:layout_constraintStart_toEndOf="@+id/QQ"
             app:layout_constraintTop_toBottomOf="@+id/idDivider_View"
             android:gravity="center_horizontal" />
 
@@ -137,7 +137,7 @@
         <!--Question 1-->
 
         <TextView
-            android:id="@+id/idLabelInputQ1_View"
+            android:id="@+id/StuQue1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
@@ -148,11 +148,11 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idLabelQuizNumber_View"
+            app:layout_constraintTop_toBottomOf="@+id/QQ"
             android:layout_marginLeft="35dp" />
 
         <TextView
-            android:id="@+id/idInputQ1_View"
+            android:id="@+id/que1"
             android:layout_width="343dp"
             android:layout_height="43dp"
             android:layout_marginStart="35dp"
@@ -166,10 +166,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idLabelInputQ1_View" />
+            app:layout_constraintTop_toBottomOf="@+id/StuQue1" />
 
         <TextView
-            android:id="@+id/inputQ1Ans1_View"
+            android:id="@+id/q1a1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -179,11 +179,11 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idInputQ1_View"
+            app:layout_constraintTop_toBottomOf="@+id/que1"
             android:layout_marginLeft="60dp" />
 
         <TextView
-            android:id="@+id/inputQ1Ans2_View"
+            android:id="@+id/q1a2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -193,11 +193,11 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputQ1Ans1_View"
+            app:layout_constraintTop_toBottomOf="@+id/q1a1"
             android:layout_marginLeft="60dp" />
 
         <TextView
-            android:id="@+id/inputQ1Ans3_View"
+            android:id="@+id/q1a3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -207,11 +207,11 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputQ1Ans2_View"
+            app:layout_constraintTop_toBottomOf="@+id/q1a2"
             android:layout_marginLeft="60dp" />
 
         <TextView
-            android:id="@+id/inputQ1Ans4_View"
+            android:id="@+id/q1a4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -221,7 +221,7 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputQ1Ans3_View"
+            app:layout_constraintTop_toBottomOf="@+id/q1a3"
             android:layout_marginLeft="60dp" />
 
         <!--Correct Answer 1 -->
@@ -241,7 +241,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputQ1Ans4_View"
+            app:layout_constraintTop_toBottomOf="@+id/q1a4"
             android:layout_marginLeft="35dp" />
 
 
@@ -262,7 +262,7 @@
         <!--Question 2-->
 
         <TextView
-            android:id="@+id/idLabelInputQ2_View"
+            android:id="@+id/StuQue2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
@@ -277,7 +277,7 @@
             android:layout_marginLeft="35dp" />
 
         <TextView
-            android:id="@+id/idInputQ2_View"
+            android:id="@+id/que2"
             android:layout_width="343dp"
             android:layout_height="43dp"
             android:layout_marginStart="35dp"
@@ -291,10 +291,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idLabelInputQ2_View" />
+            app:layout_constraintTop_toBottomOf="@+id/StuQue2" />
 
         <TextView
-            android:id="@+id/inputQ2Ans1_View"
+            android:id="@+id/q2a1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -304,11 +304,11 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idInputQ2_View"
+            app:layout_constraintTop_toBottomOf="@+id/que2"
             android:layout_marginLeft="60dp" />
 
         <TextView
-            android:id="@+id/inputQ2Ans2_View"
+            android:id="@+id/q2a2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -318,11 +318,11 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputQ2Ans1_View"
+            app:layout_constraintTop_toBottomOf="@+id/q2a1"
             android:layout_marginLeft="60dp" />
 
         <TextView
-            android:id="@+id/inputQ2Ans3_View"
+            android:id="@+id/q2a3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -332,11 +332,11 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputQ2Ans2_View"
+            app:layout_constraintTop_toBottomOf="@+id/q2a2"
             android:layout_marginLeft="60dp" />
 
         <TextView
-            android:id="@+id/inputQ2Ans4_View"
+            android:id="@+id/q2a4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -346,7 +346,7 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputQ2Ans3_View"
+            app:layout_constraintTop_toBottomOf="@+id/q2a3"
             android:layout_marginLeft="60dp" />
 
         <!--Correct Answer 2 -->
@@ -365,7 +365,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputQ2Ans4_View"
+            app:layout_constraintTop_toBottomOf="@+id/q2a4"
             android:layout_marginLeft="35dp" />
 
 
@@ -386,7 +386,7 @@
         <!--Question 3-->
 
         <TextView
-            android:id="@+id/idLabelInputQ3_View"
+            android:id="@+id/StuQue3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
@@ -401,7 +401,7 @@
             android:layout_marginLeft="35dp" />
 
         <TextView
-            android:id="@+id/idInputQ3_View"
+            android:id="@+id/que3"
             android:layout_width="343dp"
             android:layout_height="43dp"
             android:layout_marginStart="35dp"
@@ -415,10 +415,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idLabelInputQ3_View" />
+            app:layout_constraintTop_toBottomOf="@+id/StuQue3" />
 
         <TextView
-            android:id="@+id/inputQ3Ans1_View"
+            android:id="@+id/q3a1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -428,11 +428,11 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idInputQ3_View"
+            app:layout_constraintTop_toBottomOf="@+id/que3"
             android:layout_marginLeft="60dp" />
 
         <TextView
-            android:id="@+id/inputQ3Ans2_View"
+            android:id="@+id/q3a2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -442,11 +442,11 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputQ3Ans1_View"
+            app:layout_constraintTop_toBottomOf="@+id/q3a1"
             android:layout_marginLeft="60dp" />
 
         <TextView
-            android:id="@+id/inputQ3Ans3_View"
+            android:id="@+id/q3a3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -456,11 +456,11 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputQ3Ans2_View"
+            app:layout_constraintTop_toBottomOf="@+id/q3a2"
             android:layout_marginLeft="60dp" />
 
         <TextView
-            android:id="@+id/inputQ3Ans4_View"
+            android:id="@+id/q3a4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -470,7 +470,7 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputQ3Ans3_View"
+            app:layout_constraintTop_toBottomOf="@+id/q3a3"
             android:layout_marginLeft="60dp" />
 
         <!--Correct Answer 3 -->
@@ -491,7 +491,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputQ3Ans4_View"
+            app:layout_constraintTop_toBottomOf="@+id/q3a4"
             android:layout_marginLeft="35dp" />
 
 

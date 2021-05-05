@@ -21,7 +21,7 @@ public class TeacherDashboard extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Navigating to QuizList", Toast.LENGTH_SHORT).show();
     }
 
-    /*
+
     public void TeacherDashtoForum (View view) {
         Intent intentQuizList = new Intent(this, PassList.class);
         startActivity(intentQuizList);
@@ -40,5 +40,5 @@ public class TeacherDashboard extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Navigating to QuizList", Toast.LENGTH_SHORT).show();
     }
 
-     */
+
 }

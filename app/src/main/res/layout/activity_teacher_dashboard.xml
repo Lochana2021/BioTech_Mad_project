@@ -73,6 +73,7 @@
         android:layout_height="102dp"
         android:layout_marginTop="156dp"
         android:contentDescription="@string/loch1_2"
+        android:onClick="TeacherDashtoForum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toEndOf="@+id/idTeachQuizIcon"
@@ -86,6 +87,7 @@
         android:layout_marginStart="112dp"
         android:layout_marginLeft="112dp"
         android:layout_marginTop="24dp"
+        android:onClick="TeacherDashtoForum"
         android:text="@string/menu_Forum"
         android:textColor="#355723"
         android:textSize="24sp"
@@ -98,27 +100,30 @@
         android:layout_width="116dp"
         android:layout_height="109dp"
         android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
         android:layout_marginTop="47dp"
         android:layout_marginBottom="4dp"
         android:contentDescription="@string/loch1_3"
+        android:onClick="TeacherDashtoAssignment"
         app:layout_constraintBottom_toTopOf="@+id/idLabelTeachAssign"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idLabelTeachQuiz"
-        app:srcCompat="@drawable/baseline_assignment_black_36dp"
-        android:layout_marginLeft="68dp" />
+        app:srcCompat="@drawable/baseline_assignment_black_36dp" />
+
     <TextView
         android:id="@+id/idLabelTeachAssign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
+        android:layout_marginLeft="84dp"
         android:layout_marginTop="16dp"
+        android:onClick="TeacherDashtoAssignment"
         android:text="@string/title_assignment"
         android:textColor="#355723"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idTeahcAssignIcon"
-        android:layout_marginLeft="84dp" />
+        app:layout_constraintTop_toBottomOf="@+id/idTeahcAssignIcon" />
 
     <ImageView
         android:id="@+id/idTeachProfileIcon"
@@ -126,6 +131,7 @@
         android:layout_height="109dp"
         android:layout_marginTop="44dp"
         android:contentDescription="@string/loch1_4"
+        android:onClick="TeacherDashtoTeacherProfle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toEndOf="@+id/idTeahcAssignIcon"
@@ -137,6 +143,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:onClick="TeacherDashtoTeacherProfle"
         android:text="@string/title_profile"
         android:textColor="#355723"
         android:textSize="24sp"

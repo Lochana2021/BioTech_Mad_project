@@ -13,7 +13,10 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,6 +35,7 @@ public class std_ass_input extends AppCompatActivity {
     Spinner mySpinnerType;
     Button btnSubmit;
     DatabaseReference dbRef;
+    Animation scaleUp, scaleDown;
 
     //notification
     String name = "Notification_channel";
@@ -41,6 +45,7 @@ public class std_ass_input extends AppCompatActivity {
 
     //long assID = 0;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +61,24 @@ public class std_ass_input extends AppCompatActivity {
 
         Assignment ass;
         dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
+
+        //button animation
+        /*scaleUp = AnimationUtils.loadAnimation(this,R.anim.scale_up);
+        scaleDown = AnimationUtils.loadAnimation(this,R.anim.scale_down);
+
+        btnSubmit.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("ClickableViewAccessibility")
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction()==MotionEvent.ACTION_DOWN){
+                    btnSubmit.startAnimation(scaleUp);
+                }else if(event.getAction()==MotionEvent.ACTION_UP){
+                    btnSubmit.startAnimation(scaleDown);
+                }
+                return true;
+            }
+        });*/
 
         //notification
         if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
@@ -126,6 +149,7 @@ public class std_ass_input extends AppCompatActivity {
                          ass.setWeather(txtWeather.getText().toString().trim());
                          ass.setPlace(txtPlace.getText().toString().trim());
                          ass.setDescription(txtDescription.getText().toString().trim());
+                         //ass.setStdMarksAss(0);
 
                          //Insert into the database...
                          //dbRef.push().setValue(ass);

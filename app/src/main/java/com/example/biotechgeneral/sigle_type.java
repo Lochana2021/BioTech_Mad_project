@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class sigle_type extends AppCompatActivity {
 
-    TextView txtTopicType, txtStdAttCount, txtPercentage;
+    private static TextView txtTopicType, txtStdAttCount, txtPercentage;
     TextView etn;
 
     ListView stdAssListView;
@@ -35,6 +35,7 @@ public class sigle_type extends AppCompatActivity {
     public String studentID;
 
     int attCount = 0;
+    private static float percentage = (float) 0.0;
 
 
     @Override
@@ -44,7 +45,6 @@ public class sigle_type extends AppCompatActivity {
 
         /*intent passing*/
         txtTopicType = findViewById(R.id.txtTopicType);
-        etn = findViewById(R.id.textViewWeek);
         txtStdAttCount = findViewById(R.id.stdAttemView);
         txtPercentage = findViewById(R.id.stdAssPerView);
 
@@ -137,25 +137,29 @@ public class sigle_type extends AppCompatActivity {
         });
 
         /*getting student count*/
-        attCountRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
-        attCountRef.child(topicName).addValueEventListener(new ValueEventListener() {
+        attCountRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child(topicName);
+        //attCountRef.child(topicName);
+        attCountRef.addValueEventListener(new ValueEventListener() {
 
             @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
+                if (snapshot.exists()) {
                     attCount = (int) snapshot.getChildrenCount();
                     String stdCount = String.valueOf(attCount);
                     //Toast.makeText(getApplicationContext(),String.valueOf(attCount),Toast.LENGTH_LONG).show();
                     txtStdAttCount.setText(stdCount);
 
-                    float percentage = (float) 0.0;
-                    percentage = (float) Math.round(((attCount / 60.0) * 100));
-                    String perString = String.valueOf(percentage);
-                    txtPercentage.setText(perString+"%");
 
-                }
-                else{
+                       /* percentage = (float) Math.round(((attCount / 60.0) * 100));
+                        String perString = String.valueOf(percentage);
+                        txtPercentage.setText(perString + "%");*/
+
+                    txtPercentage.setText(String.valueOf(attPerCal(attCount)) + "%");
+
+
+
+                } else {
                     txtStdAttCount.setText("0");
                 }
 
@@ -167,7 +171,8 @@ public class sigle_type extends AppCompatActivity {
             }
         });
 
-       //catching marks
+
+        //catching marks
         /*dbRef2 = FirebaseDatabase.getInstance().getReference().child("Assignment");
 
        dbRef2.child(topicName).child(studentID).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -189,5 +194,16 @@ public class sigle_type extends AppCompatActivity {
             }
         });*/
 
+
     }
+    public static float attPerCal (int attCountLocal){
+
+        //attCountLocal = attCount;
+
+        percentage = (float) Math.round(((attCountLocal / 60.0) * 100));
+        //String perString = String.valueOf(percentage);
+        //txtPercentage.setText(perString + "%");
+        return percentage;
+    }
+
 }

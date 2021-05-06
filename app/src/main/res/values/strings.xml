@@ -50,7 +50,7 @@
 
     <!--Create Quiz Activity-->
     <string name="labelTopCreateQuiz">Create New Quiz</string>
-    <string name="labelQuizNumber">Quiz</string>
+    <string name="labelQuizNumber">Quiz:</string>
     <string name="labelInputQ1">Question 1</string>
     <string name="inputQ1" />
     <string name="hintInputQ1">Enter Question 1 here</string>

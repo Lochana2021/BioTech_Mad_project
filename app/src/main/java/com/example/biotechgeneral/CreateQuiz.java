@@ -188,9 +188,11 @@ public class CreateQuiz extends AppCompatActivity {
 
                     try {
                         if (TextUtils.isEmpty(quizNo.getText().toString()))
-                            Toast.makeText(getApplicationContext(), "Please enter Quiz Number.", Toast.LENGTH_LONG).show();
+                            quizNo.setError("Please enter Quiz Number.");
+                            //Toast.makeText(getApplicationContext(), "Please enter Quiz Number.", Toast.LENGTH_LONG).show();
                         else if (TextUtils.isEmpty(quizPassMark.getText().toString()))
-                            Toast.makeText(getApplicationContext(), "Please enter Quiz Pass Mark.", Toast.LENGTH_LONG).show();
+                            quizPassMark.setError("Please enter Quiz Pass Mark.");
+                            //Toast.makeText(getApplicationContext(), "Please enter Quiz Pass Mark.", Toast.LENGTH_LONG).show();
                         else if (TextUtils.isEmpty(quizDeadline.getText().toString()))
                             Toast.makeText(getApplicationContext(), "Please enter Quiz Deadline.", Toast.LENGTH_LONG).show();
                         else if (TextUtils.isEmpty(quizQ1.getText().toString()))
@@ -280,6 +282,16 @@ public class CreateQuiz extends AppCompatActivity {
 
 
     }// end of onCreate
+/*
+
+    public void navigateToTeacherQuizList (View view) {
+
+        Intent btmNavIntent = new Intent(CreateQuiz.this, QuizList.class);
+        startActivity(btmNavIntent);
+
+        Toast.makeText(getApplicationContext(), "Navigating....", Toast.LENGTH_SHORT).show();
+    }
+*/
 
 
 }

@@ -215,6 +215,7 @@
     <string name="txtView_PostAnswer">Post Answer</string>
     <string name="txtxView_PostQuetionNo">Quetion No</string>
     <string name="btn_PostAnswerSubmit">Share Answer</string>
+    <string name="btnLogOut">Log Out</string>
 
     <!-- End of Ashu-->
 

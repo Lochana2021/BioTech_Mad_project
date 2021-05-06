@@ -156,7 +156,6 @@
     <string name="label_weather">Weather :</string>
     <string name="label_place">Place :</string>
     <string name="label_description">Description :</string>
-    <string name="testView_week_te"></string>
     <string name="testView_date_te"></string>
     <string name="testView_weather_te"></string>
     <string name="testView_place_te"></string>
@@ -177,8 +176,7 @@
     <string name="techStdMarksInputBtn">Save</string>
     <string name="labelDeadline_View">Deadline :</string>
     <string name="labelInputDeadline_View" />
-    <string name="btnLogOut">LogOut</string>
-    <string name="lecStdMarks">Enter the Mark</string>
+
 
     <!--End of Loch-->
 

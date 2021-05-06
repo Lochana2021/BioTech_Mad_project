@@ -1,23 +1,29 @@
 package com.example.biotechgeneral;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class QuizList extends AppCompatActivity {
 
@@ -25,6 +31,8 @@ public class QuizList extends AppCompatActivity {
     ArrayList<String> quizArrayList = new ArrayList<>();
     DatabaseReference dbRef;
     ArrayAdapter<String> quizArrayAdapter;
+
+    public BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +42,7 @@ public class QuizList extends AppCompatActivity {
         Intent getIntentMainActivity = getIntent();
 
         // Associate the quiz list with the corresponding ListView
-        quizListView = (ListView) findViewById(R.id.ForumListView);
+        quizListView = (ListView) findViewById(R.id.idQuizListView);
 
         // Set the ArrayAdapter to the ListView
         quizArrayAdapter = new ArrayAdapter<String>(this,R.layout.quizlist_item_1,quizArrayList);
@@ -51,8 +59,8 @@ public class QuizList extends AppCompatActivity {
 
                 // Get the value from the DataSnapshot and add it to the quiz' list
                 String quizMapped = snapshot.child("quizNo").getValue(String.class);
-                //quizArrayList.add("Quiz "+quizMapped);
-                quizArrayList.add(quizMapped);
+                quizArrayList.add("Quiz "+quizMapped);
+               // quizArrayList.add(quizMapped);
 
                 // Notify the ArrayAdapter that there was a change
                 quizArrayAdapter.notifyDataSetChanged();
@@ -88,7 +96,47 @@ public class QuizList extends AppCompatActivity {
             }
         });
 
+        // Bottom navigation onClick listner
+        bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation_view);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_TQuiz:
+                        //Add your action onClick
+                        Intent intentCreateQuiz = new Intent(getApplicationContext(), QuizList.class);
+                        startActivity(intentCreateQuiz);
+                        break;
+                    case R.id.action_TForum:
+
+                        break;
+
+                    case R.id.action_TAssignment:
+                        Intent intentAssT = new Intent(getApplicationContext(), ass_teacher.class);
+                        startActivity(intentAssT);
+
+                        break;
+
+                    case R.id.action_TProfile:
+                        break;
+                }
+                return false;
+            }
+        });
+
     }// onCreate ends
+
+
+
+    public void gotoCreateQuizActivity (View view) {
+
+        Intent intentCreateQuiz = new Intent(this, CreateQuiz.class);
+        startActivity(intentCreateQuiz);
+
+        Toast.makeText(getApplicationContext(), "Navigating....", Toast.LENGTH_SHORT).show();
+    }
 
     /*
     public void gotoViewQuizActivity (View view) {

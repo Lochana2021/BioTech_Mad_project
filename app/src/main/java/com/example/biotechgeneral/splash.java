@@ -14,7 +14,15 @@ public class splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         getSupportActionBar().hide();
+        final Intent i = new Intent(splash.this, TeacherDashboard.class);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(i);
+                finish();
+            }
+        }, 2000);
 
-        startActivity(new Intent(this,login_bio.class));
+        //startActivity(new Intent(this,login_bio.class));
 }
 }

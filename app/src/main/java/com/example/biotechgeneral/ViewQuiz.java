@@ -28,13 +28,15 @@ public class ViewQuiz extends AppCompatActivity {
 
     long quizID = 0;
 
+    private String clickedQuizNo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_quiz);
 
         Intent getIntentQuizListActivity = getIntent();
-        String clickedQuizNo = getIntentQuizListActivity.getStringExtra("QUIZ_NUM");
+        clickedQuizNo = getIntentQuizListActivity.getStringExtra("QUIZ_NUM");
 
         quiz = new QuizClass();
         dbRef = FirebaseDatabase.getInstance().getReference().child("QuizClass").child(clickedQuizNo);
@@ -104,13 +106,16 @@ public class ViewQuiz extends AppCompatActivity {
             }
         });
 
-    }
+    } //onCreate ends
 
     public void gotoPassListActivity (View view) {
 
-        Intent intent2 = new Intent(this, PassList.class);
-        startActivity(intent2);
+        Intent intentPassList = new Intent(this, PassList.class);
+        intentPassList.putExtra("QUIZ_NUM", clickedQuizNo);
+        intentPassList.putExtra("PASS_MARK", quizPassMark.getText().toString());
+        startActivity(intentPassList);
 
-        Toast.makeText(getApplicationContext(), "Navigating....", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), clickedQuizNo +" and "+ quizPassMark.getText().toString(), Toast.LENGTH_SHORT).show();
+
     }
 }

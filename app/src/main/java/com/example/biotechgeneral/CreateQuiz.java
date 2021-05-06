@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -30,7 +31,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class CreateQuiz extends AppCompatActivity {
 
@@ -42,7 +45,7 @@ public class CreateQuiz extends AppCompatActivity {
             quizQ2A1, quizQ2A2, quizQ2A3, quizQ2A4, quizQ3, quizQ3CorrectAnswer,
             quizQ3A1, quizQ3A2, quizQ3A3, quizQ3A4;
     Button idBtnCancel, idBtnSave;
-    long quizID = 0;
+   // long quizID = 0;
     // Notification variables
     String name = "Notification Channel";
     String CHANNEL_ID = "ID_1";
@@ -51,7 +54,7 @@ public class CreateQuiz extends AppCompatActivity {
     // Clear out all user inputs
     public void clearControls() {
         quizNo.setText("");
-        lecturerID.setText("");
+        //lecturerID.setText("");
         quizPassMark.setText("");
         quizDeadline.setText("");
         quizQ1.setText("");
@@ -109,6 +112,7 @@ public class CreateQuiz extends AppCompatActivity {
         quizQ3A3 = findViewById(R.id.inputQ3Ans3);
         quizQ3A4 = findViewById(R.id.inputQ3Ans4);
 
+        /*
         // auto incement if any changes made to the data in database
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -122,6 +126,7 @@ public class CreateQuiz extends AppCompatActivity {
 
             }
         });
+         */
 
         // NOTIFICATION
         //checking the API for Notification Channel and Create a new channel
@@ -163,6 +168,8 @@ public class CreateQuiz extends AppCompatActivity {
         idBtnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clearControls();
+                /*
                 String storeInputNum = quizNo.getText().toString();
                 if (storeInputNum.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Already Empty", Toast.LENGTH_SHORT).show();
@@ -170,7 +177,7 @@ public class CreateQuiz extends AppCompatActivity {
                 else {
                     clearControls();
                 }
-
+               */
             }
         });
 
@@ -181,9 +188,11 @@ public class CreateQuiz extends AppCompatActivity {
 
                     try {
                         if (TextUtils.isEmpty(quizNo.getText().toString()))
-                            Toast.makeText(getApplicationContext(), "Please enter Quiz Number.", Toast.LENGTH_LONG).show();
+                            quizNo.setError("Please enter Quiz Number.");
+                            //Toast.makeText(getApplicationContext(), "Please enter Quiz Number.", Toast.LENGTH_LONG).show();
                         else if (TextUtils.isEmpty(quizPassMark.getText().toString()))
-                            Toast.makeText(getApplicationContext(), "Please enter Quiz Pass Mark.", Toast.LENGTH_LONG).show();
+                            quizPassMark.setError("Please enter Quiz Pass Mark.");
+                            //Toast.makeText(getApplicationContext(), "Please enter Quiz Pass Mark.", Toast.LENGTH_LONG).show();
                         else if (TextUtils.isEmpty(quizDeadline.getText().toString()))
                             Toast.makeText(getApplicationContext(), "Please enter Quiz Deadline.", Toast.LENGTH_LONG).show();
                         else if (TextUtils.isEmpty(quizQ1.getText().toString()))
@@ -224,7 +233,8 @@ public class CreateQuiz extends AppCompatActivity {
 
                             // Insert data to the database
                             //dbRef.push().setValue(quiz);
-                            dbRef.child(String.valueOf(quizID+1)).setValue(quiz);
+                            //dbRef.child(String.valueOf(quizID+1)).setValue(quiz);
+                            dbRef.child("Quiz " + quizNo.getText().toString().trim()).setValue(quiz);
 
                             //Feedback to the user via a Toast
                             Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_LONG).show();
@@ -232,7 +242,7 @@ public class CreateQuiz extends AppCompatActivity {
                             /////////////// NOTIFICATION  ////////////////////
 
                             // Create Explicit Intent to navigate from Notification --> QuizList Activity
-                            Intent intentNotify = new Intent(CreateQuiz.this, QuizList.class);
+                            Intent intentNotify = new Intent(CreateQuiz.this, login_bio.class);
                             intentNotify.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
                             ///////    Intent will be in Pending state until we tap on the Notification
@@ -241,8 +251,8 @@ public class CreateQuiz extends AppCompatActivity {
                             /////      Set the content of the notification. --> Title / Context / Icon
                             NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID)
                                     .setSmallIcon(R.drawable.ic_launcher_background)
-                                    .setContentTitle("MAD Notification Title")
-                                    .setContentText("Hello " + quizNo.getText() + " !! Welcome to MAD team.")
+                                    .setContentTitle("NEW QUIZ UPLOADED")
+                                    .setContentText("Quiz " + quizNo.getText() + " is uploaded now. Deadline is " + quizDeadline.getText())
                                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
                                     .setContentIntent(pendingIntent)
@@ -253,7 +263,6 @@ public class CreateQuiz extends AppCompatActivity {
 
                             // builder object and unique ID
                             notificationManagerCompat.notify(0, builder.build());
-
 
                             // Reset input fields
                             clearControls();
@@ -273,6 +282,16 @@ public class CreateQuiz extends AppCompatActivity {
 
 
     }// end of onCreate
+/*
+
+    public void navigateToTeacherQuizList (View view) {
+
+        Intent btmNavIntent = new Intent(CreateQuiz.this, QuizList.class);
+        startActivity(btmNavIntent);
+
+        Toast.makeText(getApplicationContext(), "Navigating....", Toast.LENGTH_SHORT).show();
+    }
+*/
 
 
 }

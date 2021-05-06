@@ -35,6 +35,11 @@
     <!--end of profile part-->
 
     <!-- ACHI - START -->
+
+    <string name="Tmenu_Quiz">Quiz</string>
+    <string name="Tmenu_Forum">Forum</string>
+    <string name="Tmenu_Assignment">Assignment</string>
+    <string name="Tmenu_Profile">Profile</string>
     <!-- Quiz List Activity -->
     <!-- <string name="menu_Quiz">Quiz</string>
     <string name="menu_Forum">Forum</string>

@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,6 +21,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class PassList extends AppCompatActivity {
+
+    public BottomNavigationView bottomNavigationView;
+
     TextView passPercentage;
     ListView passListView;
     ArrayList<String> passArrayList = new ArrayList<>();
@@ -65,7 +70,7 @@ public class PassList extends AppCompatActivity {
                 int allStdCount = allArrayList.size();
 
                 if(resultMapped >= passMark){
-                    passArrayList.add(stdIDMapped + " - " + resultMapped);
+                    passArrayList.add("Student ID: " + stdIDMapped + "  Result: " + resultMapped);
 
                     // Notify the ArrayAdapter that there was a change
                     passArrayAdapter.notifyDataSetChanged();
@@ -97,5 +102,35 @@ public class PassList extends AppCompatActivity {
             }
         } );
 
-    }
+        // Bottom navigation onClick listner
+        bottomNavigationView = (BottomNavigationView)findViewById(R.id.idTeacher_navigation_view);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_TQuiz:
+                        //Add your action onClick
+                        Intent intentQuiz = new Intent(getApplicationContext(), QuizList.class);
+                        startActivity(intentQuiz);
+                        break;
+                    case R.id.action_TForum:
+                        Intent intentForum = new Intent(getApplicationContext(), Forum_Dashboard.class);
+                        startActivity(intentForum);
+                        break;
+
+                    case R.id.action_TAssignment:
+                        Intent intentAssign = new Intent(getApplicationContext(), ass_teacher.class);
+                        startActivity(intentAssign);
+                        break;
+
+                    case R.id.action_TProfile:
+                        break;
+                }
+                return false;
+            }
+        });
+
+    } //onCreate ends
 }

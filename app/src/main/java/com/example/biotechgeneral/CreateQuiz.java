@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -22,6 +23,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +38,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class CreateQuiz extends AppCompatActivity {
+
+    public BottomNavigationView bottomNavigationView;
 
     QuizClass quiz;
     DatePickerDialog picker;
@@ -187,22 +191,35 @@ public class CreateQuiz extends AppCompatActivity {
             public void onClick(View v) {
 
                     try {
-                        if (TextUtils.isEmpty(quizNo.getText().toString()))
+                        if (TextUtils.isEmpty(quizNo.getText().toString())){
                             quizNo.setError("Please enter Quiz Number.");
-                            //Toast.makeText(getApplicationContext(), "Please enter Quiz Number.", Toast.LENGTH_LONG).show();
-                        else if (TextUtils.isEmpty(quizPassMark.getText().toString()))
+                            Toast.makeText(getApplicationContext(), "Please enter Quiz Number.", Toast.LENGTH_LONG).show();
+                        }
+                        else if (TextUtils.isEmpty(quizPassMark.getText().toString())) {
                             quizPassMark.setError("Please enter Quiz Pass Mark.");
-                            //Toast.makeText(getApplicationContext(), "Please enter Quiz Pass Mark.", Toast.LENGTH_LONG).show();
-                        else if (TextUtils.isEmpty(quizDeadline.getText().toString()))
+                            Toast.makeText(getApplicationContext(), "Please enter Quiz Pass Mark.", Toast.LENGTH_LONG).show();
+                        }
+                        else if (TextUtils.isEmpty(quizDeadline.getText().toString())){
+                            quizDeadline.setError("Please enter Quiz Deadline.");
                             Toast.makeText(getApplicationContext(), "Please enter Quiz Deadline.", Toast.LENGTH_LONG).show();
-                        else if (TextUtils.isEmpty(quizQ1.getText().toString()))
+                        }
+                        else if (TextUtils.isEmpty(quizQ1.getText().toString())) {
+                            quizQ1.setError("Please enter Question 1");
                             Toast.makeText(getApplicationContext(), "Please enter Question 1.", Toast.LENGTH_LONG).show();
-                        else if (TextUtils.isEmpty(quizQ2.getText().toString()))
+                        }
+                        else if (TextUtils.isEmpty(quizQ2.getText().toString())) {
+                            quizQ2.setError("Please enter Question 2");
                             Toast.makeText(getApplicationContext(), "Please enter Question 2.", Toast.LENGTH_LONG).show();
-                        else if (TextUtils.isEmpty(quizQ3.getText().toString()))
+                        }
+                        else if (TextUtils.isEmpty(quizQ3.getText().toString())) {
+                            quizQ3.setError("Please enter Question 3");
                             Toast.makeText(getApplicationContext(), "Please enter Question 3.", Toast.LENGTH_LONG).show();
-                        else if (TextUtils.isEmpty(quizQ1CorrectAnswer.getText().toString()))
-                            Toast.makeText(getApplicationContext(), "Please enter Question 1 correct answer.", Toast.LENGTH_LONG).show();
+                        }
+                        else if (TextUtils.isEmpty(quizQ1CorrectAnswer.getText().toString())) {
+                            quizQ1CorrectAnswer.setError("Please enter Question 1 CORRECT ANSWER");
+                            Toast.makeText(getApplicationContext(), "Please enter Question 1 CORRECT ANSWER.", Toast.LENGTH_LONG).show();
+                        }
+
                         else {
                             // Take user inputs and Assign them into this Instance(quiz) of the QuizClass
                             quiz.setQuizNo(quizNo.getText().toString().trim());
@@ -279,6 +296,36 @@ public class CreateQuiz extends AppCompatActivity {
                     }
             }// onCLick() ends
         }); //setOnClickListener() SAVE ends
+
+        // Bottom navigation onClick listner
+        bottomNavigationView = (BottomNavigationView)findViewById(R.id.idTeacher_navigation_view);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_TQuiz:
+                        //Add your action onClick
+                        Intent intentQuiz = new Intent(getApplicationContext(), QuizList.class);
+                        startActivity(intentQuiz);
+                        break;
+                    case R.id.action_TForum:
+                        Intent intentForum = new Intent(getApplicationContext(), Forum_Dashboard.class);
+                        startActivity(intentForum);
+                        break;
+
+                    case R.id.action_TAssignment:
+                        Intent intentAssign = new Intent(getApplicationContext(), ass_teacher.class);
+                        startActivity(intentAssign);
+                        break;
+
+                    case R.id.action_TProfile:
+                        break;
+                }
+                return false;
+            }
+        });
 
 
     }// end of onCreate

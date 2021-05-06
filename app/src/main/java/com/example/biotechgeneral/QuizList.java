@@ -97,7 +97,7 @@ public class QuizList extends AppCompatActivity {
         });
 
         // Bottom navigation onClick listner
-        bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation_view);
+        bottomNavigationView = (BottomNavigationView)findViewById(R.id.idTeacher_navigation_view);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -106,17 +106,17 @@ public class QuizList extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.action_TQuiz:
                         //Add your action onClick
-                        Intent intentCreateQuiz = new Intent(getApplicationContext(), QuizList.class);
-                        startActivity(intentCreateQuiz);
+                        Intent intentQuiz = new Intent(getApplicationContext(), QuizList.class);
+                        startActivity(intentQuiz);
                         break;
                     case R.id.action_TForum:
-
+                        Intent intentForum = new Intent(getApplicationContext(), Forum_Dashboard.class);
+                        startActivity(intentForum);
                         break;
 
                     case R.id.action_TAssignment:
-                        Intent intentAssT = new Intent(getApplicationContext(), ass_teacher.class);
-                        startActivity(intentAssT);
-
+                        Intent intentAssign = new Intent(getApplicationContext(), ass_teacher.class);
+                        startActivity(intentAssign);
                         break;
 
                     case R.id.action_TProfile:

@@ -71,6 +71,7 @@ public class std_ass_input extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
+
                 if(event.getAction()==MotionEvent.ACTION_DOWN){
                     btnSubmit.startAnimation(scaleUp);
                 }else if(event.getAction()==MotionEvent.ACTION_UP){

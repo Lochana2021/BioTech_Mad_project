@@ -161,6 +161,7 @@
         android:layout_marginTop="35dp"
         android:text="@string/btn_submit"
         android:textSize="18sp"
+        android:background="@drawable/button_background"
         app:backgroundTint="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

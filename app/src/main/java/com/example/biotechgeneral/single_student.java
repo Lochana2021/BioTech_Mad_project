@@ -84,13 +84,13 @@ public class single_student extends AppCompatActivity {
         btnSave = findViewById(R.id.asstechmarksbtn);
 
         //dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child(topicName);
-        dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
+       dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
 
        /* dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.hasChild(stdID)){
-                    ass.setStdMarksAss(Integer.parseInt(txtStdMarksAss.getText().toString().trim()));
+                    ass.setStdMarksAss(txtStdMarksAss.getText().toString().trim());
 
                     //dbRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child(topicName).child(stdID);
                     //dbRef.setValue(ass);
@@ -109,7 +109,7 @@ public class single_student extends AppCompatActivity {
         });*/
         //ass = new Assignment();
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
+       btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Take inputs from the user and assigning them to this instance (ass) of the Assignment...
@@ -118,30 +118,6 @@ public class single_student extends AppCompatActivity {
                 dbRef.child(topicName).child(stdID).child("Marks").push().setValue(ass);
 
                 Toast.makeText(getApplicationContext(), "Marks saved", Toast.LENGTH_LONG).show();
-                /*dbRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.hasChild("Marks")){
-                            Toast.makeText(getApplicationContext(), "Marks already exists", Toast.LENGTH_LONG).show();
-                        }
-                        else{
-                            //dbRef.child("Assignment").child(topicName).child(stdID).child("stdMarksAss").setValue(Integer.parseInt(txtStdMarksAss.getText().toString().trim()));
-                            ass.setStdMarksAss(Integer.parseInt(txtStdMarksAss.getText().toString().trim()));
-                            dbRef.child(topicName).child(stdID).child("Marks").push().setValue(ass);
-
-                            Toast.makeText(getApplicationContext(), "Marks saved", Toast.LENGTH_LONG).show();
-                        }
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });*/
-
-
-
 
             }
 

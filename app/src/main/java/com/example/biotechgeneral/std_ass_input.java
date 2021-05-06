@@ -163,7 +163,7 @@ public class std_ass_input extends AppCompatActivity {
                          ass.setWeather(txtWeather.getText().toString().trim());
                          ass.setPlace(txtPlace.getText().toString().trim());
                          ass.setDescription(txtDescription.getText().toString().trim());
-                         //ass.setStdMarksAss(0);
+                        // ass.setStdMarksAss("0");
 
                          //Insert into the database...
                          //dbRef.push().setValue(ass);

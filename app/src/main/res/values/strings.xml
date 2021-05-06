@@ -156,6 +156,7 @@
     <string name="label_weather">Weather :</string>
     <string name="label_place">Place :</string>
     <string name="label_description">Description :</string>
+    <string name="testView_week_te"></string>
     <string name="testView_date_te"></string>
     <string name="testView_weather_te"></string>
     <string name="testView_place_te"></string>
@@ -171,7 +172,7 @@
     <string name="title_std_ass">Student Assignment</string>
     <string name="title_type">Type_01</string>
     <string name="title_std">student_01</string>
-    <string name="input_marks">Enter Marks : </string>
+    <string name="input_marks">Enter Marks</string>
     <string name="weekEnter">Enter the week</string>
     <string name="techStdMarksInputBtn">Save</string>
     <string name="labelDeadline_View">Deadline :</string>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0ECEA"
+    android:foregroundTint="#FFFFFF"
+    tools:context=".TeacherDashboard">
+
+    <TextView
+        android:id="@+id/idBioTechHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:text="@string/topic_name"
+        android:textColor="#355723"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/idLogo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/idLogo"
+        android:layout_width="61dp"
+        android:layout_height="58dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/idBioTechHeading"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.172"
+        app:srcCompat="@drawable/baseline_eco_black_36dp"
+        app:tint="#355723"
+        />
+
+    <ImageView
+        android:id="@+id/idTeachQuizIcon"
+        android:layout_width="110dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="160dp"
+        android:contentDescription="@string/loch1_1"
+        android:foregroundTint="#FFFFFF"
+        android:onClick="TeacherDashtoQuizList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idBioTechHeading"
+        app:srcCompat="@drawable/baseline_fact_check_black_36dp" />
+
+    <TextView
+        android:id="@+id/idLabelTeachQuiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="24dp"
+        android:onClick="TeacherDashtoQuizList"
+        android:text="@string/title_quiz"
+        android:textColor="#355723"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idTeachQuizIcon" />
+
+    <ImageView
+        android:id="@+id/idTeachForumIcon"
+        android:layout_width="116dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="156dp"
+        android:contentDescription="@string/loch1_2"
+        android:onClick="TeacherDashtoForum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toEndOf="@+id/idTeachQuizIcon"
+        app:layout_constraintTop_toBottomOf="@+id/idLogo"
+        app:srcCompat="@drawable/baseline_question_answer_black_36dp" />
+
+    <TextView
+        android:id="@+id/idLabelTeachForum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginLeft="112dp"
+        android:layout_marginTop="24dp"
+        android:onClick="TeacherDashtoForum"
+        android:text="@string/menu_Forum"
+        android:textColor="#355723"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/idLabelTeachQuiz"
+        app:layout_constraintTop_toBottomOf="@+id/idTeachForumIcon" />
+
+    <ImageView
+        android:id="@+id/idTeahcAssignIcon"
+        android:layout_width="116dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginBottom="4dp"
+        android:contentDescription="@string/loch1_3"
+        android:onClick="TeacherDashtoAssignment"
+        app:layout_constraintBottom_toTopOf="@+id/idLabelTeachAssign"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idLabelTeachQuiz"
+        app:srcCompat="@drawable/baseline_assignment_black_36dp" />
+
+    <TextView
+        android:id="@+id/idLabelTeachAssign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginLeft="84dp"
+        android:layout_marginTop="16dp"
+        android:onClick="TeacherDashtoAssignment"
+        android:text="@string/title_assignment"
+        android:textColor="#355723"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idTeahcAssignIcon" />
+
+    <ImageView
+        android:id="@+id/idTeachProfileIcon"
+        android:layout_width="119dp"
+        android:layout_height="109dp"
+        android:layout_marginTop="44dp"
+        android:contentDescription="@string/loch1_4"
+        android:onClick="TeacherDashtoTeacherProfle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toEndOf="@+id/idTeahcAssignIcon"
+        app:layout_constraintTop_toBottomOf="@+id/idLabelTeachForum"
+        app:srcCompat="@drawable/baseline_account_box_black_36dp" />
+
+    <TextView
+        android:id="@+id/idLabelTeachProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="TeacherDashtoTeacherProfle"
+        android:text="@string/title_profile"
+        android:textColor="#355723"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toEndOf="@+id/idLabelTeachAssign"
+        app:layout_constraintTop_toBottomOf="@+id/idTeachProfileIcon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

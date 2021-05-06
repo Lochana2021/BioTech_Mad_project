@@ -21,7 +21,7 @@ public class single_student extends AppCompatActivity {
 
     Assignment ass, ass1;
     DatabaseReference dbRef, dbRef1;
-    TextView txtStdID, txtWeek, txtDate, txtWeather, txtPlace, txtDescription, txtTopic;
+    TextView txtStdID, txtDate, txtWeather, txtPlace, txtDescription, txtTopic;
     EditText txtStdMarksAss;
     Button btnSave;
 
@@ -48,7 +48,6 @@ public class single_student extends AppCompatActivity {
         //.child("Assignment").child("1")
         /*assigning variables*/
         txtStdID = findViewById(R.id.StdNameView);
-        txtWeek = findViewById(R.id.TechWeekView);
         txtDate = findViewById(R.id.TechDateView);
         txtWeather = findViewById(R.id.TechWeatherView);
         txtPlace = findViewById(R.id.TechPlaceView);
@@ -63,7 +62,6 @@ public class single_student extends AppCompatActivity {
                 if (snapshot.hasChildren()){
 
                     txtStdID.setText(snapshot.child("stdAssID").getValue().toString());
-                    txtWeek.setText(snapshot.child("week").getValue().toString());
                     txtDate.setText(snapshot.child("date").getValue().toString());
                     txtWeather.setText(snapshot.child("weather").getValue().toString());
                     txtPlace.setText(snapshot.child("place").getValue().toString());

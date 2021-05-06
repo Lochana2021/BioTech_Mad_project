@@ -55,8 +55,8 @@ public class QuizList extends AppCompatActivity {
 
                 // Get the value from the DataSnapshot and add it to the quiz' list
                 String quizMapped = snapshot.child("quizNo").getValue(String.class);
-                //quizArrayList.add("Quiz "+quizMapped);
-                quizArrayList.add(quizMapped);
+                quizArrayList.add("Quiz "+quizMapped);
+               // quizArrayList.add(quizMapped);
 
                 // Notify the ArrayAdapter that there was a change
                 quizArrayAdapter.notifyDataSetChanged();
@@ -93,6 +93,22 @@ public class QuizList extends AppCompatActivity {
         });
 
     }// onCreate ends
+
+    public void navigateToTeacherQuizList (View view) {
+
+        Intent btmNavIntent = new Intent(this, ViewQuiz.class);
+        startActivity(btmNavIntent);
+
+        Toast.makeText(getApplicationContext(), "Navigating....", Toast.LENGTH_SHORT).show();
+    }
+
+    public void gotoCreateQuizActivity (View view) {
+
+        Intent intentCreateQuiz = new Intent(this, CreateQuiz.class);
+        startActivity(intentCreateQuiz);
+
+        Toast.makeText(getApplicationContext(), "Navigating....", Toast.LENGTH_SHORT).show();
+    }
 
     /*
     public void gotoViewQuizActivity (View view) {

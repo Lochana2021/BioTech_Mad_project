@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/amaranth_bold"
         android:text="@string/labelTopPassList"
@@ -19,8 +20,7 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="35dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/idDivider_PassList"
@@ -38,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/allerta"
         android:text="@string/labelPassPercentage_PassList"
@@ -45,8 +46,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idDivider_PassList"
-        android:layout_marginLeft="35dp" />
+        app:layout_constraintTop_toBottomOf="@+id/idDivider_PassList" />
 
     <TextView
         android:id="@+id/idPassPercentage_PassList"
@@ -54,14 +54,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:ems="10"
+        android:gravity="center_horizontal"
         android:text="@string/labelInputPassPercentage_PassList"
         android:textAlignment="center"
         android:textColor="#355723"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/idLabelPassPercentage_PassList"
-        app:layout_constraintTop_toBottomOf="@+id/idDivider_PassList"
-        android:gravity="center_horizontal" />
+        app:layout_constraintTop_toBottomOf="@+id/idDivider_PassList" />
+
+    <ListView
+        android:id="@+id/idPassListView"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idLabelPassPercentage_PassList" />
 
     <!--Bottom Navigation-->
 

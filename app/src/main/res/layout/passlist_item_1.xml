@@ -3,13 +3,14 @@
 
     <TextView
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/idRetrieveTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/idRetrievePassListItem"
         android:textSize="25sp"
         android:padding="16dp"
         android:fontFamily="@font/allerta"
         android:textStyle="bold"
         android:textAlignment="center"
         android:gravity="center_horizontal"
-    />
+        />
+

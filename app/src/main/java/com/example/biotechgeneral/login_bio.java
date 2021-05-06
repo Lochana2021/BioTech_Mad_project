@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,19 +44,7 @@ public class login_bio extends AppCompatActivity {
                 String email = txtEmail.getText().toString().trim();
                 String password = txtPassword.getText().toString().trim();
 
-                //validate
-                if(TextUtils.isEmpty(email)){
-                    txtEmail.setError("Email is Required");
-                    return;
-                }
-                if(TextUtils.isEmpty(password)){
-                    txtPassword.setError("Password is Required");
-                    return;
-                }
-                if(password.length() < 6){
-                    txtPassword.setError("Password must be >= 6 characters");
-                    return;
-                }
+                //validate did not do...
                 //authenticate the user...
                 fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override

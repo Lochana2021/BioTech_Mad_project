@@ -42,12 +42,6 @@ public class std_ass_input extends AppCompatActivity {
     String CHANNEL_ID = "ID_1";
     String description = "Project Notification";
 
-    //notification
-    String name = "Notification_channel";
-    String CHANNEL_ID = "ID_1";
-    String description = "Project Notification";
-
-
     //long assID = 0;
 
     @SuppressLint("ClickableViewAccessibility")

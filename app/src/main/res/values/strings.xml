@@ -176,7 +176,7 @@
     <string name="techStdMarksInputBtn">Save</string>
     <string name="labelDeadline_View">Deadline :</string>
     <string name="labelInputDeadline_View" />
-
+    <string name="btnLogOut">LogOut</string>
 
     <!--End of Loch-->
 

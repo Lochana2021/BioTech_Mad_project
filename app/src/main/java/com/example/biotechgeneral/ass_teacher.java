@@ -1,18 +1,24 @@
 package com.example.biotechgeneral;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class ass_teacher extends AppCompatActivity {
 
     Button button1,button2,button3,button4;
     EditText etN;
+
+    public BottomNavigationView bottomNavigationView;
 
 
     @Override
@@ -85,6 +91,36 @@ public class ass_teacher extends AppCompatActivity {
                 startActivity(intent4);
                 Toast toast = Toast.makeText(getApplicationContext(),"Navigating to Competition",Toast.LENGTH_LONG);
                 toast.show();
+            }
+        });
+
+        // Bottom navigation onClick listner
+        bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation_view);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_TQuiz:
+                        //Add your action onClick
+                        Intent intentCreateQuiz = new Intent(getApplicationContext(), QuizList.class);
+                        startActivity(intentCreateQuiz);
+                        break;
+                    case R.id.action_TForum:
+
+                        break;
+
+                    case R.id.action_TAssignment:
+                        Intent intentAssT = new Intent(getApplicationContext(), ass_teacher.class);
+                        startActivity(intentAssT);
+
+                        break;
+
+                    case R.id.action_TProfile:
+                        break;
+                }
+                return false;
             }
         });
     }

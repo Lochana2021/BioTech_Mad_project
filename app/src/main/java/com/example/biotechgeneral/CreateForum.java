@@ -73,10 +73,12 @@ public class CreateForum extends AppCompatActivity {
 
 
 
+
     }
 
     public void onCancel(View view) {
         Intent i = new Intent(this,ForumList.class);
         startActivity(i);
+        Toast.makeText(this, "Creating Cancel", Toast.LENGTH_SHORT).show();
     }
 }

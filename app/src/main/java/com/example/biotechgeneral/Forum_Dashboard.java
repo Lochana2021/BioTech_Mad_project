@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,6 +29,7 @@ public class Forum_Dashboard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(),ForumList.class);
                 startActivity(i);
+                Toast.makeText(Forum_Dashboard.this, "Opening Forum List", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -38,6 +40,7 @@ public class Forum_Dashboard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(),Forum_PostAnswer.class);
                 startActivity(i);
+                Toast.makeText(Forum_Dashboard.this, "Opening Post Answer", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -48,6 +51,7 @@ public class Forum_Dashboard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(),AddQuetion.class);
                 startActivity(i);
+                Toast.makeText(Forum_Dashboard.this, "Opening Add Quetion", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -57,6 +61,7 @@ public class Forum_Dashboard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(),ForumDisplay.class);
                 startActivity(i);
+                Toast.makeText(Forum_Dashboard.this, "Opening", Toast.LENGTH_SHORT).show();
             }
         });
 

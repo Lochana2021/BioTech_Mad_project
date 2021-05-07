@@ -219,6 +219,10 @@ public class CreateQuiz extends AppCompatActivity {
                             quizQ1CorrectAnswer.setError("Please enter Question 1 CORRECT ANSWER");
                             Toast.makeText(getApplicationContext(), "Please enter Question 1 CORRECT ANSWER.", Toast.LENGTH_LONG).show();
                         }
+                        else if (quizQ1CorrectAnswer != quizQ1A1 && quizQ1CorrectAnswer != quizQ1A2 && quizQ1CorrectAnswer != quizQ1A3 && quizQ1CorrectAnswer != quizQ1A4){
+                            quizQ1CorrectAnswer.setError("Please choose one of the above answers as CORRECT ANSWER.");
+                            Toast.makeText(getApplicationContext(),"Please choose one of the above answers as CORRECT ANSWER.", Toast.LENGTH_SHORT).show();
+                        }
 
                         else {
                             // Take user inputs and Assign them into this Instance(quiz) of the QuizClass

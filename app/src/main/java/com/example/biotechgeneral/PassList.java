@@ -23,6 +23,7 @@ import java.util.ArrayList;
 public class PassList extends AppCompatActivity {
 
     public BottomNavigationView bottomNavigationView;
+    private static double calcPassPercent = 0.0;
 
     TextView passPercentage;
     ListView passListView;
@@ -78,8 +79,11 @@ public class PassList extends AppCompatActivity {
                 int passStdCount = passArrayList.size();
 
                 // Calculate pass percentage and display
-                //passPercentage.setText(Double.toString(((passStdCount*100.0)/allStdCount)));
-                passPercentage.setText(Double.toString(((passStdCount*100)/allStdCount))+"%");
+
+                //passPercentage.setText(Double.toString(((passStdCount*100)/allStdCount))+"%");
+                // String.format("%.2f", value)
+                //passPercentage.setText(calcPassPercentage(passStdCount, allStdCount) +"%");
+                passPercentage.setText(String.format("%.2f", calcPassPercentage(passStdCount, allStdCount))+"%");
 
             }
 
@@ -133,4 +137,10 @@ public class PassList extends AppCompatActivity {
         });
 
     } //onCreate ends
+
+    public static double calcPassPercentage(int stdPassCount, int stdAllCount){
+        calcPassPercent = (stdPassCount*100.0)/stdAllCount;
+
+        return calcPassPercent;
+    }
 }

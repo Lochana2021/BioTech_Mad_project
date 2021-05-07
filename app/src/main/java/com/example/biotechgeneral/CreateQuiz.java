@@ -7,6 +7,7 @@ import androidx.core.app.NotificationManagerCompat;
 
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -202,6 +203,10 @@ public class CreateQuiz extends AppCompatActivity {
                             quizPassMark.setError("Please enter Quiz Pass Mark.");
                             Toast.makeText(getApplicationContext(), "Please enter Quiz Pass Mark.", Toast.LENGTH_LONG).show();
                         }
+                       /* else if (Integer.parseInt(quizPassMark.getText().toString()) >= 100) {
+                            quizPassMark.setError("Please enter Pass Mark less than 100.");
+                            Toast.makeText(getApplicationContext(), "Please enter Pass Mark less than 100.", Toast.LENGTH_LONG).show();
+                        }*/
                         else if (TextUtils.isEmpty(quizDeadline.getText().toString())){
                             quizDeadline.setError("Please enter Quiz Deadline.");
                             Toast.makeText(getApplicationContext(), "Please enter Quiz Deadline.", Toast.LENGTH_LONG).show();
@@ -222,8 +227,6 @@ public class CreateQuiz extends AppCompatActivity {
                             quizQ1CorrectAnswer.setError("Please enter Question 1 CORRECT ANSWER");
                             Toast.makeText(getApplicationContext(), "Please enter Question 1 CORRECT ANSWER.", Toast.LENGTH_LONG).show();
                         }
-                        //else if ((quizQ1CorrectAnswer.getText().toString() != quizQ1A1.getText().toString()) && (quizQ1CorrectAnswer.getText().toString() != quizQ1A2.getText().toString()) && (quizQ1CorrectAnswer.getText().toString() != quizQ1A3.getText().toString()) && (quizQ1CorrectAnswer.getText().toString() != quizQ1A4.getText().toString())){
-
                         else if ( !(quizQ1CorrectAnswer.getText().toString().equals(quizQ1A1.getText().toString()) ) && !(quizQ1CorrectAnswer.getText().toString().equals(quizQ1A2.getText().toString()) ) && !(quizQ1CorrectAnswer.getText().toString().equals(quizQ1A3.getText().toString()) ) && !(quizQ1CorrectAnswer.getText().toString().equals(quizQ1A4.getText().toString()) )){
                             quizQ1CorrectAnswer.setError("Please choose one of the above answers as CORRECT ANSWER.");
                             Toast.makeText(getApplicationContext(),"Please choose one of the above answers as CORRECT ANSWER.", Toast.LENGTH_SHORT).show();
@@ -278,14 +281,18 @@ public class CreateQuiz extends AppCompatActivity {
                             NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID)
                                     //.setSmallIcon(R.drawable.ic_launcher_background)
                                     .setSmallIcon(R.drawable.ic_baseline_eco_24)
-                                    .setContentTitle("NEW QUIZ UPLOADED")
-                                    .setContentText("Quiz " + quizNo.getText() + " is uploaded now. Deadline is " + quizDeadline.getText())
+                                    //.setContentTitle("BioTech")
+                                    .setContentTitle("BioTech")
+                                    //.setContentText(" Deadline is " + quizDeadline.getText())
                                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                    .setColor(getResources().getColor(R.color.notificationPink))
+                                    .setColor(getApplicationContext().getResources().getColor(R.color.notificationGreen))
                                     .setColorized(true)
                                     //.setStyle(androidx.media.app.NotificationCompat.DecoratedMediaCustomViewStyle())
                                     //.setCustomContentView(notificationView)
-
+                                    /*.setStyle(new NotificationCompat.BigTextStyle()
+                                            .bigText("NEW QUIZ UPLOADED - QUIZ "+ quizNo.getText()+"  \nDeadline is " + quizDeadline.getText() + "\n "))*/
+                                    .setVibrate(new long[]{0, 500, 1000})
+                                    .setDefaults(Notification.DEFAULT_LIGHTS )
                                     .setContentIntent(pendingIntent)
                                     .setAutoCancel(true);     // when we tap the notification, it automatically disappears.
 

@@ -96,7 +96,7 @@ public class QuizList extends AppCompatActivity {
             }
         });
 
-        // Bottom navigation onClick listner
+        // Bottom navigation onClick listener
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.idTeacher_navigation_view);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

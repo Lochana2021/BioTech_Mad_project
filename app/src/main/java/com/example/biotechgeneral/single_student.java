@@ -2,6 +2,7 @@ package com.example.biotechgeneral;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +26,8 @@ public class single_student extends AppCompatActivity {
     TextView txtStdID, txtWeek, txtDate, txtWeather, txtPlace, txtDescription, txtTopic;
     EditText txtStdMarksAss;
     Button btnSave;
+
+    public BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,5 +126,35 @@ public class single_student extends AppCompatActivity {
             }
 
         });
+
+        // Bottom navigation onClick listner
+        bottomNavigationView = (BottomNavigationView)findViewById(R.id.idTeacher_navigation_view);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_TQuiz:
+                        //Add your action onClick
+                        Intent intentCreateQuiz = new Intent(getApplicationContext(), QuizList.class);
+                        startActivity(intentCreateQuiz);
+                        break;
+                    case R.id.action_TForum:
+
+                        break;
+
+                    case R.id.action_TAssignment:
+                        Intent intentAssT = new Intent(getApplicationContext(), ass_teacher.class);
+                        startActivity(intentAssT);
+
+                        break;
+
+                    case R.id.action_TProfile:
+                        break;
+                }
+                return false;
+            }
+        });//nav end
     }
 }

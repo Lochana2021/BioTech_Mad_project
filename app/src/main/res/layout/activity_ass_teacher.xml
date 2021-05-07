@@ -15,7 +15,7 @@
         app:layout_constraintBottom_toTopOf="@+id/assTechsubTopic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/navigation_view"
+        app:layout_constraintStart_toStartOf="@+id/idTeacher_navigation_view"
         app:layout_constraintTop_toBottomOf="@+id/techAssTopic"
         app:layout_constraintVertical_bias="0.277" />
 
@@ -111,7 +111,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation_view"
+        android:id="@+id/idTeacher_navigation_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -125,6 +125,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/navigation_menu" />
+        app:menu="@menu/teacher_bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

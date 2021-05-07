@@ -59,7 +59,7 @@ public class lecturer_login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(lecturer_login.this,"Logged in Successfully",Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(getApplicationContext(),navigation.class));
+                            startActivity(new Intent(getApplicationContext(),TeacherDashboard.class));
                         }
                         else {
                             Toast.makeText(lecturer_login.this,"Logged in Unsuccessful",Toast.LENGTH_LONG).show();

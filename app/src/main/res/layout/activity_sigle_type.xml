@@ -15,7 +15,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/navigation_view"
+        app:layout_constraintStart_toStartOf="@+id/idTeacher_navigation_view"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.114" />
 
@@ -84,7 +84,7 @@
         app:layout_constraintStart_toEndOf="@+id/assStdpercentage" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation_view"
+        android:id="@+id/idTeacher_navigation_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -98,15 +98,16 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/navigation_menu" />
+        app:menu="@menu/teacher_bottom_nav_menu" />
 
     <!--list view liststdass_item-->
     <ListView
         android:id="@+id/stdListAss"
-        android:layout_width="414dp"
-        android:layout_height="452dp"
+        android:layout_width="match_parent"
+        android:layout_height="442dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/navigation_view"
+        android:background="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/idTeacher_navigation_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

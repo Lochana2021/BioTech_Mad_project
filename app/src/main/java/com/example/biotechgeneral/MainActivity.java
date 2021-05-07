@@ -68,12 +68,42 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(getApplicationContext(),"User created Successfully",Toast.LENGTH_LONG).show();
+
+                            /*//set values to database
+                            dbRef = FirebaseDatabase.getInstance().getReference().child("Student");
+
+                            //Take inputs from the user and assigning them to this instance (ass) of the Assignment...
+                            std.setFull_name(txtFull_name.getText().toString().trim());
+                            std.setEmail(email);
+                            std.setPassword(password);
+
+                            //Insert into the database...
+                            //dbRef.push().setValue(ass);
+                            dbRef.child("STD1").setValue(std);
+
+                            //Feedback to the user via a Toast...
+                            Toast.makeText(getApplicationContext(),"Registered Successfully",Toast.LENGTH_LONG).show();*/
+
                             startActivity(new Intent(getApplicationContext(),navigation.class));
                         }else{
                             Toast.makeText(getApplicationContext(),"Error !"+task.getException().getMessage(),Toast.LENGTH_LONG).show();
                         }
                     }
                 });
+                /*//set values to database
+                dbRef = FirebaseDatabase.getInstance().getReference().child("Student");
+
+                //Take inputs from the user and assigning them to this instance (ass) of the Assignment...
+                std.setFull_name(txtFull_name.getText().toString().trim());
+                std.setEmail(txtEmail.getText().toString().trim());
+                std.setPassword(txtPassword.getText().toString());
+
+                //Insert into the database...
+                //dbRef.push().setValue(ass);
+                dbRef.child("STD1").setValue(std);
+
+                //Feedback to the user via a Toast...
+                Toast.makeText(getApplicationContext(),"Registered Successfully",Toast.LENGTH_LONG).show();*/
             }
         });
 

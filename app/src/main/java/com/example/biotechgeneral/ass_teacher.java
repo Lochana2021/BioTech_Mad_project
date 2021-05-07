@@ -95,7 +95,7 @@ public class ass_teacher extends AppCompatActivity {
         });
 
         // Bottom navigation onClick listner
-        bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation_view);
+        bottomNavigationView = (BottomNavigationView)findViewById(R.id.idTeacher_navigation_view);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -122,7 +122,7 @@ public class ass_teacher extends AppCompatActivity {
                 }
                 return false;
             }
-        });
+        });//nav end
     }
 
    /* public void goToTypeAct(View view){

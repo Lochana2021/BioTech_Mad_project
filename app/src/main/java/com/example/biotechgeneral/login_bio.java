@@ -64,6 +64,13 @@ public class login_bio extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(login_bio.this,"Logged in Successfully",Toast.LENGTH_LONG).show();
+
+                            //create intent
+                            final Intent intent = new Intent(getApplicationContext(),std_profile.class);
+                            String userEmail = email;
+
+                            intent.putExtra("email",userEmail);
+
                             startActivity(new Intent(getApplicationContext(),navigation.class));
                         }
                         else {

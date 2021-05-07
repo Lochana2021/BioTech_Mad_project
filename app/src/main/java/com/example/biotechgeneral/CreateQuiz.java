@@ -147,7 +147,7 @@ public class CreateQuiz extends AppCompatActivity {
             notificationManager.createNotificationChannel(channel);
         }
 
-        // calender
+        // CALENDAR
         quizDeadline.setInputType(InputType.TYPE_NULL);
         quizDeadline.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,6 +164,9 @@ public class CreateQuiz extends AppCompatActivity {
                                 quizDeadline.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                             }
                         }, year, month, day);
+
+                // Restrict Past Dates from the Calendar
+                picker.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                 picker.show();
             }
         });
@@ -219,7 +222,9 @@ public class CreateQuiz extends AppCompatActivity {
                             quizQ1CorrectAnswer.setError("Please enter Question 1 CORRECT ANSWER");
                             Toast.makeText(getApplicationContext(), "Please enter Question 1 CORRECT ANSWER.", Toast.LENGTH_LONG).show();
                         }
-                        else if (quizQ1CorrectAnswer != quizQ1A1 && quizQ1CorrectAnswer != quizQ1A2 && quizQ1CorrectAnswer != quizQ1A3 && quizQ1CorrectAnswer != quizQ1A4){
+                        //else if ((quizQ1CorrectAnswer.getText().toString() != quizQ1A1.getText().toString()) && (quizQ1CorrectAnswer.getText().toString() != quizQ1A2.getText().toString()) && (quizQ1CorrectAnswer.getText().toString() != quizQ1A3.getText().toString()) && (quizQ1CorrectAnswer.getText().toString() != quizQ1A4.getText().toString())){
+
+                        else if ( !(quizQ1CorrectAnswer.getText().toString().equals(quizQ1A1.getText().toString()) ) && !(quizQ1CorrectAnswer.getText().toString().equals(quizQ1A2.getText().toString()) ) && !(quizQ1CorrectAnswer.getText().toString().equals(quizQ1A3.getText().toString()) ) && !(quizQ1CorrectAnswer.getText().toString().equals(quizQ1A4.getText().toString()) )){
                             quizQ1CorrectAnswer.setError("Please choose one of the above answers as CORRECT ANSWER.");
                             Toast.makeText(getApplicationContext(),"Please choose one of the above answers as CORRECT ANSWER.", Toast.LENGTH_SHORT).show();
                         }
@@ -271,10 +276,15 @@ public class CreateQuiz extends AppCompatActivity {
 
                             /////      Set the content of the notification. --> Title / Context / Icon
                             NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID)
-                                    .setSmallIcon(R.drawable.ic_launcher_background)
+                                    //.setSmallIcon(R.drawable.ic_launcher_background)
+                                    .setSmallIcon(R.drawable.ic_baseline_eco_24)
                                     .setContentTitle("NEW QUIZ UPLOADED")
                                     .setContentText("Quiz " + quizNo.getText() + " is uploaded now. Deadline is " + quizDeadline.getText())
                                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                    .setColor(getResources().getColor(R.color.notificationPink))
+                                    .setColorized(true)
+                                    //.setStyle(androidx.media.app.NotificationCompat.DecoratedMediaCustomViewStyle())
+                                    //.setCustomContentView(notificationView)
 
                                     .setContentIntent(pendingIntent)
                                     .setAutoCancel(true);     // when we tap the notification, it automatically disappears.

@@ -12,10 +12,16 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     private sigle_type singleType;
+    private PassList passListObj;
 
     @Before
     public void setUp(){
         singleType = new sigle_type();
+    }
+
+    @Before
+    public void setPassListObj(){
+        passListObj = new PassList();
     }
 
     @Test
@@ -29,4 +35,11 @@ public class ExampleUnitTest {
         assertEquals(8.0,result,0.001);
 
     }
+
+    @Test
+    public void passPercentage_isCorrect(){
+        double passPercent = passListObj.calcPassPercentage(2 , 3);
+        assertEquals(66.67, passPercent, 0.001);
+    }
+
 }

@@ -79,11 +79,8 @@ public class PassList extends AppCompatActivity {
                 int passStdCount = passArrayList.size();
 
                 // Calculate pass percentage and display
-
-                //passPercentage.setText(Double.toString(((passStdCount*100)/allStdCount))+"%");
-                // String.format("%.2f", value)
-                //passPercentage.setText(calcPassPercentage(passStdCount, allStdCount) +"%");
-                passPercentage.setText(String.format("%.2f", calcPassPercentage(passStdCount, allStdCount))+"%");
+                //passPercentage.setText(String.format("%.2f", calcPassPercentage(passStdCount, allStdCount))+"%");
+                passPercentage.setText(calcPassPercentage(passStdCount, allStdCount)+"%");
 
             }
 
@@ -141,6 +138,6 @@ public class PassList extends AppCompatActivity {
     public static double calcPassPercentage(int stdPassCount, int stdAllCount){
         calcPassPercent = (stdPassCount*100.0)/stdAllCount;
 
-        return calcPassPercent;
+        return (double)Math.round(calcPassPercent*100d)/100d ;
     }
 }

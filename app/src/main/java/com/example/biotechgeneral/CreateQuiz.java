@@ -203,10 +203,10 @@ public class CreateQuiz extends AppCompatActivity {
                             quizPassMark.setError("Please enter Quiz Pass Mark.");
                             Toast.makeText(getApplicationContext(), "Please enter Quiz Pass Mark.", Toast.LENGTH_LONG).show();
                         }
-                       /* else if (Integer.parseInt(quizPassMark.getText().toString()) >= 100) {
+                        else if (Integer.parseInt(quizPassMark.getText().toString()) >= 100) {
                             quizPassMark.setError("Please enter Pass Mark less than 100.");
                             Toast.makeText(getApplicationContext(), "Please enter Pass Mark less than 100.", Toast.LENGTH_LONG).show();
-                        }*/
+                        }
                         else if (TextUtils.isEmpty(quizDeadline.getText().toString())){
                             quizDeadline.setError("Please enter Quiz Deadline.");
                             Toast.makeText(getApplicationContext(), "Please enter Quiz Deadline.", Toast.LENGTH_LONG).show();

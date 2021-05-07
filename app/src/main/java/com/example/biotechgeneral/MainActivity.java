@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnSignUp;
     DatabaseReference dbRef;
     FirebaseAuth fAuth;
-    Student std;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,22 +67,16 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(),"User created Successfully",Toast.LENGTH_LONG).show();
+                            Student std = new Student();
 
-                            /*//set values to database
-                            dbRef = FirebaseDatabase.getInstance().getReference().child("Student");
-
-                            //Take inputs from the user and assigning them to this instance (ass) of the Assignment...
                             std.setFull_name(txtFull_name.getText().toString().trim());
-                            std.setEmail(email);
-                            std.setPassword(password);
+                            std.setEmail(txtEmail.getText().toString().trim());
+                            std.setPassword(txtPassword.getText().toString().trim());
 
-                            //Insert into the database...
-                            //dbRef.push().setValue(ass);
-                            dbRef.child("STD1").setValue(std);
+                            FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(std);
 
-                            //Feedback to the user via a Toast...
-                            Toast.makeText(getApplicationContext(),"Registered Successfully",Toast.LENGTH_LONG).show();*/
+                            Toast.makeText(getApplicationContext(),"User created Successfully",Toast.LENGTH_LONG).show();
 
                             startActivity(new Intent(getApplicationContext(),navigation.class));
                         }else{
@@ -90,55 +84,10 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
-                /*//set values to database
-                dbRef = FirebaseDatabase.getInstance().getReference().child("Student");
 
-                //Take inputs from the user and assigning them to this instance (ass) of the Assignment...
-                std.setFull_name(txtFull_name.getText().toString().trim());
-                std.setEmail(txtEmail.getText().toString().trim());
-                std.setPassword(txtPassword.getText().toString());
-
-                //Insert into the database...
-                //dbRef.push().setValue(ass);
-                dbRef.child("STD1").setValue(std);
-
-                //Feedback to the user via a Toast...
-                Toast.makeText(getApplicationContext(),"Registered Successfully",Toast.LENGTH_LONG).show();*/
             }
         });
 
-        /*std = new Student();
-
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dbRef = FirebaseDatabase.getInstance().getReference().child("Student");
-
-                if (TextUtils.isEmpty(txtFull_name.getText().toString()))
-                    Toast.makeText(getApplicationContext(),"Please enter your Full Name",Toast.LENGTH_LONG).show();
-                else if (TextUtils.isEmpty(txtEmail.getText().toString()))
-                    Toast.makeText(getApplicationContext(),"Please enter your email Address",Toast.LENGTH_LONG).show();
-                else if (TextUtils.isEmpty(txtPassword.getText().toString()))
-                    Toast.makeText(getApplicationContext(),"Please enter the Password",Toast.LENGTH_LONG).show();
-                else if (txtPassword.getText().toString().length() < 6){
-                    Toast.makeText(getApplicationContext(),"Password must contain SIX characters",Toast.LENGTH_LONG).show();
-                }
-                else{
-                    //Take inputs from the user and assigning them to this instance (ass) of the Assignment...
-                    std.setFull_name(txtFull_name.getText().toString().trim());
-                    std.setEmail(txtEmail.getText().toString().trim());
-                    std.setPassword(txtPassword.getText().toString());
-
-                    //Insert into the database...
-                    //dbRef.push().setValue(ass);
-                    dbRef.child("STD1").setValue(std);
-
-                    //Feedback to the user via a Toast...
-                    Toast.makeText(getApplicationContext(),"Registered Successfully",Toast.LENGTH_LONG).show();
-                    clearControls();
-                }
-            }
-        });*/
     }
 
     //Method to clear all user inputs

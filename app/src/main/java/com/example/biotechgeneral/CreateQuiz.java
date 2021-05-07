@@ -289,8 +289,8 @@ public class CreateQuiz extends AppCompatActivity {
                                     .setColorized(true)
                                     //.setStyle(androidx.media.app.NotificationCompat.DecoratedMediaCustomViewStyle())
                                     //.setCustomContentView(notificationView)
-                                    /*.setStyle(new NotificationCompat.BigTextStyle()
-                                            .bigText("NEW QUIZ UPLOADED - QUIZ "+ quizNo.getText()+"  \nDeadline is " + quizDeadline.getText() + "\n "))*/
+                                    .setStyle(new NotificationCompat.BigTextStyle()
+                                            .bigText("NEW QUIZ UPLOADED - QUIZ "+ quizNo.getText()+"  \nDeadline is " + quizDeadline.getText() + "\n "))
                                     .setVibrate(new long[]{0, 500, 1000})
                                     .setDefaults(Notification.DEFAULT_LIGHTS )
                                     .setContentIntent(pendingIntent)

@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:layout_marginTop="20dp"
-            android:background="#355723"
+            android:background="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idLabelTopCreateQuiz" />
 
@@ -71,10 +71,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="35dp"
                 android:layout_marginLeft="35dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="30dp"
                 android:fontFamily="@font/allerta"
                 android:text="@string/labelQuizNumber"
-                android:textColor="#355723"
+                android:textColor="#000000"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/idLabelDeadline"
@@ -87,8 +88,6 @@
                 android:id="@+id/idInputQuizNumber"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="2dp"
                 android:autofillHints=""
                 android:ems="10"
                 android:gravity="center_horizontal"
@@ -96,40 +95,40 @@
                 android:inputType="number"
                 android:text="@string/inputQuizNumber"
                 android:textAlignment="center"
-                android:textColor="#355723"
+                android:textColor="#000000"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/idLabelDeadline"
+                app:layout_constraintBaseline_toBaselineOf="@+id/idLabelQuizNumber"
                 app:layout_constraintStart_toEndOf="@+id/idLabelQuizNumber"
-                app:layout_constraintTop_toTopOf="@+id/idDivider"
                 tools:ignore="NotSibling" />
 
 
             <!--Pass mark -->
             <!--app:layout_constraintTop_toBottomOf="@+id/idDivider"-->
 
+            <!--app:layout_constraintTop_toBottomOf="@+id/idDivider"-->
+
+            <!--Deadline-->
+
             <TextView
                 android:id="@+id/idLabelPassMark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
                 android:fontFamily="@font/allerta"
                 android:text="@string/labelPassMark"
-                android:textColor="#355723"
+                android:textColor="#000000"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/idInputDeadline"
+                app:layout_constraintBaseline_toBaselineOf="@+id/idInputQuizNumber"
                 app:layout_constraintEnd_toStartOf="@+id/idInputPassMark"
-                app:layout_constraintTop_toTopOf="@+id/idDivider"
                 tools:ignore="NotSibling" />
 
-            <!--app:layout_constraintTop_toBottomOf="@+id/idDivider"-->
             <EditText
                 android:id="@+id/idInputPassMark"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginRight="30dp"
                 android:autofillHints=""
@@ -139,41 +138,40 @@
                 android:inputType="number"
                 android:text="@string/inputPassMark"
                 android:textAlignment="center"
-                android:textColor="#355723"
+                android:textColor="#000000"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/idInputDeadline"
+                app:layout_constraintBaseline_toBaselineOf="@+id/idLabelPassMark"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/idDivider"
                 tools:ignore="NotSibling" />
-
-            <!--Deadline-->
 
             <TextView
                 android:id="@+id/idLabelDeadline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="35dp"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="7dp"
                 android:fontFamily="@font/allerta"
                 android:text="@string/labelDeadline"
-                android:textColor="#355723"
+                android:textColor="#000000"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/idInputDeadline"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/idLabelPassMark" />
+                app:layout_constraintTop_toBottomOf="@+id/idInputDeadline" />
 
             <!--android:datePickerMode="spinner"
             android:calendarViewShown="false"-->
+
+            <!--Question 1-->
+
             <EditText
                 android:id="@+id/idInputDeadline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginRight="30dp"
+                android:layout_width="246dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginRight="28dp"
                 android:autofillHints=""
                 android:ems="10"
                 android:gravity="center_horizontal"
@@ -181,13 +179,11 @@
                 android:inputType="date"
                 android:text="@string/inputDeadline"
                 android:textAlignment="center"
-                android:textColor="#355723"
+                android:textColor="#000000"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/idLabelPassMark" />
-
-            <!--Question 1-->
+                app:layout_constraintTop_toBottomOf="@+id/idInputQuizNumber" />
 
             <TextView
                 android:id="@+id/idLabelInputQ1"
@@ -195,7 +191,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="35dp"
                 android:layout_marginLeft="35dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="100dp"
                 android:fontFamily="@font/allerta"
                 android:text="@string/labelInputQ1"
                 android:textColor="#000000"
@@ -299,7 +295,7 @@
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/allerta"
                 android:text="@string/labelInputCorrectQ1"
-                android:textColor="#355723"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/inputCorrectQ1"
@@ -317,7 +313,7 @@
                 android:ems="10"
                 android:hint="@string/hintInputCorrectQ1"
                 android:inputType="textPersonName"
-                android:textColor="#355723"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="italic"
                 app:layout_constraintBaseline_toBaselineOf="@+id/idLabelInputCorrectQ1"
@@ -436,7 +432,7 @@
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/allerta"
                 android:text="@string/labelInputCorrectQ2"
-                android:textColor="#355723"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/inputCorrectQ2"
@@ -454,7 +450,7 @@
                 android:ems="10"
                 android:hint="@string/hintInputCorrectQ2"
                 android:inputType="textPersonName"
-                android:textColor="#355723"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="italic"
                 app:layout_constraintBaseline_toBaselineOf="@+id/idLabelInputCorrectQ2"
@@ -572,7 +568,7 @@
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/allerta"
                 android:text="@string/labelInputCorrectQ3"
-                android:textColor="#355723"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/inputCorrectQ3"
@@ -590,7 +586,7 @@
                 android:ems="10"
                 android:hint="@string/hintInputCorrectQ3"
                 android:inputType="textPersonName"
-                android:textColor="#355723"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="italic"
                 app:layout_constraintBaseline_toBaselineOf="@+id/idLabelInputCorrectQ3"
@@ -612,10 +608,10 @@
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 app:backgroundTint="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/idBtnSave"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/idLabelInputCorrectQ3" />
 
             <!--SAVE button-->
@@ -624,12 +620,12 @@
                 android:id="@+id/idBtnSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:backgroundTint="#000000"
+                android:background="@drawable/button_background"
                 android:text="@string/btnSave"
+                android:textColor="#FFFFFF"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:background="@drawable/button_background"
-                android:textColor="#FFFFFF"
+                app:backgroundTint="#000000"
                 app:layout_constraintBaseline_toBaselineOf="@+id/idBtnCancel"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -646,9 +642,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#A9355723"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="#2D2F31"
+        android:background="#004e63"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="#FFFFFF"
+        app:itemRippleColor="@color/black"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

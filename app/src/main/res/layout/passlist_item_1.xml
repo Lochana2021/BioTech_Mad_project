@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-    <TextView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/idRetrievePassListItem"
-        android:textSize="25sp"
-        android:padding="16dp"
-        android:fontFamily="@font/allerta"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:gravity="center_horizontal"
-        />
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/idRetrievePassListItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fontFamily="@font/allerta"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    android:textAlignment="center"
+    android:textColor="#000000"
+    android:textSize="25sp"
+    android:textStyle="bold" />
 

@@ -33,8 +33,10 @@ public class QuizStudent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_student);
 
-        QuizNo = (EditText)findViewById(R.id.QuizNumber);
-        qn = QuizNo.getText().toString();
+        QuizNo = findViewById(R.id.QuizNumber);
+        //qn = QuizNo.getText().toString().trim();
+
+
 
        /* StringBuilder builder = new StringBuilder("");
         builder.append("Quiz ").append(qn);
@@ -61,7 +63,10 @@ public class QuizStudent extends AppCompatActivity {
         attQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reff = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("Quiz "+qn);
+                reff = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("Quiz "+QuizNo.getText().toString().trim());
+                //Toast.makeText(getApplicationContext(), qn, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), QuizNo.getText().toString().trim(), Toast.LENGTH_LONG).show();
+
                 reff.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {

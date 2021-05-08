@@ -29,7 +29,10 @@ public class activity_quiz_attendance extends AppCompatActivity {
         attsubmit = (Button)findViewById(R.id.AttSubB);
 
         quizAttendance = new QuizAtt();
-        reff = FirebaseDatabase.getInstance().getReference().child("QuizAtt");
+        reff = FirebaseDatabase.getInstance().getReference().child("QuizInfo");
+
+        String result = getIntent().getStringExtra("total");
+
         attsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,6 +45,7 @@ public class activity_quiz_attendance extends AppCompatActivity {
                 quizAttendance.setQRegNum(regNo);
                 quizAttendance.setQID(qID);
                 quizAttendance.setQdate(date);
+                quizAttendance.setResults(result);
 
                 reff.push().setValue(quizAttendance);
                 Toast.makeText(activity_quiz_attendance.this,"Data insert successfully.",Toast.LENGTH_LONG).show();

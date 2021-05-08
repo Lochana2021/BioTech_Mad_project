@@ -1,3 +1,4 @@
+
 package com.example.biotechgeneral;
 
 import androidx.annotation.NonNull;
@@ -19,7 +20,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class QuizStudent extends AppCompatActivity {
 
-    int total, count, right, wrong;
+    int count, wrong;
+    private int right;
+    String qn;
     EditText QuizNo;
     TextView q1,q2,q3;
     Button q1a1,q1a2,q1a3,q1a4,q2a1,q2a2,q2a3,q2a4,q3a1,q3a2,q3a3,q3a4,submit,attQuiz;
@@ -30,8 +33,13 @@ public class QuizStudent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_student);
 
-        QuizNo = (EditText)findViewById(R.id.Qnumber);
-        String QuizNumber = QuizNo.getText().toString();
+        QuizNo = (EditText)findViewById(R.id.QuizNumber);
+        qn = QuizNo.getText().toString();
+
+       /* StringBuilder builder = new StringBuilder("");
+        builder.append("Quiz ").append(qn);
+        String text =builder.toString();*/
+
         q1 = (TextView)findViewById(R.id.que1);
         q2 = (TextView)findViewById(R.id.que2);
         q3 = (TextView)findViewById(R.id.que3);
@@ -53,7 +61,7 @@ public class QuizStudent extends AppCompatActivity {
         attQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reff = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("Quiz 2");
+                reff = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("Quiz "+qn);
                 reff.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -253,7 +261,7 @@ public class QuizStudent extends AppCompatActivity {
                                     {
                                         wrong ++;
                                         count ++;
-                                        Toast.makeText(QuizStudent.this,"Okay",Toast.LENGTH_LONG).show();
+                                        Toast.makeText(QuizStudent.this,qn,Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
@@ -270,7 +278,7 @@ public class QuizStudent extends AppCompatActivity {
                                     {
                                         wrong ++;
                                         count ++;
-                                        Toast.makeText(QuizStudent.this,"Okay",Toast.LENGTH_LONG).show();
+                                        Toast.makeText(QuizStudent.this,qn,Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
@@ -287,7 +295,7 @@ public class QuizStudent extends AppCompatActivity {
                                     {
                                         wrong ++;
                                         count ++;
-                                        Toast.makeText(QuizStudent.this,"Okay",Toast.LENGTH_LONG).show();
+                                        Toast.makeText(QuizStudent.this,qn,Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
@@ -304,7 +312,7 @@ public class QuizStudent extends AppCompatActivity {
                                     {
                                         wrong ++;
                                         count ++;
-                                        Toast.makeText(QuizStudent.this,"Okay",Toast.LENGTH_LONG).show();
+                                        Toast.makeText(QuizStudent.this,qn,Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
@@ -321,10 +329,15 @@ public class QuizStudent extends AppCompatActivity {
             }
         });
 
+
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openQuizAtt();
+                String passValue = String.valueOf(right);
+                Intent intent = new Intent(QuizStudent.this,activity_quiz_attendance.class);
+                intent.putExtra("total", passValue);
+                startActivity(intent);
             }
         });
 
@@ -332,9 +345,4 @@ public class QuizStudent extends AppCompatActivity {
     }
 
 
-
-    public void openQuizAtt(){
-        Intent intent = new Intent(this, activity_quiz_attendance.class);
-        startActivity(intent);
-    }
 }

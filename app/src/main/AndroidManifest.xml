@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.biotechgeneral">
+    package="com.example.biotechgeneral" >
 
     <application
         android:allowBackup="true"
@@ -9,31 +9,30 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BioTechGeneral">
-
+        android:theme="@style/Theme.BioTechGeneral" >
         <!-- Achi START -->
-        <activity android:name=".CreateQuiz">
+        <activity android:name=".CreateQuiz" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PassList">
+        <activity android:name=".PassList" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".QuizList">
+        <activity android:name=".QuizList" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewQuiz">
+        <activity android:name=".ViewQuiz" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,14 +40,14 @@
             </intent-filter>
         </activity> <!-- Achi END -->
         <!-- Loch START -->
-        <activity android:name=".ass_teacher">
+        <activity android:name=".ass_teacher" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".std_ass_input">
+        <activity android:name=".std_ass_input" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -61,44 +60,41 @@
         <activity
             android:name=".splash"
             android:theme="@style/SplashScreen" />
-        <activity android:name=".login_bio">
+        <activity android:name=".login_bio" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Dev START -->
+        <activity android:name=".activity_quiz_attendance" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- Dev START -->
-        <activity android:name=".activity_quiz_attendance">
+        <activity android:name=".QuizStudent" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".QuizStudent">
+        <activity android:name=".ResultQuizStu" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ResultQuizStu">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-
     </application>
 
 </manifest>

@@ -356,11 +356,11 @@ public class QuizStudent extends AppCompatActivity {
 
     public void AddNotification(){
         String passValue = String.valueOf(right);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-
-        builder.setContentTitle("Your results");
-        builder.setContentText(passValue);
-
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.ic_message)
+                .setContentTitle("Your quiz result")
+                .setContentText(passValue)
+                .setAutoCancel(true);
 
     }
 

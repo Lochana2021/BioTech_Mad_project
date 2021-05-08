@@ -15,7 +15,7 @@ public class splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Objects.requireNonNull(getSupportActionBar()).hide();
+        /*Objects.requireNonNull(getSupportActionBar()).hide();
         final Intent i = new Intent(splash.this, TeacherDashboard.class);
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -23,7 +23,17 @@ public class splash extends AppCompatActivity {
                 startActivity(i);
                 finish();
             }
-        }, 2000);
+        }, 2000);*/
+
+        final int SPLASH_DISPLAY_LENGTH = 1000;
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i = new Intent(splash.this,StartingDashboard.class);
+                splash.this.startActivity(i);
+                splash.this.finish();
+            }
+        },SPLASH_DISPLAY_LENGTH);
 
         //startActivity(new Intent(this,login_bio.class));
         

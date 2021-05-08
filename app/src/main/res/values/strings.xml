@@ -184,6 +184,7 @@
     <string name="student_name">Student name</string>
     <string name="register_number">Register number</string>
     <string name="quiz_date">Quiz date</string>
+    <string name="quiz_number_res">Quiz Number_res</string>
 
 
 </resources>

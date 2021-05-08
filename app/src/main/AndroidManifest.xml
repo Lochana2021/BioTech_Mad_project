@@ -74,7 +74,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- Dev START -->
+        </activity>
+        <!-- Dev START -->
         <activity android:name=".activity_quiz_attendance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

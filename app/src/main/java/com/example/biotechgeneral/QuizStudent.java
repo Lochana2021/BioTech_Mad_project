@@ -3,6 +3,7 @@ package com.example.biotechgeneral;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,11 +35,16 @@ public class QuizStudent extends AppCompatActivity {
         setContentView(R.layout.activity_quiz_student);
 
         QuizNo = (EditText)findViewById(R.id.QuizNumber);
-        qn = QuizNo.getText().toString();
+        //qn = QuizNo.getText().toString().trim();
 
+        qn = QuizNo.getText().toString().trim();
+
+/*
         StringBuilder builder = new StringBuilder("");
         builder.append("Quiz ").append(qn);
         String text =builder.toString();
+
+ */
 
         q1 = (TextView)findViewById(R.id.que1);
         q2 = (TextView)findViewById(R.id.que2);
@@ -61,7 +67,7 @@ public class QuizStudent extends AppCompatActivity {
         attQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reff = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("Quiz "+qn);
+                reff = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("Quiz 1");
                 reff.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -338,8 +344,20 @@ public class QuizStudent extends AppCompatActivity {
                 Intent intent = new Intent(QuizStudent.this,activity_quiz_attendance.class);
                 intent.putExtra("total", passValue);
                 startActivity(intent);
+
+                AddNotification();
             }
         });
+
+
+    }
+
+    public void AddNotification(){
+        String passValue = String.valueOf(right);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+
+        builder.setContentTitle("Your results");
+        builder.setContentText(passValue);
 
 
     }

@@ -438,7 +438,7 @@
             app:layout_constraintEnd_toStartOf="@+id/attemptQuiz"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idDivider_View"
-            android:inputType="text"/>
+            android:inputType="numberSigned"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

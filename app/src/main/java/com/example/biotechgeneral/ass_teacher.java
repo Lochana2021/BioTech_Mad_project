@@ -108,7 +108,8 @@ public class ass_teacher extends AppCompatActivity {
                         startActivity(intentCreateQuiz);
                         break;
                     case R.id.action_TForum:
-
+                        Intent intentForum = new Intent(getApplicationContext(), Forum_Dashboard.class);
+                        startActivity(intentForum);
                         break;
 
                     case R.id.action_TAssignment:
@@ -124,6 +125,7 @@ public class ass_teacher extends AppCompatActivity {
             }
         });//nav end
     }
+    //test 03
 
    /* public void goToTypeAct(View view){
         Intent i = new Intent(this,sigle_type.class);

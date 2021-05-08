@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,6 +26,7 @@ public class login_bio extends AppCompatActivity {
     Button btnLogIn;
     DatabaseReference dbRef;
     FirebaseAuth fAuth;
+    TextView txtCreateAcc;
 
     String emailLog;
 
@@ -32,11 +35,21 @@ public class login_bio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_bio);
 
+        txtCreateAcc = findViewById(R.id.stdCreateAcc);
+
         txtEmail = findViewById(R.id.loginEmail);
         txtPassword = findViewById(R.id.loginPassword);
 
         btnLogIn = findViewById(R.id.btnLogIn);
         fAuth = FirebaseAuth.getInstance();
+
+        txtCreateAcc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,4 +94,5 @@ public class login_bio extends AppCompatActivity {
             }
         });
     }
+
 }

@@ -14,11 +14,13 @@ public class ExampleUnitTest {
     private sigle_type singleType;
     private PassList passListObj;
 
+    /*Loch*/
     @Before
     public void setUp(){
         singleType = new sigle_type();
     }
 
+    /*Achi*/
     @Before
     public void setPassListObj(){
         passListObj = new PassList();
@@ -29,13 +31,14 @@ public class ExampleUnitTest {
         assertEquals(4, 2 + 2);
     }
 
+    /*Loch*/
     @Test
     public void percentage_isCorrect(){
         float result = singleType.attPerCal(5);
         assertEquals(8.0,result,0.001);
-
     }
 
+    /*Achi*/
     @Test
     public void passPercentage_isCorrect(){
         double passPercent = passListObj.calcPassPercentage(2 , 3);

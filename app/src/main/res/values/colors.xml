@@ -8,6 +8,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="notificationGreen">#A4DE02</color>
+    <color name="notificationGreen">#004e63</color>
     <color name="appBarBlue"> #004e63</color>
 </resources>

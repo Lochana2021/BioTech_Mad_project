@@ -24,7 +24,7 @@ public class StartingDashboard extends AppCompatActivity {
 
     public void onClickTeacher(View view) {
 
-        Intent i = new Intent(this,login_bio.class);
+        Intent i = new Intent(this,lecturer_login.class);
         startActivity(i);
         Toast.makeText(this, "Login As a Teacher", Toast.LENGTH_SHORT).show();
     }

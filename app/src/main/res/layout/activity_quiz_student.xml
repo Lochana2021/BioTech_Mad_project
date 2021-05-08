@@ -87,6 +87,7 @@
             android:text="@string/labelInputQ1Ans1_View"
             android:textSize="14sp"
             android:textStyle="italic"
+            android:backgroundTint="#BF004E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/que1" />
@@ -101,6 +102,7 @@
             android:text="@string/labelInputQ1Ans2_View"
             android:textSize="14sp"
             android:textStyle="italic"
+            android:backgroundTint="#BF004E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/q1a1" />
@@ -115,6 +117,7 @@
             android:text="@string/labelInputQ1Ans3_View"
             android:textSize="14sp"
             android:textStyle="italic"
+            android:backgroundTint="#BF004E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/q1a2" />
@@ -129,6 +132,7 @@
             android:text="@string/labelInputQ1Ans4_View"
             android:textSize="14sp"
             android:textStyle="italic"
+            android:backgroundTint="#BF004E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/q1a3" />
@@ -179,6 +183,7 @@
             android:text="@string/labelInputQ2Ans1_View"
             android:textSize="14sp"
             android:textStyle="italic"
+            android:backgroundTint="#BF004E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/que2" />
@@ -193,6 +198,7 @@
             android:text="@string/labelInputQ2Ans2_View"
             android:textSize="14sp"
             android:textStyle="italic"
+            android:backgroundTint="#BF004E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/q2a1" />
@@ -207,6 +213,7 @@
             android:text="@string/labelInputQ2Ans3_View"
             android:textSize="14sp"
             android:textStyle="italic"
+            android:backgroundTint="#BF004E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/q2a2" />
@@ -221,6 +228,7 @@
             android:text="@string/labelInputQ2Ans4_View"
             android:textSize="14sp"
             android:textStyle="italic"
+            android:backgroundTint="#BF004E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/q2a3" />
@@ -273,6 +281,7 @@
             android:text="@string/labelInputQ3Ans1_View"
             android:textSize="14sp"
             android:textStyle="italic"
+            android:backgroundTint="#BF004E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/que3" />
@@ -287,6 +296,7 @@
             android:text="@string/labelInputQ3Ans2_View"
             android:textSize="14sp"
             android:textStyle="italic"
+            android:backgroundTint="#BF004E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/q3a1" />
@@ -301,6 +311,7 @@
             android:text="@string/labelInputQ3Ans3_View"
             android:textSize="14sp"
             android:textStyle="italic"
+            android:backgroundTint="#BF004E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/q3a2" />
@@ -315,6 +326,7 @@
             android:text="@string/labelInputQ3Ans4_View"
             android:textSize="14sp"
             android:textStyle="italic"
+            android:backgroundTint="#BF004E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/q3a3" />
@@ -365,7 +377,7 @@
             android:layout_marginBottom="100dp"
             android:fontFamily="@font/allerta"
             android:text="End of the Quiz"
-            android:textColor="#355723"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/navigation_view"
@@ -380,9 +392,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="#A9355723"
-            app:itemIconTint="@color/black"
-            app:itemTextColor="#2D2F31"
+            android:background="#BF004E63"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="#fff"
             app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

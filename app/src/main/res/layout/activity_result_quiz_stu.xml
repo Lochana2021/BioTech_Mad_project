@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E0ECEA"
     tools:context=".ResultQuizStu">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -12,9 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="672dp"
-        android:background="#A8355723"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="#2D2F31"
+        android:background="#BF004E63"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="#ffffff"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +45,7 @@
         android:id="@+id/dividerrr5"
         android:layout_width="408dp"
         android:layout_height="3dp"
-        android:background="#355723"
+        android:background="#BF004E63"
         app:layout_constraintBottom_toTopOf="@+id/navigation_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

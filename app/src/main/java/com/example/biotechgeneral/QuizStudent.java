@@ -37,8 +37,6 @@ public class QuizStudent extends AppCompatActivity {
         QuizNo = (EditText)findViewById(R.id.QuizNumber);
         //qn = QuizNo.getText().toString().trim();
 
-        qn = QuizNo.getText().toString().trim();
-
 /*
         StringBuilder builder = new StringBuilder("");
         builder.append("Quiz ").append(qn);
@@ -67,7 +65,7 @@ public class QuizStudent extends AppCompatActivity {
         attQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reff = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("Quiz 1");
+                reff = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("Quiz "+ QuizNo.getText().toString().trim());
                 reff.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {

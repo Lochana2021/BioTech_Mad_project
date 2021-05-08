@@ -42,7 +42,7 @@
         android:contentDescription="@string/descriptBtnIconAddQuiz"
         android:onClick="gotoCreateQuizActivity"
         android:scaleType="fitCenter"
-        android:tint="#355723"
+        android:tint="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idDivider"
         app:srcCompat="@drawable/ic_baseline_add_box_24"
@@ -63,19 +63,22 @@
         app:layout_constraintTop_toBottomOf="@+id/idDivider" />
 
     <ListView
-        android:id="@+id/ForumListView"
-        android:layout_width="match_parent"
+        android:id="@+id/idQuizListView"
+        android:layout_width="0dp"
         android:layout_height="493dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/idTeacher_navigation_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idBtnIconAddQuiz"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/idBtnIconAddQuiz" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation_view"
+        android:id="@+id/idTeacher_navigation_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -85,7 +88,7 @@
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/navigation_menu" />
+        app:menu="@menu/teacher_bottom_nav_menu" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

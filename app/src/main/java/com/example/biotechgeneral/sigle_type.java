@@ -1,5 +1,6 @@
 package com.example.biotechgeneral;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,14 +25,17 @@ import java.util.ArrayList;
 
 public class sigle_type extends AppCompatActivity {
 
-    TextView txtTopicType, txtStdAttCount;
+    private static TextView txtTopicType, txtStdAttCount, txtPercentage;
     TextView etn;
 
     ListView stdAssListView;
     ArrayList<String> assStdArrayList = new ArrayList<>();
-    DatabaseReference dbRef, attCountRef;
+    DatabaseReference dbRef, attCountRef, dbRef2;
+
+    public String studentID;
 
     int attCount = 0;
+    private static float percentage = (float) 0.0;
 
 
     @Override
@@ -41,8 +45,8 @@ public class sigle_type extends AppCompatActivity {
 
         /*intent passing*/
         txtTopicType = findViewById(R.id.txtTopicType);
-        etn = findViewById(R.id.textViewWeek);
         txtStdAttCount = findViewById(R.id.stdAttemView);
+        txtPercentage = findViewById(R.id.stdAssPerView);
 
         Intent intent = getIntent();
         String topicName = intent.getStringExtra("TYPE_01");
@@ -111,7 +115,7 @@ public class sigle_type extends AppCompatActivity {
 
                 //startActivity(new Intent(getApplicationContext(),single_student.class));
                 //startActivity(new Intent(getApplicationContext(),single_student.class));
-                String studentID = String.valueOf(parent.getItemAtPosition(position));
+                studentID = String.valueOf(parent.getItemAtPosition(position));
                 Toast.makeText(getApplicationContext(),"Moving to " +studentID,Toast.LENGTH_LONG).show();
 
 
@@ -126,21 +130,36 @@ public class sigle_type extends AppCompatActivity {
                 String typeName = "Mutualism";
 
                 intent.putExtra("TYPE_01",typeName);*/
+
+
+
             }
         });
-        /*getting student count*/
-        attCountRef = FirebaseDatabase.getInstance().getReference().child("Assignment");
-        attCountRef.child(topicName).addValueEventListener(new ValueEventListener() {
 
+        /*getting student count*/
+        attCountRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child(topicName);
+        //attCountRef.child(topicName);
+        attCountRef.addValueEventListener(new ValueEventListener() {
+
+            @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
+                if (snapshot.exists()) {
                     attCount = (int) snapshot.getChildrenCount();
                     String stdCount = String.valueOf(attCount);
                     //Toast.makeText(getApplicationContext(),String.valueOf(attCount),Toast.LENGTH_LONG).show();
                     txtStdAttCount.setText(stdCount);
-                }
-                else{
+
+
+                       /* percentage = (float) Math.round(((attCount / 60.0) * 100));
+                        String perString = String.valueOf(percentage);
+                        txtPercentage.setText(perString + "%");*/
+
+                    txtPercentage.setText(String.valueOf(attPerCal(attCount)) + "%");
+
+
+
+                } else {
                     txtStdAttCount.setText("0");
                 }
 
@@ -152,5 +171,39 @@ public class sigle_type extends AppCompatActivity {
             }
         });
 
+
+        //catching marks
+        /*dbRef2 = FirebaseDatabase.getInstance().getReference().child("Assignment");
+
+       dbRef2.child(topicName).child(studentID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.hasChildren()){
+                    //String marksVal = snapshot.child("stdMarksAss").getValue().toString();
+                    //Toast.makeText(getApplicationContext(),marksVal,Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"No error",Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"No Source to Display",Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });*/
+
+
     }
+    public static float attPerCal (int attCountLocal){
+
+        //attCountLocal = attCount;
+
+        percentage = (float) Math.round(((attCountLocal / 60.0) * 100));
+        //String perString = String.valueOf(percentage);
+        //txtPercentage.setText(perString + "%");
+        return percentage;
+    }
+
 }

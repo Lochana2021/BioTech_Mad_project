@@ -189,7 +189,7 @@
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/lecStdMarks"
+        android:hint="@string/input_marks"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/navigation_view"
         app:layout_constraintEnd_toStartOf="@+id/asstechmarksbtn"

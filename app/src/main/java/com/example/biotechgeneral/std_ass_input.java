@@ -42,7 +42,6 @@ public class std_ass_input extends AppCompatActivity {
     String CHANNEL_ID = "ID_1";
     String description = "Project Notification";
 
-
     //long assID = 0;
 
     @SuppressLint("ClickableViewAccessibility")
@@ -80,6 +79,20 @@ public class std_ass_input extends AppCompatActivity {
                 return true;
             }
         });*/
+
+        //notification
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+
+            //Register the channel with the system
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+
+        }
 
         //notification
         if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){

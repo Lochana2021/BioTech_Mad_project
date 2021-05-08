@@ -24,12 +24,15 @@ public class ForumResponse extends AppCompatActivity {
     public void tenp(View view) {
         EditText e = (EditText) findViewById(R.id.txt_ResponseForum);
 
+        EditText editText = (EditText) findViewById(R.id.StudentCount);
+
 
         double response = Double.parseDouble(e.getText().toString());
+        double student = Double.parseDouble(editText.getText().toString());
 
-        double res = (response / 25.0f) * 100;
+        double res = (response / student) * 100;
 
-        Toast.makeText(getApplicationContext(), "" +res, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Response Percentage" +res, Toast.LENGTH_SHORT).show();
 
     }
 }

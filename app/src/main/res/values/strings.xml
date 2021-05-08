@@ -247,6 +247,7 @@
     <string name="txt_AsTeacher">As a Teacher</string>
     <string name="txt_Response">Enter Response</string>
     <string name="txt_responsForum">Forum Response</string>
+    <string name="txt_StudentCount">Enter Student Count</string>
 
 
 </resources>

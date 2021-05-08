@@ -26,16 +26,16 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="123dp"
-        android:layout_height="66dp"
+        android:layout_width="175dp"
+        android:layout_height="49dp"
+        android:background="@drawable/button_background"
+        android:onClick="tenp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="@+id/navigation_bar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.563"
-        android:onClick="tenp"/>
+        app:layout_constraintVertical_bias="0.667" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -72,5 +72,18 @@
         app:layout_constraintHorizontal_bias="0.809"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/StudentCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="324dp"
+        android:ems="10"
+        android:hint="@string/txt_StudentCount"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

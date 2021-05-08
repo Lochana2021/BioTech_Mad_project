@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0ECEA"
+    tools:context=".QuizList">
+
+    <TextView
+        android:id="@+id/idLabelQuizList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/amaranth_bold"
+        android:text="@string/labelQuizList"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="35dp" />
+
+    <View
+        android:id="@+id/idDivider"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="20dp"
+        android:background="#355723"
+        android:backgroundTint="#0B1207"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idLabelQuizList" />
+
+    <ImageButton
+        android:id="@+id/idBtnIconAddQuiz"
+        android:layout_width="82dp"
+        android:layout_height="71dp"
+        android:layout_marginEnd="1dp"
+        android:adjustViewBounds="false"
+        android:backgroundTint="#E0ECEA"
+        android:contentDescription="@string/descriptBtnIconAddQuiz"
+        android:onClick="gotoCreateQuizActivity"
+        android:scaleType="fitCenter"
+        android:tint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idDivider"
+        app:srcCompat="@drawable/ic_baseline_add_box_24"
+        android:layout_marginRight="1dp" />
+
+    <TextView
+        android:id="@+id/idLabelTopCreateQuiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/amethysta"
+        android:onClick="gotoCreateQuizActivity"
+        android:text="@string/labelCreateNewQuiz"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/idBtnIconAddQuiz"
+        app:layout_constraintTop_toBottomOf="@+id/idDivider" />
+
+    <ListView
+        android:id="@+id/idQuizListView"
+        android:layout_width="0dp"
+        android:layout_height="493dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/idTeacher_navigation_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idBtnIconAddQuiz" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/idTeacher_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#A8355723"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="#2D2F31"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/teacher_bottom_nav_menu" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

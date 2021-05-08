@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/action_Quiz"
+        android:title="@string/menu_Quiz"
+        android:icon="@drawable/ic_baseline_fact_check_24"/>
+    <item android:id="@+id/action_Forum"
+        android:title="@string/menu_Forum"
+        android:icon="@drawable/ic_baseline_question_answer_24"/>
+    <item android:id="@+id/action_Assignment"
+        android:title="@string/menu_Assignment"
+        android:icon="@drawable/ic_baseline_assignment_24"/>
+    <item android:id="@+id/action_Profile"
+        android:title="@string/menu_Profile"
+        android:icon="@drawable/ic_baseline_account_box_24"/>
+
+
+</menu>

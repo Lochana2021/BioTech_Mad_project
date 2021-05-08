@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0ECEA"
+    tools:context=".CreateQuiz">
+
+    <!--  android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E0ECEA"
+        tools:context=".CreateQuiz">-->
+
+
+
+
+
+        <TextView
+            android:id="@+id/idLabelTopCreateQuiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/amaranth_bold"
+            android:text="@string/labelTopCreateQuiz"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/idDivider"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="20dp"
+            android:background="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idLabelTopCreateQuiz" />
+
+
+    <!--app:layout_constraintTop_toBotto-->
+    <!--app:layout_constraintBottom_toTopOf="parent"-->
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="408dp"
+        android:layout_height="588dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/idDivider">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/idDivider">
+
+
+            <!-- Quiz Number -->
+            <!-- app:layout_constraintTop_toBottomOf="@+id/idDivider"-->
+
+            <TextView
+                android:id="@+id/idLabelQuizNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/labelQuizNumber"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/idLabelDeadline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/idDivider"
+                tools:ignore="NotSibling" />
+
+            <!-- app:layout_constraintTop_toBottomOf="@+id/idDivider"-->
+            <EditText
+                android:id="@+id/idInputQuizNumber"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="@string/hintInputQuizNumber"
+                android:inputType="number"
+                android:text="@string/inputQuizNumber"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/idLabelQuizNumber"
+                app:layout_constraintStart_toEndOf="@+id/idLabelQuizNumber"
+                tools:ignore="NotSibling" />
+
+
+            <!--Pass mark -->
+            <!--app:layout_constraintTop_toBottomOf="@+id/idDivider"-->
+
+            <!--app:layout_constraintTop_toBottomOf="@+id/idDivider"-->
+
+            <!--Deadline-->
+
+            <TextView
+                android:id="@+id/idLabelPassMark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/labelPassMark"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/idInputQuizNumber"
+                app:layout_constraintEnd_toStartOf="@+id/idInputPassMark"
+                tools:ignore="NotSibling" />
+
+            <EditText
+                android:id="@+id/idInputPassMark"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="@string/hintInputPassMark"
+                android:inputType="number"
+                android:text="@string/inputPassMark"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/idLabelPassMark"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="NotSibling" />
+
+            <TextView
+                android:id="@+id/idLabelDeadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/labelDeadline"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idInputDeadline" />
+
+            <!--android:datePickerMode="spinner"
+            android:calendarViewShown="false"-->
+
+            <!--Question 1-->
+
+            <EditText
+                android:id="@+id/idInputDeadline"
+                android:layout_width="246dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginRight="28dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="@string/hintInputDeadline"
+                android:inputType="date"
+                android:text="@string/inputDeadline"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idInputQuizNumber" />
+
+            <TextView
+                android:id="@+id/idLabelInputQ1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="100dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/labelInputQ1"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idLabelQuizNumber" />
+
+            <EditText
+                android:id="@+id/idInputQ1"
+                android:layout_width="343dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="35dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:fontFamily="@font/allerta"
+                android:hint="@string/hintInputQ1"
+                android:inputType="textPersonName"
+                android:text="@string/inputQ1"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idLabelInputQ1" />
+
+            <EditText
+                android:id="@+id/inputQ1Ans1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="8dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/hintInputQ1Ans1"
+                android:inputType="textPersonName"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idInputQ1" />
+
+            <EditText
+                android:id="@+id/inputQ1Ans2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/hintInputQ1Ans2"
+                android:inputType="textPersonName"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputQ1Ans1" />
+
+            <EditText
+                android:id="@+id/inputQ1Ans3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/hintInputQ1Ans3"
+                android:inputType="textPersonName"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputQ1Ans2" />
+
+            <EditText
+                android:id="@+id/inputQ1Ans4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/hintInputQ1Ans4"
+                android:inputType="text"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputQ1Ans3" />
+
+            <!--Correct Answer 1 -->
+
+            <TextView
+                android:id="@+id/idLabelInputCorrectQ1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/labelInputCorrectQ1"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/inputCorrectQ1"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputQ1Ans4" />
+
+
+            <EditText
+                android:id="@+id/inputCorrectQ1"
+                android:layout_width="152dp"
+                android:layout_height="56dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/hintInputCorrectQ1"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintBaseline_toBaselineOf="@+id/idLabelInputCorrectQ1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/idLabelInputCorrectQ1" />
+
+            <!--Question 2-->
+
+            <TextView
+                android:id="@+id/idLabelInputQ2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/labelInputQ2"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idLabelInputCorrectQ1" />
+
+            <EditText
+                android:id="@+id/idInputQ2"
+                android:layout_width="343dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="35dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:fontFamily="@font/allerta"
+                android:hint="@string/hintInputQ2"
+                android:inputType="textPersonName"
+                android:text="@string/inputQ1"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idLabelInputQ2" />
+
+            <EditText
+                android:id="@+id/inputQ2Ans1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/hintInputQ1Ans1"
+                android:inputType="textPersonName"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idInputQ2" />
+
+            <EditText
+                android:id="@+id/inputQ2Ans2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/hintInputQ1Ans2"
+                android:inputType="textPersonName"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputQ2Ans1" />
+
+            <EditText
+                android:id="@+id/inputQ2Ans3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/hintInputQ1Ans3"
+                android:inputType="textPersonName"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputQ2Ans2" />
+
+            <EditText
+                android:id="@+id/inputQ2Ans4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/hintInputQ1Ans4"
+                android:inputType="text"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputQ2Ans3" />
+
+            <!--Correct Answer 2 -->
+            <TextView
+                android:id="@+id/idLabelInputCorrectQ2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/labelInputCorrectQ2"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/inputCorrectQ2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputQ2Ans4" />
+
+
+            <EditText
+                android:id="@+id/inputCorrectQ2"
+                android:layout_width="152dp"
+                android:layout_height="56dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/hintInputCorrectQ2"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintBaseline_toBaselineOf="@+id/idLabelInputCorrectQ2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/idLabelInputCorrectQ2" />
+
+            <!--Question 3-->
+
+            <TextView
+                android:id="@+id/idLabelInputQ3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/labelInputQ3"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idLabelInputCorrectQ2" />
+
+            <EditText
+                android:id="@+id/idInputQ3"
+                android:layout_width="343dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="35dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:fontFamily="@font/allerta"
+                android:hint="@string/hintInputQ3"
+                android:inputType="textPersonName"
+                android:text="@string/inputQ3"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idLabelInputQ3" />
+
+            <EditText
+                android:id="@+id/inputQ3Ans1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="8dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/hintInputQ1Ans1"
+                android:inputType="textPersonName"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idInputQ3" />
+
+            <EditText
+                android:id="@+id/inputQ3Ans2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/hintInputQ1Ans2"
+                android:inputType="textPersonName"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputQ3Ans1" />
+
+            <EditText
+                android:id="@+id/inputQ3Ans3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/hintInputQ1Ans3"
+                android:inputType="textPersonName"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputQ3Ans2" />
+
+            <EditText
+                android:id="@+id/inputQ3Ans4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="5dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/hintInputQ1Ans4"
+                android:inputType="text"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputQ3Ans3" />
+
+            <!--Correct Answer 3 -->
+            <TextView
+                android:id="@+id/idLabelInputCorrectQ3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/labelInputCorrectQ3"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/inputCorrectQ3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputQ3Ans4" />
+
+
+            <EditText
+                android:id="@+id/inputCorrectQ3"
+                android:layout_width="152dp"
+                android:layout_height="56dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/hintInputCorrectQ3"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintBaseline_toBaselineOf="@+id/idLabelInputCorrectQ3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/idLabelInputCorrectQ3" />
+
+
+            <!--CANCEL button-->
+            <!-- app:layout_constraintBottom_toTopOf="@+id/idTeacher_navigation_view" -->
+            <Button
+                android:id="@+id/idBtnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/button_background"
+                android:text="@string/btnCancel"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:backgroundTint="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/idBtnSave"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idLabelInputCorrectQ3" />
+
+            <!--SAVE button-->
+            <!-- android:onClick="onClickSaveNotification" -->
+            <Button
+                android:id="@+id/idBtnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:text="@string/btnSave"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:backgroundTint="#000000"
+                app:layout_constraintBaseline_toBaselineOf="@+id/idBtnCancel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/idBtnCancel" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <!--Bottom Navigation-->
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/idTeacher_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#BF004E63"
+        app:itemIconTint="@color/white"
+        app:itemRippleColor="@color/black"
+        app:itemTextColor="#FFFFFF"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/teacher_bottom_nav_menu" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/QuizImage"
         android:layout_width="138dp"
         android:layout_height="111dp"
         android:layout_marginTop="92dp"
@@ -19,10 +19,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.872"
         app:srcCompat="@drawable/baseline_eco_black_36dp"
-        app:tint="#355723" />
+        app:tint="#355723"
+        android:contentDescription="TODO" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnRegSignUp"
         android:layout_width="161dp"
         android:layout_height="48dp"
         android:text="@string/btn_signUp"
@@ -35,7 +36,7 @@
         app:layout_constraintVertical_bias="0.3" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/regFullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
@@ -48,10 +49,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:autofillHints="" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/regEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -62,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/regFullName" />
 
     <TextView
         android:id="@+id/textView"
@@ -80,7 +82,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/regPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -91,7 +93,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/regEmail" />
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -102,6 +104,6 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/regPassword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

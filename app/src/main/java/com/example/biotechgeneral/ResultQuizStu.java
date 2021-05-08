@@ -28,21 +28,17 @@ public class ResultQuizStu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_quiz_stu);
 
-        QuizNum = (EditText)findViewById(R.id.ResQuizNo);
-        stuID = (EditText)findViewById(R.id.ResStuID);
+        QuizNum = (EditText) findViewById(R.id.ResQuizNo);
+        stuID = (EditText) findViewById(R.id.ResStuID);
 
-        OutName = (TextView)findViewById(R.id.RStuName);
-        OutRes = (TextView)findViewById(R.id.ResResults);
-        submit = (Button)findViewById(R.id.ResSubmit);
-        can = (Button)findViewById(R.id.ResCancel);
+        OutName = (TextView) findViewById(R.id.RStuName);
+        OutRes = (TextView) findViewById(R.id.ResResults);
+        submit = (Button) findViewById(R.id.ResSubmit);
+        can = (Button) findViewById(R.id.ResCancel);
 
-        reff = FirebaseDatabase.getInstance().getReference().child("QuizInfo");
 
-        String sid = stuID.getText().toString().trim();
-
+        /*
         Query checkUser = reff.orderByChild("qname").equalTo(QuizNum.getText().toString().trim());
-
-
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -79,13 +75,13 @@ public class ResultQuizStu extends AppCompatActivity {
 
     }
 
+         */
 
-
-        /*
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                reff = FirebaseDatabase.getInstance().getReference().child("QuizInfo").child(stuID.getText().toString().trim());
                 reff.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -95,7 +91,7 @@ public class ResultQuizStu extends AppCompatActivity {
                         String Res = snapshot.child("results").getValue().toString();
                         String qNum = snapshot.child("qname").getValue().toString();
 
-                        if(regNum.equals("112")){
+                        if (regNum.equals(stuID.getText().toString().trim())) {
                             OutName.setText(ResName);
                             OutRes.setText(Res);
                         }
@@ -111,5 +107,6 @@ public class ResultQuizStu extends AppCompatActivity {
             }
         });
 
-         */
+
+    }
 }

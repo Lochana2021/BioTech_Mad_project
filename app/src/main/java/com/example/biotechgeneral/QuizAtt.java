@@ -5,8 +5,17 @@ public class QuizAtt {
     private String QRegNum;
     private String QID;
     private String Qdate;
+    private String results;
 
     public QuizAtt() {
+    }
+
+    public String getResults() {
+        return results;
+    }
+
+    public void setResults(String results) {
+        this.results = results;
     }
 
     public String getQName() {

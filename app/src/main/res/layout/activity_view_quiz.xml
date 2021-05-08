@@ -87,7 +87,7 @@
             android:layout_marginLeft="35dp" />
 
         <TextView
-            android:id="@+id/Qnumber"
+            android:id="@+id/QuizNumber"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="90dp"

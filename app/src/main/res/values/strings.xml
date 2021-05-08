@@ -179,6 +179,11 @@
     <string name="date">Quiz Date</string>
     <string name="cancel">Cancel</string>
     <string name="submit">Submit</string>
+    <string name="results">Results</string>
+    <string name="quiz_number">Quiz number</string>
+    <string name="student_name">Student name</string>
+    <string name="register_number">Register number</string>
+    <string name="quiz_date">Quiz date</string>
 
 
 </resources>

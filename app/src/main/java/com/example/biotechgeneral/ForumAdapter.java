@@ -13,8 +13,11 @@ import java.util.List;
 
 public class ForumAdapter extends RecyclerView.Adapter {
 
+// Create variables
      List<Forum> forumList;
      Context context;
+
+     // Create constructors
 
      public ForumAdapter(List<Forum> forumList) {
         this.forumList = forumList;
@@ -36,6 +39,7 @@ public class ForumAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         ViewHolderclass viewHolderclass = (ViewHolderclass) holder;
 
+        // add data to list
          Forum forum = forumList.get(position);
         ViewHolderclass.name.setText(forum.getName());
         ViewHolderclass.description.setText(forum.getDescription());
@@ -54,7 +58,7 @@ public class ForumAdapter extends RecyclerView.Adapter {
         static TextView type;
 
 
-
+//create viewHolder class body
         public  ViewHolderclass(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.Fname);

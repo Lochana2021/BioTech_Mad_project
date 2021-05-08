@@ -12,9 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class ForumStudentAdapter extends RecyclerView.Adapter {
+
+    // Create Variable and List
     List<ForumStudent>forumStudentList;
     Context context;
-
+//Create Constructors
     public ForumStudentAdapter(List<ForumStudent> forumStudentList) {
         this.forumStudentList = forumStudentList;
     }
@@ -50,6 +52,8 @@ public class ForumStudentAdapter extends RecyclerView.Adapter {
         static TextView name;
         static TextView quetionNo;
         static TextView answer;;
+
+        // Declare ViewHolder class
 
         public ViewHolderclass(@NonNull View itemView) {
             super(itemView);

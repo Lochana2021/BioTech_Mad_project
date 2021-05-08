@@ -19,6 +19,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class AddQuetion extends AppCompatActivity {
 
+// Declare Attributes
+
     EditText fname, quetion, quetionNo;
     Button submit, cancel;
     DatabaseReference F_dbRef;
@@ -29,13 +31,19 @@ public class AddQuetion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_quetion);
 
+    // initialize variables for xml widgets
+
         fname = findViewById(R.id.txt_FName);
         quetion = findViewById(R.id.F_Addquetion);
         submit = findViewById(R.id.btn_FsubmitQ);
         quetionNo = findViewById(R.id.txt_quetionNo);
         cancel = findViewById(R.id.Add_QuetionCancel);
 
+    // create connection with firebase database
+
         F_dbRef = FirebaseDatabase.getInstance().getReference().child("ForumQuetion");
+
+        // Create Notification
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             NotificationChannel channel = new NotificationChannel("Forum Response", "Forum Response", NotificationManager.IMPORTANCE_DEFAULT);
@@ -46,7 +54,13 @@ public class AddQuetion extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Declare Insert Function
+
                 insertQuetion();
+
+                // Create notification when click the button
+
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(AddQuetion.this,"Forum Response");
                 builder.setContentTitle("New Question");
                 builder.setContentText("New Question is added by student");
@@ -58,11 +72,13 @@ public class AddQuetion extends AppCompatActivity {
 
             }
         });
-        // Cancel Button
 
 
 
     }
+
+    //Create insert function body
+
    private void insertQuetion(){
         String ForumName = fname.getText().toString();
         String Quetion = quetion.getText().toString();
@@ -77,8 +93,6 @@ public class AddQuetion extends AppCompatActivity {
     }
 
     // Cancel Button
-
-
 
     public void onCancel(View view) {
         Intent i = new Intent(this,Forum_Dashboard.class);

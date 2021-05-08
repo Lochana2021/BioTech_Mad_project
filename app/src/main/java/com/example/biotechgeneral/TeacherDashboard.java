@@ -19,7 +19,7 @@ public class TeacherDashboard extends AppCompatActivity {
 
     public void logoutLec(View view){
         FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(),lecturer_login.class));
+        startActivity(new Intent(getApplicationContext(),StartingDashboard.class));
         finish();
     }
 

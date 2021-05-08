@@ -36,11 +36,55 @@ public class ResultQuizStu extends AppCompatActivity {
         submit = (Button)findViewById(R.id.ResSubmit);
         can = (Button)findViewById(R.id.ResCancel);
 
+        reff = FirebaseDatabase.getInstance().getReference().child("QuizInfo");
 
+        String sid = stuID.getText().toString().trim();
+
+        Query checkUser = reff.orderByChild("qname").equalTo(QuizNum.getText().toString().trim());
+
+
+        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if(snapshot.exists()){
+
+                    String stID = snapshot.child(stuID.getText().toString().trim()).child("qregNum").getValue(String.class);
+
+                    if (stID.equals(stuID.getText().toString().trim())){
+
+                        String stuName = snapshot.child(stuID.getText().toString().trim()).child("qid").getValue(String.class);
+                        String stuRes = snapshot.child(stuID.getText().toString().trim()).child("result").getValue(String.class);
+
+                        submit.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                OutName.setText(stuName);
+                                OutRes.setText(stuRes);
+                            }
+                        });
+
+                    }
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
+
+
+        /*
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 reff.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -67,57 +111,5 @@ public class ResultQuizStu extends AppCompatActivity {
             }
         });
 
-
-
-/*
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                if(snapshot.exists()){
-
-                    QuizNum.setError(null);
-
-                    String stuID = snapshot.child(sid).child("qregNum").getValue(String.class);
-
-                    if (stuID.equals(sid)){
-
-                        QuizNum.setError(null);
-
-                        String stuName = snapshot.child(sid).child("qid").getValue(String.class);
-                        String stuRes = snapshot.child(sid).child("result").getValue(String.class);
-
-                        submit.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                OutName.setText(stuName);
-                                OutRes.setText(stuRes);
-                            }
-                        });
-
-                    }
-
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-            }
-        });*/
-
-
-
-
-    }
+         */
 }

@@ -47,7 +47,7 @@ public class activity_quiz_attendance extends AppCompatActivity {
                 quizAttendance.setQdate(date);
                 quizAttendance.setResults(result);
 
-                reff.push().setValue(quizAttendance);
+                reff.child(regnum.getText().toString().trim()).setValue(quizAttendance);
                 Toast.makeText(activity_quiz_attendance.this,"Data insert successfully.",Toast.LENGTH_LONG).show();
             }
         });

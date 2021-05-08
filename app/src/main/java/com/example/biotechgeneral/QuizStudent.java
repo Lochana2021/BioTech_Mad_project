@@ -260,12 +260,13 @@ public class QuizStudent extends AppCompatActivity {
                                     {
                                         right ++;
                                         count ++;
+                                        Toast.makeText(QuizStudent.this,"Submit your answers",Toast.LENGTH_LONG).show();
                                     }
                                     else
                                     {
                                         wrong ++;
                                         count ++;
-                                        Toast.makeText(QuizStudent.this,qn,Toast.LENGTH_LONG).show();
+                                        Toast.makeText(QuizStudent.this,"Submit your answers",Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
@@ -277,12 +278,13 @@ public class QuizStudent extends AppCompatActivity {
                                     {
                                         right ++;
                                         count ++;
+                                        Toast.makeText(QuizStudent.this,"Submit your answers",Toast.LENGTH_LONG).show();
                                     }
                                     else
                                     {
                                         wrong ++;
                                         count ++;
-                                        Toast.makeText(QuizStudent.this,qn,Toast.LENGTH_LONG).show();
+                                        Toast.makeText(QuizStudent.this,"Submit your answers",Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
@@ -294,12 +296,13 @@ public class QuizStudent extends AppCompatActivity {
                                     {
                                         right ++;
                                         count ++;
+                                        Toast.makeText(QuizStudent.this,"Submit your answers",Toast.LENGTH_LONG).show();
                                     }
                                     else
                                     {
                                         wrong ++;
                                         count ++;
-                                        Toast.makeText(QuizStudent.this,qn,Toast.LENGTH_LONG).show();
+                                        Toast.makeText(QuizStudent.this,"Submit your answers",Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
@@ -311,12 +314,13 @@ public class QuizStudent extends AppCompatActivity {
                                     {
                                         right ++;
                                         count ++;
+                                        Toast.makeText(QuizStudent.this,"Submit your answers",Toast.LENGTH_LONG).show();
                                     }
                                     else
                                     {
                                         wrong ++;
                                         count ++;
-                                        Toast.makeText(QuizStudent.this,qn,Toast.LENGTH_LONG).show();
+                                        Toast.makeText(QuizStudent.this,"Submit your answers",Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });

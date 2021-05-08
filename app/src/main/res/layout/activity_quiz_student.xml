@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E0ECEA"
+        tools:context=".ViewQuiz">
+
+        <TextView
+            android:id="@+id/StuQuizName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/amaranth_bold"
+            android:text="Student Quiz"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/idDivider_View"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="20dp"
+            android:background="#355723"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/StuQuizName" />
+
+        <!-- Pass List -->
+
+        <!-- Quiz Number -->
+
+
+        <!--Pass Mark-->
+
+        <!--Question 1-->
+
+        <TextView
+            android:id="@+id/StuQue1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/allerta"
+            android:text="@string/labelInputQ1_View"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.104"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/attemptQuiz" />
+
+        <TextView
+            android:id="@+id/que1"
+            android:layout_width="371dp"
+            android:layout_height="63dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="35dp"
+            android:ems="10"
+            android:fontFamily="@font/allerta"
+            android:text="@string/lbl_InputQ1_View"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/StuQue1" />
+
+        <Button
+            android:id="@+id/q1a1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:scrollbarSize="2dp"
+            android:text="@string/labelInputQ1Ans1_View"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/que1" />
+
+        <Button
+            android:id="@+id/q1a2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:scrollbarSize="2dp"
+            android:text="@string/labelInputQ1Ans2_View"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/q1a1" />
+
+        <Button
+            android:id="@+id/q1a3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:scrollbarSize="2dp"
+            android:text="@string/labelInputQ1Ans3_View"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/q1a2" />
+
+        <Button
+            android:id="@+id/q1a4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:scrollbarSize="2dp"
+            android:text="@string/labelInputQ1Ans4_View"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/q1a3" />
+
+        <!--Correct Answer 1 -->
+
+
+        <!--Question 2-->
+
+        <TextView
+            android:id="@+id/StuQue2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/allerta"
+            android:text="@string/labelInputQ2_View"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.105"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/q1a4" />
+
+        <TextView
+            android:id="@+id/que2"
+            android:layout_width="374dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="35dp"
+            android:ems="10"
+            android:fontFamily="@font/allerta"
+            android:text="@string/lbl_InputQ2_View"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.181"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/StuQue2" />
+
+        <Button
+            android:id="@+id/q2a1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:scrollbarSize="2dp"
+            android:text="@string/labelInputQ2Ans1_View"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/que2" />
+
+        <Button
+            android:id="@+id/q2a2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:scrollbarSize="2dp"
+            android:text="@string/labelInputQ2Ans2_View"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/q2a1" />
+
+        <Button
+            android:id="@+id/q2a3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:scrollbarSize="2dp"
+            android:text="@string/labelInputQ2Ans3_View"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/q2a2" />
+
+        <Button
+            android:id="@+id/q2a4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:scrollbarSize="2dp"
+            android:text="@string/labelInputQ2Ans4_View"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/q2a3" />
+
+        <!--Correct Answer 2 -->
+
+
+        <!--Question 3-->
+
+        <TextView
+            android:id="@+id/StuQue3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/allerta"
+            android:text="@string/labelInputQ3_View"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.115"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/q2a4" />
+
+        <TextView
+            android:id="@+id/que3"
+            android:layout_width="374dp"
+            android:layout_height="71dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:fontFamily="@font/allerta"
+            android:text="@string/lbl_InputQ3_View"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toTopOf="@+id/q3a1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/StuQue3" />
+
+        <Button
+            android:id="@+id/q3a1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:scrollbarSize="2dp"
+            android:text="@string/labelInputQ3Ans1_View"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/que3" />
+
+        <Button
+            android:id="@+id/q3a2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:scrollbarSize="2dp"
+            android:text="@string/labelInputQ3Ans2_View"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/q3a1" />
+
+        <Button
+            android:id="@+id/q3a3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:scrollbarSize="2dp"
+            android:text="@string/labelInputQ3Ans3_View"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/q3a2" />
+
+        <Button
+            android:id="@+id/q3a4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:scrollbarSize="2dp"
+            android:text="@string/labelInputQ3Ans4_View"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/q3a3" />
+
+        <!--Correct Answer 3 -->
+
+
+        <!--CANCEL button
+        <Button
+            android:id="@+id/idBtnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="25dp"
+            android:backgroundTint="#000000"
+            android:text="@string/btnCancel"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+            app:layout_constraintEnd_toStartOf="@+id/idBtnSave"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idLabelInputCorrectQ3" />
+
+         ////////SAVE button
+        <Button
+            android:id="@+id/idBtnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#000000"
+            android:onClick="gotoQuizListActivity"
+            android:text="@string/btnSave"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/idBtnCancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/idBtnCancel" />
+
+            -->
+
+        <!--Bottom Navigation-->
+
+        <TextView
+            android:id="@+id/idLabelInputCorrectQ3_View"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="100dp"
+            android:fontFamily="@font/allerta"
+            android:text="End of the Quiz"
+            android:textColor="#355723"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/q3a4"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#A9355723"
+            app:itemIconTint="@color/black"
+            app:itemTextColor="#2D2F31"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/navigation_menu" />
+
+        <Button
+            android:id="@+id/submitQS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="29dp"
+            android:text="Submit"
+            app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.921"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idLabelInputCorrectQ3_View"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="29dp"
+            android:text="Cancel"
+            app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idLabelInputCorrectQ3_View"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/attemptQuiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Attempt quiz"
+            android:textColorLink="@color/black"
+            app:backgroundTint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.906"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idDivider_View" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Qnumber"
+            android:layout_width="174dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="4dp"
+            android:hint="Enter Quiz"
+            app:layout_constraintEnd_toStartOf="@+id/attemptQuiz"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idDivider_View" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

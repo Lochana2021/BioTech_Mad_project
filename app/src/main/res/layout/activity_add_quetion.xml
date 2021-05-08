@@ -10,7 +10,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E0ECEA"
+        android:background="@color/white"
         tools:context=".Forum_AskQuetion">
 
 
@@ -93,14 +93,14 @@
             android:layout_width="104dp"
             android:layout_height="47dp"
             android:backgroundTint="#000000"
+            android:onClick="onCancel"
             android:text="@string/btn_Cancel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.475"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.854"
-            android:onClick="onCancel"/>
+            app:layout_constraintVertical_bias="0.854" />
 
         <Button
             android:id="@+id/btn_FsubmitQ"

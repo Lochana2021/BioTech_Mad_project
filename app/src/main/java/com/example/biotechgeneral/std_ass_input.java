@@ -183,7 +183,13 @@ public class std_ass_input extends AppCompatActivity {
                          NotificationCompat.Builder builder = new NotificationCompat.Builder(std_ass_input.this,CHANNEL_ID)
                                  .setSmallIcon(R.drawable.baseline_eco_black_36dp)
                                  .setContentTitle("BioTech")
-                                 .setContentText(txtStdID.getText()+" has attempted to "+mySpinnerType.getSelectedItem())
+                                 .setContentText(txtStdID.getText()+" has attempted "+mySpinnerType.getSelectedItem())
+
+                                 .setColor(getApplicationContext().getResources().getColor(R.color.notificationGreen))
+                                 .setColorized(true)
+                                 //.setStyle(androidx.media.app.NotificationCompat.DecoratedMediaCustomViewStyle())
+                                 //.setCustomContentView(notificationView)
+
                                  .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                                  .setContentIntent(pendingIntent)
                                  .setAutoCancel(true);

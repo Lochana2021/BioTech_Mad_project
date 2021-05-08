@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,6 +27,7 @@ public class std_profile extends AppCompatActivity {
     private FirebaseUser user;
 
     private String userID;
+    public BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,38 @@ public class std_profile extends AppCompatActivity {
             }
         });
 
+        // Bottom navigation onClick listener
+        bottomNavigationView = (BottomNavigationView)findViewById(R.id.idTeacher_navigation_view);
 
-    }
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    /*case R.id.action_Quiz:
+                        //Add your action onClick
+                        Intent intentQuiz = new Intent(getApplicationContext(), .class);
+                        startActivity(intentQuiz);
+                        break;*/
+                    case R.id.action_Forum:
+                        Intent intentForum = new Intent(getApplicationContext(), Forum_Dashboard.class);
+                        startActivity(intentForum);
+                        break;
+
+                    case R.id.action_Assignment:
+                        Intent intentAssign = new Intent(getApplicationContext(), std_ass_input.class);
+                        startActivity(intentAssign);
+                        break;
+
+                    case R.id.action_Profile:
+                        Intent intentProfile = new Intent(getApplicationContext(), std_profile.class);
+                        startActivity(intentProfile);
+                        break;
+                }
+                return false;
+            }
+        });
+
+
+    }// onCreate ends
 }

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:layout_marginTop="10dp"
-        android:background="#355723"
+        android:background="#BF004E63"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -85,19 +85,16 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/idTeacher_navigation_view"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="672dp"
-        android:background="#A8355723"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="#2D2F31"
+        android:background="#BF004E63"
+        app:itemIconTint="@color/white"
+        app:itemRippleColor="@color/black"
+        app:itemTextColor="#FFFFFF"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/teacher_bottom_nav_menu" />
 
     <!--list view liststdass_item-->

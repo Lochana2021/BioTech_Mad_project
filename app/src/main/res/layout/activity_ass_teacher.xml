@@ -11,7 +11,7 @@
         android:id="@+id/viewtechAssType"
         android:layout_width="wrap_content"
         android:layout_height="3dp"
-        android:background="#355723"
+        android:background="#BF004E63"
         app:layout_constraintBottom_toTopOf="@+id/assTechsubTopic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -80,20 +80,19 @@
         app:layout_constraintTop_toBottomOf="@+id/btnPar"
         app:layout_constraintVertical_bias="0.258" />
 
+
     <TextView
         android:id="@+id/assTechsubTopic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="84dp"
         android:text="@string/title_inter_inter"
         android:textColor="#000000"
         android:textSize="30sp"
-        android:textStyle="bold"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/techAssTopic" />
-
 
     <TextView
         android:id="@+id/techAssTopic"
@@ -112,19 +111,16 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/idTeacher_navigation_view"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="672dp"
-        android:background="#A8355723"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="#2D2F31"
+        android:background="#BF004E63"
+        app:itemIconTint="@color/white"
+        app:itemRippleColor="@color/black"
+        app:itemTextColor="#FFFFFF"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/teacher_bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

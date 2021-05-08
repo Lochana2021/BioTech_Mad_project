@@ -92,7 +92,14 @@
         <activity android:name=".navigation" />
         <activity
             android:name=".splash"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".login_bio">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -182,6 +189,28 @@
         </activity>
 
         <!-- Ashu End -->
+
+        <!-- Dev START -->
+        <activity android:name=".activity_quiz_attendance">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".QuizStudent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ResultQuizStu">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Dev ENDS-->
 
 
     </application>

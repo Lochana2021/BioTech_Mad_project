@@ -36,9 +36,9 @@ public class QuizStudent extends AppCompatActivity {
         QuizNo = (EditText)findViewById(R.id.QuizNumber);
         qn = QuizNo.getText().toString();
 
-        StringBuilder builder = new StringBuilder("");
+       /* StringBuilder builder = new StringBuilder("");
         builder.append("Quiz ").append(qn);
-        String text =builder.toString();
+        String text =builder.toString();*/
 
         q1 = (TextView)findViewById(R.id.que1);
         q2 = (TextView)findViewById(R.id.que2);

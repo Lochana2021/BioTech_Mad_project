@@ -223,5 +223,28 @@
 
     <!-- End of Ashu-->
 
+    <!-- Dev STARTS -->
+    <string name="quiz_attendance">Quiz_attendance</string>
+    <string name="name">Quiz Name</string>
+    <string name="quiz_id">Quiz ID</string>
+    <string name="registered_number">Registration Number</string>
+    <string name="date">Quiz Date</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="results">Results</string>
+    <string name="quiz_number">Quiz number</string>
+    <string name="student_name">Student name</string>
+    <string name="register_number">Register number</string>
+    <string name="quiz_date">Quiz date</string>
+    <string name="quiz_number_res">Quiz Number_res</string>
+
+    <!-- Dev ENDS-->
+
+    <!-- Testing loch-->
+    <string name="lecLogOutBtn">LogOut</string>
+    <string name="lecDashName">BioTech Lecturer</string>
+    <string name="testView_week_te"></string>
+
+
 
 </resources>

@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/navigation_view" />
+        app:layout_constraintStart_toStartOf="@+id/idTeacher_navigation_view" />
 
     <TextView
         android:id="@+id/TechDateLabel"
@@ -36,26 +36,26 @@
         android:layout_width="118dp"
         android:layout_height="43dp"
         android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="100dp"
         android:text="@string/label_place"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TechDateLabel"
-        android:layout_marginLeft="24dp" />
+        app:layout_constraintTop_toBottomOf="@+id/TechDateLabel" />
 
     <TextView
         android:id="@+id/TechDescriptionLabel"
         android:layout_width="120dp"
         android:layout_height="42dp"
         android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="32dp"
         android:text="@string/label_description"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TechPlaceLabel"
-        android:layout_marginLeft="24dp" />
+        app:layout_constraintTop_toBottomOf="@+id/TechPlaceLabel" />
 
     <TextView
         android:id="@+id/TechDateView"
@@ -106,7 +106,7 @@
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -125,7 +125,7 @@
         app:layout_constraintTop_toBottomOf="@+id/singleStdTopic" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation_view"
+        android:id="@+id/idTeacher_navigation_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -139,21 +139,21 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/navigation_menu" />
+        app:menu="@menu/teacher_bottom_nav_menu" />
 
     <TextView
         android:id="@+id/TechWeatherLabel"
         android:layout_width="102dp"
         android:layout_height="34dp"
         android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         android:text="@string/label_weather"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/TechPlaceLabel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TechDateLabel"
-        app:layout_constraintVertical_bias="0.469"
-        android:layout_marginLeft="24dp" />
+        app:layout_constraintVertical_bias="0.469" />
 
     <TextView
         android:id="@+id/TechWeatherView"
@@ -175,10 +175,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
-        android:text="@string/techStdMarksInputBtn"
         android:background="@drawable/button_background"
+        android:text="@string/techStdMarksInputBtn"
         app:backgroundTint="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        app:layout_constraintBottom_toTopOf="@+id/idTeacher_navigation_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TechDescriptionView"
         app:layout_constraintVertical_bias="0.587" />
@@ -191,7 +191,7 @@
         android:ems="10"
         android:hint="@string/input_marks"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        app:layout_constraintBottom_toTopOf="@+id/idTeacher_navigation_view"
         app:layout_constraintEnd_toStartOf="@+id/asstechmarksbtn"
         app:layout_constraintHorizontal_bias="0.415"
         app:layout_constraintStart_toStartOf="parent"

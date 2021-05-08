@@ -26,7 +26,7 @@ public class navigation extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),std_ass_input.class));
     }
 
-    /*public void quizNav(View view){
+    public void quizNav(View view){
         startActivity(new Intent(getApplicationContext(),std_ass_input.class));
     }
 
@@ -35,6 +35,6 @@ public class navigation extends AppCompatActivity {
     }
 
     public void profileNav(View view){
-        startActivity(new Intent(getApplicationContext(),std_ass_input.class));
-    }*/
+        startActivity(new Intent(getApplicationContext(),std_profile.class));
+    }
 }

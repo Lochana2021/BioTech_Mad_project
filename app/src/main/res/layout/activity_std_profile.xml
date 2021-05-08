@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation_view"
+        android:id="@+id/idTeacher_navigation_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -24,59 +24,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/navigation_menu" />
 
-    <View
-        android:id="@+id/viewstdInput"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginBottom="640dp"
-        android:background="#355723"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/navigation_view"
-        app:layout_constraintTop_toBottomOf="@+id/assStdTopic"
-        app:layout_constraintVertical_bias="1.0" />
-
     <TextView
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:text="@string/textView_01"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintBottom_toTopOf="@+id/userNameStd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.115"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.888" />
+        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
 
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="@string/title"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-
-        android:id="@+id/textView6"
+        android:id="@+id/userNameStd"
         android:layout_width="333dp"
         android:layout_height="43dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="192dp"
         android:hint="@string/textView_04"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.576"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
     <TextView
 
@@ -86,24 +58,24 @@
         android:text="@string/textView_02"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintBottom_toTopOf="@+id/userEmailStd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintHorizontal_bias="0.136"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/userNameStd"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
 
-        android:id="@+id/textView8"
+        android:id="@+id/userEmailStd"
         android:layout_width="337dp"
         android:layout_height="47dp"
-        android:layout_marginBottom="276dp"
+        android:layout_marginBottom="112dp"
         android:hint="@string/textView_05"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        app:layout_constraintBottom_toTopOf="@+id/idTeacher_navigation_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintHorizontal_bias="0.662"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.127" />
@@ -112,16 +84,45 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="28dp"
         android:background="#000000"
         android:backgroundTint="#000000"
         android:text="@string/btn_01"
         app:backgroundTint="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        app:layout_constraintBottom_toTopOf="@+id/idTeacher_navigation_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.787"
+        app:layout_constraintHorizontal_bias="0.874"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.497" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#A8355723"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="109dp"
+            android:layout_height="104dp"
+            android:layout_marginStart="156dp"
+            android:layout_marginLeft="156dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="146dp"
+            android:layout_marginRight="146dp"
+            android:layout_marginBottom="36dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/user" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

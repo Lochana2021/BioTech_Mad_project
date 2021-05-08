@@ -3,6 +3,7 @@ package com.example.biotechgeneral;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,6 +38,8 @@ public class sigle_type extends AppCompatActivity {
 
     int attCount = 0;
     private static float percentage = (float) 0.0;
+
+    public BottomNavigationView bottomNavigationView;
 
 
     @Override
@@ -193,6 +197,36 @@ public class sigle_type extends AppCompatActivity {
 
             }
         });*/
+
+        // Bottom navigation onClick listner
+        bottomNavigationView = (BottomNavigationView)findViewById(R.id.idTeacher_navigation_view);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_TQuiz:
+                        //Add your action onClick
+                        Intent intentCreateQuiz = new Intent(getApplicationContext(), QuizList.class);
+                        startActivity(intentCreateQuiz);
+                        break;
+                    case R.id.action_TForum:
+
+                        break;
+
+                    case R.id.action_TAssignment:
+                        Intent intentAssT = new Intent(getApplicationContext(), ass_teacher.class);
+                        startActivity(intentAssT);
+
+                        break;
+
+                    case R.id.action_TProfile:
+                        break;
+                }
+                return false;
+            }
+        });//nav end
 
 
     }

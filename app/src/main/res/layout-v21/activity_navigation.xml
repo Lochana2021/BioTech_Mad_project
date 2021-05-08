@@ -13,14 +13,13 @@
         android:id="@+id/BioTechTopic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="112dp"
         android:text="@string/topic_name"
         android:textColor="#355723"
         android:textSize="40sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageIconMain"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.854"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,13 +27,13 @@
         android:id="@+id/imageIconMain"
         android:layout_width="61dp"
         android:layout_height="58dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
         android:contentDescription="@string/loch1_5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/BioTechTopic"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.172"
+        app:layout_constraintVertical_bias="0.17"
         app:srcCompat="@drawable/baseline_eco_black_36dp"
         app:tint="#355723" />
 
@@ -46,6 +45,7 @@
         android:layout_marginTop="47dp"
         android:layout_marginBottom="4dp"
         android:contentDescription="@string/loch1_3"
+        android:onClick="assignmentNav"
         app:layout_constraintBottom_toTopOf="@+id/textViewAssignment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewQuiz"
@@ -57,6 +57,7 @@
         android:layout_height="109dp"
         android:layout_marginTop="44dp"
         android:contentDescription="@string/loch1_4"
+        android:onClick="profileNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toEndOf="@+id/imageAssignment"
@@ -139,5 +140,16 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textViewAssignment"
         app:layout_constraintTop_toBottomOf="@+id/imageForum" />
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="logout"
+        android:text="@string/btnLogOut"
+        app:layout_constraintBottom_toTopOf="@+id/imageForum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BioTechTopic" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,21 +11,20 @@
         android:id="@+id/viewtechAssType"
         android:layout_width="wrap_content"
         android:layout_height="3dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="16dp"
         android:background="#355723"
-        app:layout_constraintBottom_toTopOf="@+id/editTextweek"
+        app:layout_constraintBottom_toTopOf="@+id/assTechsubTopic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/navigation_view"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/idTeacher_navigation_view"
+        app:layout_constraintTop_toBottomOf="@+id/techAssTopic"
+        app:layout_constraintVertical_bias="0.277" />
 
     <Button
         android:id="@+id/btnMutu"
         android:layout_width="298dp"
         android:layout_height="52dp"
         android:layout_marginTop="48dp"
-        android:background="#000000"
+        android:background="@drawable/button_background"
         android:text="@string/btn_mutu"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
@@ -40,7 +39,7 @@
         android:layout_width="298dp"
         android:layout_height="52dp"
         android:layout_marginTop="40dp"
-        android:background="#000000"
+        android:background="@drawable/button_background"
         android:text="@string/btn_comm"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
@@ -55,7 +54,7 @@
         android:layout_width="298dp"
         android:layout_height="52dp"
         android:layout_marginTop="36dp"
-        android:background="#000000"
+        android:background="@drawable/button_background"
         android:text="@string/btn_para"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
@@ -69,7 +68,7 @@
         android:id="@+id/btnTiti"
         android:layout_width="298dp"
         android:layout_height="52dp"
-        android:background="#000000"
+        android:background="@drawable/button_background"
         android:text="@string/btn_compe"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
@@ -91,27 +90,28 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/techAssTopic" />
+
 
     <TextView
         android:id="@+id/techAssTopic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/amaranth_bold"
         android:text="@string/title_std_ass"
         android:textColor="#000000"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.186"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation_view"
+        android:id="@+id/idTeacher_navigation_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -125,21 +125,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/navigation_menu" />
-
-    <EditText
-        android:id="@+id/editTextweek"
-        android:layout_width="179dp"
-        android:layout_height="50dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/weekEnter"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/assTechsubTopic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.869" />
+        app:menu="@menu/teacher_bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-    <TextView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/idRetrieveTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:padding="16dp"
-    />
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/idRetrieveTextView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fontFamily="@font/allerta"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    android:textAlignment="center"
+    android:textColor="#FFFFFF"
+    android:textSize="25sp"
+    android:textStyle="bold"
+    android:backgroundTint="#FFCC4400"
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/button_background"/>

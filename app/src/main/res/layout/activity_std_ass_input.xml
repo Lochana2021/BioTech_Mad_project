@@ -18,7 +18,7 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/navigation_view"
+        app:layout_constraintStart_toStartOf="@+id/idTeacher_navigation_view"
         app:layout_constraintTop_toBottomOf="@+id/assStdTopic"
         app:layout_constraintVertical_bias="1.0" />
 
@@ -145,8 +145,8 @@
         android:id="@+id/AssDateinput"
         android:layout_width="213dp"
         android:layout_height="41dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginLeft="96dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginLeft="104dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/input_date"
@@ -159,9 +159,9 @@
         android:layout_width="178dp"
         android:layout_height="52dp"
         android:layout_marginTop="35dp"
+        android:background="@drawable/button_background"
         android:text="@string/btn_submit"
         android:textSize="18sp"
-        android:background="@drawable/button_background"
         app:backgroundTint="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -199,7 +199,7 @@
         app:layout_constraintStart_toEndOf="@+id/AssWeekLabel" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation_view"
+        android:id="@+id/idTeacher_navigation_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -42,9 +42,6 @@ public class std_ass_input extends AppCompatActivity {
     String CHANNEL_ID = "ID_1";
     String description = "Project Notification";
 
-
-
-
     //long assID = 0;
 
     @SuppressLint("ClickableViewAccessibility")
@@ -166,7 +163,7 @@ public class std_ass_input extends AppCompatActivity {
                          ass.setWeather(txtWeather.getText().toString().trim());
                          ass.setPlace(txtPlace.getText().toString().trim());
                          ass.setDescription(txtDescription.getText().toString().trim());
-                         //ass.setStdMarksAss(0);
+                        // ass.setStdMarksAss("0");
 
                          //Insert into the database...
                          //dbRef.push().setValue(ass);
@@ -178,13 +175,13 @@ public class std_ass_input extends AppCompatActivity {
                          Toast.makeText(getApplicationContext(),"Submitted Successfully",Toast.LENGTH_LONG).show();
 
                          //notification
-                         Intent intent = new Intent(std_ass_input.this, ass_teacher.class);
+                         Intent intent = new Intent(std_ass_input.this, lecturer_login.class);
                          intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
                          PendingIntent pendingIntent = PendingIntent.getActivity(std_ass_input.this, 0,intent,0);
 
                          NotificationCompat.Builder builder = new NotificationCompat.Builder(std_ass_input.this,CHANNEL_ID)
-                                 .setSmallIcon(R.drawable.ic_launcher_background)
+                                 .setSmallIcon(R.drawable.baseline_eco_black_36dp)
                                  .setContentTitle("BioTech")
                                  .setContentText(txtStdID.getText()+" has attempted to "+mySpinnerType.getSelectedItem())
                                  .setPriority(NotificationCompat.PRIORITY_DEFAULT)

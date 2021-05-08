@@ -50,7 +50,7 @@
 
     <!--Create Quiz Activity-->
     <string name="labelTopCreateQuiz">Create New Quiz</string>
-    <string name="labelQuizNumber">Quiz:</string>
+    <string name="labelQuizNumber">Quiz</string>
     <string name="labelInputQ1">Question 1</string>
     <string name="inputQ1" />
     <string name="hintInputQ1">Enter Question 1 here</string>
@@ -130,7 +130,7 @@
     <string name="label_ID_std">Student ID :</string>
     <string name="label_week_std">Week :</string>
     <string name="label_type_std">Type :</string>
-    <string name="label_date_std">Day :</string>
+    <string name="label_date_std">Date :</string>
     <string name="label_weather_std">Weather :</string>
     <string name="label_place_std">Place :</string>
     <string name="label_des_std">Description :</string>
@@ -138,7 +138,7 @@
     <string name="btn_submit">Submit</string>
     <string name="input_ID">Enter Student ID</string>
     <string name="input_week">Enter the week</string>
-    <string name="input_date">Enter the day</string>
+    <string name="input_date">Enter the date</string>
     <string name="input_weather">Enter the weather</string>
     <string name="input_place">Enter the place</string>
     <string name="input_desc">Enter the description</string>
@@ -152,18 +152,17 @@
     <!--Teacher-->
     <string name="weekView">Week</string>
     <string name="label_week">Week :</string>
-    <string name="label_date">Day :</string>
+    <string name="label_date">Date :</string>
     <string name="label_weather">Weather :</string>
     <string name="label_place">Place :</string>
     <string name="label_description">Description :</string>
-    <string name="testView_week_te"></string>
     <string name="testView_date_te"></string>
     <string name="testView_weather_te"></string>
     <string name="testView_place_te"></string>
     <string name="testView_des_te"></string>
     <string name="type_txt">Type_01</string>
     <string name="tot_students">No of Students attempted : </string>
-    <string name="pass_per">Attempted students percentage : </string>
+    <string name="pass_per">Pass students percentage : </string>
     <string name="btn_mutu">Mutualism</string>
     <string name="btn_comm">Commensolism</string>
     <string name="btn_para">Parasitism</string>
@@ -172,12 +171,12 @@
     <string name="title_std_ass">Student Assignment</string>
     <string name="title_type">Type_01</string>
     <string name="title_std">student_01</string>
-    <string name="input_marks">Enter Marks</string>
+    <string name="input_marks">Enter Marks : </string>
     <string name="weekEnter">Enter the week</string>
     <string name="techStdMarksInputBtn">Save</string>
     <string name="labelDeadline_View">Deadline :</string>
     <string name="labelInputDeadline_View" />
-    <string name="btnLogOut">LogOut</string>
+
 
     <!--End of Loch-->
 
@@ -216,8 +215,11 @@
     <string name="txtView_PostAnswer">Post Answer</string>
     <string name="txtxView_PostQuetionNo">Quetion No</string>
     <string name="btn_PostAnswerSubmit">Share Answer</string>
-    <string name="lecLogOutBtn">LogOut</string>
-    <string name="lecDashName">BioTech Lecturer</string>
+    <string name="btnLogOut">Log Out</string>
+    <string name="btn_forTeachet">Click  Here</string>
+    <string name="btn_forStudent">Click Here</string>
+    <string name="txt_As_Teacher">As a Teacher</string>
+    <string name="txt_as_Student">As a Student</string>
 
     <!-- End of Ashu-->
 

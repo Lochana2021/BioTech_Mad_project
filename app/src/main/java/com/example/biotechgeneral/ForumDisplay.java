@@ -22,9 +22,7 @@ public class ForumDisplay extends AppCompatActivity {
     RecyclerView recyclerView;
     ForumStudentAdapter forumStudentAdapter;
     DatabaseReference F_dbRef;
-
-
-
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,25 +51,6 @@ public class ForumDisplay extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
 
 }

@@ -52,7 +52,7 @@ public class single_student extends AppCompatActivity {
         //.child("Assignment").child("1")
         /*assigning variables*/
         txtStdID = findViewById(R.id.StdNameView);
-        txtWeek = findViewById(R.id.TechWeekView);
+       // txtWeek = findViewById(R.id.TechWeekView);
         txtDate = findViewById(R.id.TechDateView);
         txtWeather = findViewById(R.id.TechWeatherView);
         txtPlace = findViewById(R.id.TechPlaceView);

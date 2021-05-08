@@ -108,7 +108,8 @@ public class ass_teacher extends AppCompatActivity {
                         startActivity(intentCreateQuiz);
                         break;
                     case R.id.action_TForum:
-
+                        Intent intentForum = new Intent(getApplicationContext(), Forum_Dashboard.class);
+                        startActivity(intentForum);
                         break;
 
                     case R.id.action_TAssignment:

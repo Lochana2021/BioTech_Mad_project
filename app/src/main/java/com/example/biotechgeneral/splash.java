@@ -26,5 +26,6 @@ public class splash extends AppCompatActivity {
         }, 2000);
 
         //startActivity(new Intent(this,login_bio.class));
+        
 }
 }

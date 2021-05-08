@@ -29,26 +29,18 @@ public class ResultQuizStu extends AppCompatActivity {
         setContentView(R.layout.activity_result_quiz_stu);
 
         QuizNum = (EditText)findViewById(R.id.ResQuizNo);
-        String qNumber = QuizNum.getText().toString().trim();
-
         stuID = (EditText)findViewById(R.id.ResStuID);
-        String studentID = stuID.getText().toString().trim();
 
         OutName = (TextView)findViewById(R.id.RStuName);
         OutRes = (TextView)findViewById(R.id.ResResults);
         submit = (Button)findViewById(R.id.ResSubmit);
         can = (Button)findViewById(R.id.ResCancel);
 
-        reff = FirebaseDatabase.getInstance().getReference().child("QuizInfo");
-
-        String qno = QuizNum.getText().toString().trim();
-        String sid = stuID.getText().toString().trim();
-
-        Query checkUser = reff.orderByChild("qno").equalTo(qno);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 reff.addValueEventListener(new ValueEventListener() {
                     @Override

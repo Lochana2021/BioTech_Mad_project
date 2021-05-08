@@ -65,7 +65,7 @@ public class std_profile extends AppCompatActivity {
         });
 
         // Bottom navigation onClick listener
-        bottomNavigationView = (BottomNavigationView)findViewById(R.id.idTeacher_navigation_view);
+        bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation_view);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 

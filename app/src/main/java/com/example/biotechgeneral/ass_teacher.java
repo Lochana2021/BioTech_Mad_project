@@ -125,6 +125,7 @@ public class ass_teacher extends AppCompatActivity {
             }
         });//nav end
     }
+    //test
 
    /* public void goToTypeAct(View view){
         Intent i = new Intent(this,sigle_type.class);

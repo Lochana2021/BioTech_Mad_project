@@ -208,6 +208,15 @@ public class QuizClass {
     public void setQuizQ3A4(String quizQ3A4) {
         this.quizQ3A4 = quizQ3A4;
     }
+
+/*
+    // Test : retireve quiz no only
+    @Override
+    public String toString() {
+        return this.quizNo;
+    }
+*/
+
 }
 
 

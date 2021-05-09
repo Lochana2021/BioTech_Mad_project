@@ -1,8 +1,15 @@
 package com.example.biotechgeneral;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.app.DatePickerDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.os.Build;
 import android.os.Bundle;
 import android.content.Intent;
 import android.text.InputType;
@@ -14,8 +21,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -32,7 +42,11 @@ public class CreateQuiz extends AppCompatActivity {
             quizQ2A1, quizQ2A2, quizQ2A3, quizQ2A4, quizQ3, quizQ3CorrectAnswer,
             quizQ3A1, quizQ3A2, quizQ3A3, quizQ3A4;
     Button idBtnCancel, idBtnSave;
-    TextView tvw;
+    long quizID = 0;
+    // Notification variables
+    String name = "Notification Channel";
+    String CHANNEL_ID = "ID_1";
+    String description = "Sample Description";
 
     // Clear out all user inputs
     public void clearControls() {
@@ -95,6 +109,34 @@ public class CreateQuiz extends AppCompatActivity {
         quizQ3A3 = findViewById(R.id.inputQ3Ans3);
         quizQ3A4 = findViewById(R.id.inputQ3Ans4);
 
+        // auto incement if any changes made to the data in database
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists())
+                    quizID = (snapshot.getChildrenCount());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        // NOTIFICATION
+        //checking the API for Notification Channel and Create a new channel
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+
+            ///////  Register the created Notification Channel
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+
+            notificationManager.createNotificationChannel(channel);
+        }
 
         // calender
         quizDeadline.setInputType(InputType.TYPE_NULL);
@@ -136,78 +178,101 @@ public class CreateQuiz extends AppCompatActivity {
         idBtnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-                    if(TextUtils.isEmpty(quizNo.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please enter Quiz Number." , Toast.LENGTH_LONG).show();
-                    else if(TextUtils.isEmpty(quizPassMark.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please enter Quiz Pass Mark." , Toast.LENGTH_LONG).show();
-                    else if(TextUtils.isEmpty(quizDeadline.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please enter Quiz Deadline." , Toast.LENGTH_LONG).show();
-                    else if(TextUtils.isEmpty(quizQ1.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please enter Question 1." , Toast.LENGTH_LONG).show();
-                    else if(TextUtils.isEmpty(quizQ2.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please enter Question 2." , Toast.LENGTH_LONG).show();
-                    else if(TextUtils.isEmpty(quizQ3.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please enter Question 3." , Toast.LENGTH_LONG).show();
-                    else if(TextUtils.isEmpty(quizQ1CorrectAnswer.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please enter Question 1 correct answer." , Toast.LENGTH_LONG).show();
-                    else {
-                        // Take user inputs and Assign them into this Instance(quiz) of the QuizClass
-                        quiz.setQuizNo(quizNo.getText().toString().trim());
-                       // quiz.setLecturerID(lecturerID.getText().toString().trim());
-                        quiz.setQuizPassMark(quizPassMark.getText().toString().trim());
-                        quiz.setQuizDeadline(quizDeadline.getText().toString().trim());
 
-                        quiz.setQuizQ1(quizQ1.getText().toString().trim());
-                        quiz.setQuizQ1CorrectAnswer(quizQ1CorrectAnswer.getText().toString().trim());
-                        quiz.setQuizQ1A1(quizQ1A1.getText().toString().trim());
-                        quiz.setQuizQ1A2(quizQ1A2.getText().toString().trim());
-                        quiz.setQuizQ1A3(quizQ1A3.getText().toString().trim());
-                        quiz.setQuizQ1A4(quizQ1A4.getText().toString().trim());
+                    try {
+                        if (TextUtils.isEmpty(quizNo.getText().toString()))
+                            Toast.makeText(getApplicationContext(), "Please enter Quiz Number.", Toast.LENGTH_LONG).show();
+                        else if (TextUtils.isEmpty(quizPassMark.getText().toString()))
+                            Toast.makeText(getApplicationContext(), "Please enter Quiz Pass Mark.", Toast.LENGTH_LONG).show();
+                        else if (TextUtils.isEmpty(quizDeadline.getText().toString()))
+                            Toast.makeText(getApplicationContext(), "Please enter Quiz Deadline.", Toast.LENGTH_LONG).show();
+                        else if (TextUtils.isEmpty(quizQ1.getText().toString()))
+                            Toast.makeText(getApplicationContext(), "Please enter Question 1.", Toast.LENGTH_LONG).show();
+                        else if (TextUtils.isEmpty(quizQ2.getText().toString()))
+                            Toast.makeText(getApplicationContext(), "Please enter Question 2.", Toast.LENGTH_LONG).show();
+                        else if (TextUtils.isEmpty(quizQ3.getText().toString()))
+                            Toast.makeText(getApplicationContext(), "Please enter Question 3.", Toast.LENGTH_LONG).show();
+                        else if (TextUtils.isEmpty(quizQ1CorrectAnswer.getText().toString()))
+                            Toast.makeText(getApplicationContext(), "Please enter Question 1 correct answer.", Toast.LENGTH_LONG).show();
+                        else {
+                            // Take user inputs and Assign them into this Instance(quiz) of the QuizClass
+                            quiz.setQuizNo(quizNo.getText().toString().trim());
+                            // quiz.setLecturerID(lecturerID.getText().toString().trim());
+                            quiz.setQuizPassMark(quizPassMark.getText().toString().trim());
+                            quiz.setQuizDeadline(quizDeadline.getText().toString().trim());
 
-                        quiz.setQuizQ2(quizQ2.getText().toString().trim());
-                        quiz.setQuizQ2CorrectAnswer(quizQ2CorrectAnswer.getText().toString().trim());
-                        quiz.setQuizQ2A1(quizQ2A1.getText().toString().trim());
-                        quiz.setQuizQ2A2(quizQ2A2.getText().toString().trim());
-                        quiz.setQuizQ2A3(quizQ2A3.getText().toString().trim());
-                        quiz.setQuizQ2A4(quizQ2A4.getText().toString().trim());
+                            quiz.setQuizQ1(quizQ1.getText().toString().trim());
+                            quiz.setQuizQ1CorrectAnswer(quizQ1CorrectAnswer.getText().toString().trim());
+                            quiz.setQuizQ1A1(quizQ1A1.getText().toString().trim());
+                            quiz.setQuizQ1A2(quizQ1A2.getText().toString().trim());
+                            quiz.setQuizQ1A3(quizQ1A3.getText().toString().trim());
+                            quiz.setQuizQ1A4(quizQ1A4.getText().toString().trim());
 
-                        quiz.setQuizQ3(quizQ3.getText().toString().trim());
-                        quiz.setQuizQ3CorrectAnswer(quizQ3CorrectAnswer.getText().toString().trim());
-                        quiz.setQuizQ3A1(quizQ3A1.getText().toString().trim());
-                        quiz.setQuizQ3A2(quizQ3A2.getText().toString().trim());
-                        quiz.setQuizQ3A3(quizQ3A3.getText().toString().trim());
-                        quiz.setQuizQ3A4(quizQ3A4.getText().toString().trim());
+                            quiz.setQuizQ2(quizQ2.getText().toString().trim());
+                            quiz.setQuizQ2CorrectAnswer(quizQ2CorrectAnswer.getText().toString().trim());
+                            quiz.setQuizQ2A1(quizQ2A1.getText().toString().trim());
+                            quiz.setQuizQ2A2(quizQ2A2.getText().toString().trim());
+                            quiz.setQuizQ2A3(quizQ2A3.getText().toString().trim());
+                            quiz.setQuizQ2A4(quizQ2A4.getText().toString().trim());
 
-                        // Insert data to the database
-                        //dbRef.push().setValue(quiz);
-                        dbRef.child("Quiz1").setValue(quiz);
+                            quiz.setQuizQ3(quizQ3.getText().toString().trim());
+                            quiz.setQuizQ3CorrectAnswer(quizQ3CorrectAnswer.getText().toString().trim());
+                            quiz.setQuizQ3A1(quizQ3A1.getText().toString().trim());
+                            quiz.setQuizQ3A2(quizQ3A2.getText().toString().trim());
+                            quiz.setQuizQ3A3(quizQ3A3.getText().toString().trim());
+                            quiz.setQuizQ3A4(quizQ3A4.getText().toString().trim());
 
-                        //Feedback to the user via a Toast
-                        Toast.makeText(getApplicationContext(), "Data Saved Successfully" , Toast.LENGTH_LONG).show();
+                            // Insert data to the database
+                            //dbRef.push().setValue(quiz);
+                            dbRef.child(String.valueOf(quizID+1)).setValue(quiz);
 
-                        // Reset input fields
-                        clearControls();
-                    }
-                }
-                catch (Exception e){
+                            //Feedback to the user via a Toast
+                            Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_LONG).show();
+
+                            /////////////// NOTIFICATION  ////////////////////
+
+                            // Create Explicit Intent to navigate from Notification --> QuizList Activity
+                            Intent intentNotify = new Intent(CreateQuiz.this, QuizList.class);
+                            intentNotify.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+                            ///////    Intent will be in Pending state until we tap on the Notification
+                            PendingIntent pendingIntent = PendingIntent.getActivity(CreateQuiz.this, 0, intentNotify, 0);
+
+                            /////      Set the content of the notification. --> Title / Context / Icon
+                            NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID)
+                                    .setSmallIcon(R.drawable.ic_launcher_background)
+                                    .setContentTitle("MAD Notification Title")
+                                    .setContentText("Hello " + quizNo.getText() + " !! Welcome to MAD team.")
+                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+                                    .setContentIntent(pendingIntent)
+                                    .setAutoCancel(true);     // when we tap the notification, it automatically disappears.
+
+                            ////////  Call the Notification Manager object
+                            NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(CreateQuiz.this);
+
+                            // builder object and unique ID
+                            notificationManagerCompat.notify(0, builder.build());
+
+
+                            // Reset input fields
+                            clearControls();
+                        } // else ends
+                    } // try ends
+                    catch (Exception e) {
+                    /*
                     Writer writer = new StringWriter();
                     e.printStackTrace(new PrintWriter(writer));
                     String errorMsg = writer.toString();
-                    Toast.makeText(getApplicationContext(), errorMsg , Toast.LENGTH_LONG).show();
-                }
-            }//    onCLick() ends
+
+                     */
+                        Toast.makeText(getApplicationContext(), "errorMsg", Toast.LENGTH_LONG).show();
+                    }
+            }// onCLick() ends
         }); //setOnClickListener() SAVE ends
+
 
     }// end of onCreate
 
-/*
-    public void gotoQuizListActivity (View view) {
 
-        Intent intent = new Intent(this, QuizList.class);
-        startActivity(intent);
-
-        Toast.makeText(getApplicationContext(), "Saving the Quiz....", Toast.LENGTH_LONG).show();
-    }
-    */
 }

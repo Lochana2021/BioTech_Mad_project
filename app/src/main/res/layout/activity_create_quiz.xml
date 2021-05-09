@@ -582,7 +582,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#000000"
-            android:onClick="gotoQuizListActivity"
+            android:onClick="onClickSaveNotification"
             android:text="@string/btnSave"
             android:textSize="15sp"
             android:textStyle="bold"

@@ -8,8 +8,17 @@ public class Assignment {
     private String Weather;
     private String Place;
     private String Description;
+    private Integer StdMarksAss;
 
     public Assignment() {
+    }
+
+    public Integer getStdMarksAss() {
+        return StdMarksAss;
+    }
+
+    public void setStdMarksAss(Integer stdMarksAss) {
+        StdMarksAss = stdMarksAss;
     }
 
     public String getStdAssID() {

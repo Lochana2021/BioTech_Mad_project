@@ -18,7 +18,7 @@ public class navigation extends AppCompatActivity {
 
     public void logout(View view){
         FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(),login_bio.class));
+        startActivity(new Intent(getApplicationContext(),StartingDashboard.class));
         finish();
     }
 

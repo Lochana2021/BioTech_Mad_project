@@ -33,6 +33,7 @@ public class QuizStudent extends AppCompatActivity {
     TextView q1,q2,q3;
     Button q1a1,q1a2,q1a3,q1a4,q2a1,q2a2,q2a3,q2a4,q3a1,q3a2,q3a3,q3a4,submit,attQuiz;
     DatabaseReference reff;
+    private static int Result = 0;
 
     String name = "Notification_channel";
     String CHANNEL_ID = "ID_1";
@@ -390,6 +391,11 @@ public class QuizStudent extends AppCompatActivity {
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(QuizStudent.this);
         notificationManager.notify(0,builder.build());
 
+    }
+
+    public  static int result(int questions , int wrongAnswer){
+        Result = questions - wrongAnswer;
+        return (int)Math.round(Result * 100 )/100;
     }
 
 

@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     private sigle_type singleType;
+    private QuizStudent quizStudent;
 
     @Before
     public void setUp(){
@@ -29,4 +30,18 @@ public class ExampleUnitTest {
         assertEquals(8.0,result,0.001);
 
     }
+
+    @Before
+    public void set_results(){
+        quizStudent = new QuizStudent();
+    }
+
+    @Test
+    public void calResult(){
+        int result = quizStudent.result(3,2);
+        assertEquals(1,result,0.001);
+    }
+
+
+
 }

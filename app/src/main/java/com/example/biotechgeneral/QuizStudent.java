@@ -34,16 +34,8 @@ public class QuizStudent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_student);
 
+        //Assigning xml designs with variables
         QuizNo = (EditText)findViewById(R.id.QuizNumber);
-        //qn = QuizNo.getText().toString().trim();
-
-/*
-        StringBuilder builder = new StringBuilder("");
-        builder.append("Quiz ").append(qn);
-        String text =builder.toString();
-
- */
-
         q1 = (TextView)findViewById(R.id.que1);
         q2 = (TextView)findViewById(R.id.que2);
         q3 = (TextView)findViewById(R.id.que3);
@@ -70,7 +62,7 @@ public class QuizStudent extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-
+                        //Assigning database values to variables
                         String qe1 = snapshot.child("quizQ1").getValue().toString();
                         String Q1a1 = snapshot.child("quizQ1A1").getValue().toString();
                         String Q1a2 = snapshot.child("quizQ1A2").getValue().toString();
@@ -95,7 +87,7 @@ public class QuizStudent extends AppCompatActivity {
                         String Q3CA = snapshot.child("quizQ3CorrectAnswer").getValue().toString();
 
 
-
+                        //set data
                         q1.setText(qe1);
 
                         q1a1.setText(Q1a1);
@@ -344,6 +336,8 @@ public class QuizStudent extends AppCompatActivity {
             public void onClick(View v) {
                 String passValue = String.valueOf(right);
                 Intent intent = new Intent(QuizStudent.this,activity_quiz_attendance.class);
+
+                //Passing quiz results to activity_quiz_attendance class
                 intent.putExtra("total", passValue);
                 startActivity(intent);
 

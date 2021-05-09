@@ -37,46 +37,6 @@ public class ResultQuizStu extends AppCompatActivity {
         can = (Button) findViewById(R.id.ResCancel);
 
 
-        /*
-        Query checkUser = reff.orderByChild("qname").equalTo(QuizNum.getText().toString().trim());
-        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                if(snapshot.exists()){
-
-                    String stID = snapshot.child(stuID.getText().toString().trim()).child("qregNum").getValue(String.class);
-
-                    if (stID.equals(stuID.getText().toString().trim())){
-
-                        String stuName = snapshot.child(stuID.getText().toString().trim()).child("qid").getValue(String.class);
-                        String stuRes = snapshot.child(stuID.getText().toString().trim()).child("result").getValue(String.class);
-
-                        submit.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                OutName.setText(stuName);
-                                OutRes.setText(stuRes);
-                            }
-                        });
-
-                    }
-
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-    }
-
-         */
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,11 +46,13 @@ public class ResultQuizStu extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                        //Assigning database values to variables
                         String ResName = snapshot.child("qid").getValue().toString();
                         String regNum = snapshot.child("qregNum").getValue().toString();
                         String Res = snapshot.child("results").getValue().toString();
-                        String qNum = snapshot.child("qname").getValue().toString();
 
+
+                        //check database variable and user entered variable
                         if (regNum.equals(stuID.getText().toString().trim())) {
                             OutName.setText(ResName);
                             OutRes.setText(Res);

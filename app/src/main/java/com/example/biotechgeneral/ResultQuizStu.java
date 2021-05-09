@@ -28,54 +28,43 @@ public class ResultQuizStu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_quiz_stu);
 
-        QuizNum = (EditText)findViewById(R.id.ResQuizNo);
-        stuID = (EditText)findViewById(R.id.ResStuID);
-        OutName = (TextView)findViewById(R.id.RStuName);
-        OutRes = (TextView)findViewById(R.id.ResResults);
-        submit = (Button)findViewById(R.id.ResSubmit);
-        can = (Button)findViewById(R.id.ResCancel);
+        QuizNum = (EditText) findViewById(R.id.ResQuizNo);
+        stuID = (EditText) findViewById(R.id.ResStuID);
 
-        reff = FirebaseDatabase.getInstance().getReference().child("QuizInfo");
+        OutName = (TextView) findViewById(R.id.RStuName);
+        OutRes = (TextView) findViewById(R.id.ResResults);
+        submit = (Button) findViewById(R.id.ResSubmit);
+        can = (Button) findViewById(R.id.ResCancel);
 
-        String qno = QuizNum.getText().toString().trim();
-        String sid = stuID.getText().toString().trim();
 
-        Query checkUser = reff.orderByChild("qno").equalTo(qno);
-
-        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public void onClick(View v) {
 
-                if(snapshot.exists()){
+                reff = FirebaseDatabase.getInstance().getReference().child("QuizInfo").child(stuID.getText().toString().trim());
+                reff.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                    QuizNum.setError(null);
+                        //Assigning database values to variables
+                        String ResName = snapshot.child("qid").getValue().toString();
+                        String regNum = snapshot.child("qregNum").getValue().toString();
+                        String Res = snapshot.child("results").getValue().toString();
 
-                    String stuID = snapshot.child(sid).child("qregNum").getValue(String.class);
 
-                    if (stuID.equals(sid)){
-
-                        QuizNum.setError(null);
-
-                        String stuName = snapshot.child(sid).child("qid").getValue(String.class);
-                        String stuRes = snapshot.child(sid).child("result").getValue(String.class);
-
-                        submit.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                OutName.setText(stuName);
-                                OutRes.setText(stuRes);
-                            }
-                        });
+                        //check database variable and user entered variable
+                        if (regNum.equals(stuID.getText().toString().trim())) {
+                            OutName.setText(ResName);
+                            OutRes.setText(Res);
+                        }
 
                     }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
 
             }
         });

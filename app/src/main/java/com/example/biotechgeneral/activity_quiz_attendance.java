@@ -29,6 +29,8 @@ public class activity_quiz_attendance extends AppCompatActivity {
         attsubmit = (Button)findViewById(R.id.AttSubB);
 
         quizAttendance = new QuizAtt();
+
+        //make database reference
         reff = FirebaseDatabase.getInstance().getReference().child("QuizInfo");
 
         String result = getIntent().getStringExtra("total");
@@ -36,18 +38,22 @@ public class activity_quiz_attendance extends AppCompatActivity {
         attsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //assigning EditText data to String variables
                 String name = quizname.getText().toString().trim();
                 String regNo = regnum.getText().toString().trim();
                 String qID = quizid.getText().toString().trim();
                 String date = quizdate.getText().toString().trim();
 
+                //set data
                 quizAttendance.setQName(name);
                 quizAttendance.setQRegNum(regNo);
                 quizAttendance.setQID(qID);
                 quizAttendance.setQdate(date);
                 quizAttendance.setResults(result);
 
-                reff.push().setValue(quizAttendance);
+                //push data to the firebase with regnum as ID
+                reff.child(regnum.getText().toString().trim()).setValue(quizAttendance);
                 Toast.makeText(activity_quiz_attendance.this,"Data insert successfully.",Toast.LENGTH_LONG).show();
             }
         });

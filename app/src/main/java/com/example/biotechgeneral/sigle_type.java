@@ -239,6 +239,7 @@ public class sigle_type extends AppCompatActivity {
         //String perString = String.valueOf(percentage);
         //txtPercentage.setText(perString + "%");
         return percentage;
+        //return  ((float) Math.round(percentage*100d)/100d);
     }
 
 }

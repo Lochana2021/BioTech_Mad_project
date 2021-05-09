@@ -28,7 +28,7 @@
             android:layout_alignParentBottom="true"
             android:background="#BF004E63"
             app:itemIconTint="@color/white"
-            app:itemTextColor="#2D2F31"
+            app:itemTextColor="#ffffff"
             app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

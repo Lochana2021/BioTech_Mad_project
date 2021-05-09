@@ -17,8 +17,6 @@ public class ForumResponse extends AppCompatActivity {
     private static double calcResponse = 0.0;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

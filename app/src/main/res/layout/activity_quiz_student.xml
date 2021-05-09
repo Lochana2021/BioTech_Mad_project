@@ -429,7 +429,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idDivider_View" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/QuizNumber"
             android:layout_width="174dp"
             android:layout_height="46dp"
@@ -438,7 +438,7 @@
             app:layout_constraintEnd_toStartOf="@+id/attemptQuiz"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idDivider_View"
-            android:inputType="text"/>
+            android:inputType="number"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

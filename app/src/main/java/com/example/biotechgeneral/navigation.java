@@ -27,11 +27,11 @@ public class navigation extends AppCompatActivity {
     }
 
     public void quizNav(View view){
-        startActivity(new Intent(getApplicationContext(),std_ass_input.class));
+        startActivity(new Intent(getApplicationContext(),QuizStudent.class));
     }
 
     public void forumNav(View view){
-        startActivity(new Intent(getApplicationContext(),std_ass_input.class));
+        startActivity(new Intent(getApplicationContext(),Forum_Dashboard.class));
     }
 
     public void profileNav(View view){

@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -23,6 +24,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +38,8 @@ public class std_ass_input extends AppCompatActivity {
     Button btnSubmit;
     DatabaseReference dbRef;
     Animation scaleUp, scaleDown;
+
+    public BottomNavigationView bottomNavigationView;
 
     //notification
     String name = "Notification_channel";
@@ -183,7 +187,13 @@ public class std_ass_input extends AppCompatActivity {
                          NotificationCompat.Builder builder = new NotificationCompat.Builder(std_ass_input.this,CHANNEL_ID)
                                  .setSmallIcon(R.drawable.baseline_eco_black_36dp)
                                  .setContentTitle("BioTech")
-                                 .setContentText(txtStdID.getText()+" has attempted to "+mySpinnerType.getSelectedItem())
+                                 .setContentText(txtStdID.getText()+" has attempted "+mySpinnerType.getSelectedItem())
+
+                                 .setColor(getApplicationContext().getResources().getColor(R.color.notificationGreen))
+                                 .setColorized(true)
+                                 //.setStyle(androidx.media.app.NotificationCompat.DecoratedMediaCustomViewStyle())
+                                 //.setCustomContentView(notificationView)
+
                                  .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                                  .setContentIntent(pendingIntent)
                                  .setAutoCancel(true);
@@ -198,6 +208,38 @@ public class std_ass_input extends AppCompatActivity {
                 catch (NumberFormatException e){
                     Toast.makeText(getApplicationContext(),"Invalid input for Week", Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        // Bottom navigation onClick listener
+        bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation_view);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    /*case R.id.action_Quiz:
+                        //Add your action onClick
+                        Intent intentQuiz = new Intent(getApplicationContext(), .class);
+                        startActivity(intentQuiz);
+                        break;*/
+                    case R.id.action_Forum:
+                        Intent intentForum = new Intent(getApplicationContext(), Forum_Dashboard.class);
+                        startActivity(intentForum);
+                        break;
+
+                    case R.id.action_Assignment:
+                        Intent intentAssign = new Intent(getApplicationContext(), std_ass_input.class);
+                        startActivity(intentAssign);
+                        break;
+
+                    case R.id.action_Profile:
+                        Intent intentProfile = new Intent(getApplicationContext(), std_profile.class);
+                        startActivity(intentProfile);
+                        break;
+                }
+                return false;
             }
         });
 

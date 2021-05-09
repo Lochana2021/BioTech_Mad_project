@@ -73,6 +73,8 @@ public class Forum_Dashboard extends AppCompatActivity {
 
     }
 
+    // Forum Response button
+
     public void Response(View view) {
         Intent i = new Intent(this,ForumResponse.class);
         startActivity(i);

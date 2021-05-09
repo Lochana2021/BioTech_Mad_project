@@ -10,7 +10,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E0ECEA"
+        android:background="@color/white"
         tools:context=".Forum_AskQuetion">
 
 
@@ -36,8 +36,8 @@
             android:layout_width="411dp"
             android:layout_height="45dp"
             android:layout_alignParentBottom="true"
-            android:background="#A8355723"
-            app:itemIconTint="@color/black"
+            android:background="#BF004E63"
+            app:itemIconTint="@color/white"
             app:itemTextColor="#2D2F31"
             app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -92,22 +92,28 @@
             android:id="@+id/Add_QuetionCancel"
             android:layout_width="104dp"
             android:layout_height="47dp"
+            android:background="@drawable/button_background"
             android:backgroundTint="#000000"
+            android:onClick="onCancel"
             android:text="@string/btn_Cancel"
+            app:backgroundTint="@color/black"
+            app:iconTint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.475"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.854"
-            android:onClick="onCancel"/>
+            app:layout_constraintVertical_bias="0.854" />
 
         <Button
             android:id="@+id/btn_FsubmitQ"
             android:layout_width="105dp"
             android:layout_height="49dp"
+            android:background="@drawable/button_background"
             android:backgroundTint="#000000"
             android:text="@string/btn_submit"
+            app:backgroundTint="@color/black"
+            app:iconTint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.885"

@@ -2,15 +2,21 @@ package com.example.biotechgeneral;
 
 public class ForumQuetions {
 
+
+    // Create Variables
     private String ForumName;
     private String QuetionNo;
     private String Quetion;
+
+    // Create Constructor
 
     public ForumQuetions(String forumName, String quetionNo, String quetion) {
         ForumName = forumName;
         QuetionNo = quetionNo;
         Quetion = quetion;
     }
+
+    // Create getters And setters
 
     public String getForumName() {
         return ForumName;

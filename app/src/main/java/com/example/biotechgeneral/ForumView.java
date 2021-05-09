@@ -18,6 +18,8 @@ import java.util.List;
 
 public class ForumView extends AppCompatActivity {
 
+    // Declare Variables
+
     List<Forum> forum;
     RecyclerView recyclerView;
     ForumAdapter forumAdapter;
@@ -28,9 +30,13 @@ public class ForumView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_view);
+
+        // create connection with xml widgets
         recyclerView = findViewById(R.id.Forum_ListView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         forum = new ArrayList<>();
+
+        //Create Database Connection
 
         F_dbRef = FirebaseDatabase.getInstance().getReference("Forum");
         F_dbRef.addListenerForSingleValueEvent(new ValueEventListener() {

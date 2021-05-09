@@ -18,6 +18,7 @@ import java.util.List;
 
 public class ForumDisplay extends AppCompatActivity {
 
+// Declare variables
     List<ForumStudent>forumStudentList;
     RecyclerView recyclerView;
     ForumStudentAdapter forumStudentAdapter;
@@ -28,14 +29,19 @@ public class ForumDisplay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_display);
+
+        // create  connection with xml widgets
         recyclerView = findViewById(R.id.display_RecycleView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         forumStudentList = new ArrayList<>();
+
+        // Create Connection with database
 
         F_dbRef = FirebaseDatabase.getInstance().getReference("ForumStudent");
         F_dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // create for loop for add data to list
                 for (DataSnapshot ds : snapshot.getChildren()){
                     ForumStudent data = ds.getValue(ForumStudent.class);
                     forumStudentList.add(data);

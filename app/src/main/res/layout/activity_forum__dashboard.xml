@@ -14,19 +14,23 @@
             android:id="@+id/FDash_FList"
             android:layout_width="254dp"
             android:layout_height="52dp"
+            android:background="@drawable/button_background"
             android:text="@string/FDash_FList"
+            app:backgroundTint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.265" />
+            app:layout_constraintVertical_bias="0.369" />
 
         <Button
             android:id="@+id/FDash_PostAnswer"
             android:layout_width="254dp"
             android:layout_height="52dp"
+            android:background="@drawable/button_background"
             android:text="@string/FDash_PostAnswer"
+            app:backgroundTint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
@@ -38,7 +42,9 @@
             android:id="@+id/FDash_AddQuetion"
             android:layout_width="254dp"
             android:layout_height="52dp"
+            android:background="@drawable/button_background"
             android:text="@string/FDash_AddQuetion"
+            app:backgroundTint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
@@ -50,7 +56,9 @@
             android:id="@+id/FDash_DisplayForum"
             android:layout_width="254dp"
             android:layout_height="52dp"
+            android:background="@drawable/button_background"
             android:text="@string/FDash_DisplayForum"
+            app:backgroundTint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
@@ -63,8 +71,8 @@
             android:layout_width="411dp"
             android:layout_height="0dp"
             android:layout_alignParentBottom="true"
-            android:background="#A8355723"
-            app:itemIconTint="@color/black"
+            android:background="#BF004E63"
+            app:itemIconTint="@color/white"
             app:itemTextColor="#2D2F31"
             app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -102,7 +110,7 @@
             app:layout_constraintHorizontal_bias="0.668"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.402" />
+            app:layout_constraintVertical_bias="0.269" />
 
         <TextView
             android:id="@+id/textView20"

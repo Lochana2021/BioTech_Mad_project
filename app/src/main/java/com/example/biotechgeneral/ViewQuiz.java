@@ -6,12 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.content.Intent;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,6 +30,7 @@ public class ViewQuiz extends AppCompatActivity {
 
     long quizID = 0;
 
+    public BottomNavigationView bottomNavigationView;
     private String clickedQuizNo;
 
     @Override
@@ -103,6 +106,37 @@ public class ViewQuiz extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+
+        // Bottom navigation onClick listener
+        bottomNavigationView = (BottomNavigationView)findViewById(R.id.idTeacher_navigation_view);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_TQuiz:
+                        //Add your action onClick
+                        Intent intentQuiz = new Intent(getApplicationContext(), QuizList.class);
+                        startActivity(intentQuiz);
+                        break;
+                    case R.id.action_TForum:
+                        Intent intentForum = new Intent(getApplicationContext(), Forum_Dashboard.class);
+                        startActivity(intentForum);
+                        break;
+
+                    case R.id.action_TAssignment:
+                        Intent intentAssign = new Intent(getApplicationContext(), ass_teacher.class);
+                        startActivity(intentAssign);
+                        break;
+
+                    case R.id.action_TProfile:
+                        break;
+                }
+                return false;
             }
         });
 

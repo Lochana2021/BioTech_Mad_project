@@ -162,7 +162,7 @@
     <string name="testView_des_te"></string>
     <string name="type_txt">Type_01</string>
     <string name="tot_students">No of Students attempted : </string>
-    <string name="pass_per">Pass students percentage : </string>
+    <string name="pass_per">Attempted students percentage : </string>
     <string name="btn_mutu">Mutualism</string>
     <string name="btn_comm">Commensolism</string>
     <string name="btn_para">Parasitism</string>

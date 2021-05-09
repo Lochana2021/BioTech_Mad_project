@@ -142,7 +142,7 @@ public class sigle_type extends AppCompatActivity {
 
         /*getting student count*/
         attCountRef = FirebaseDatabase.getInstance().getReference().child("Assignment").child(topicName);
-        //attCountRef.child(topicName);
+
         attCountRef.addValueEventListener(new ValueEventListener() {
 
             @SuppressLint("SetTextI18n")
@@ -151,17 +151,10 @@ public class sigle_type extends AppCompatActivity {
                 if (snapshot.exists()) {
                     attCount = (int) snapshot.getChildrenCount();
                     String stdCount = String.valueOf(attCount);
-                    //Toast.makeText(getApplicationContext(),String.valueOf(attCount),Toast.LENGTH_LONG).show();
+
                     txtStdAttCount.setText(stdCount);
 
-
-                       /* percentage = (float) Math.round(((attCount / 60.0) * 100));
-                        String perString = String.valueOf(percentage);
-                        txtPercentage.setText(perString + "%");*/
-
                     txtPercentage.setText(String.valueOf(attPerCal(attCount)) + "%");
-
-
 
                 } else {
                     txtStdAttCount.setText("0");
@@ -223,6 +216,8 @@ public class sigle_type extends AppCompatActivity {
                         break;
 
                     case R.id.action_TProfile:
+                        Intent intentPrfT = new Intent(getApplicationContext(), LecturerProfile.class);
+                        startActivity(intentPrfT);
                         break;
                 }
                 return false;
@@ -231,15 +226,12 @@ public class sigle_type extends AppCompatActivity {
 
 
     }
+    /*Calculation*/
     public static float attPerCal (int attCountLocal){
 
-        //attCountLocal = attCount;
-
         percentage = (float) Math.round(((attCountLocal / 60.0) * 100));
-        //String perString = String.valueOf(percentage);
-        //txtPercentage.setText(perString + "%");
         return percentage;
-        //return  ((float) Math.round(percentage*100d)/100d);
+
     }
 
 }

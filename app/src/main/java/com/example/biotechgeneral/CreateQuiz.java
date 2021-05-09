@@ -89,6 +89,8 @@ public class CreateQuiz extends AppCompatActivity {
 
         Intent getIntentQList = getIntent();
 
+        String hasQuizNum = getIntentQList.getStringExtra("HAS_QUIZ_NUM");
+
         quiz = new QuizClass();
         dbRef = FirebaseDatabase.getInstance().getReference().child("QuizClass");
         idBtnCancel = findViewById(R.id.idBtnCancel);
@@ -199,6 +201,10 @@ public class CreateQuiz extends AppCompatActivity {
                             quizNo.setError("Please enter Quiz Number.");
                             Toast.makeText(getApplicationContext(), "Please enter Quiz Number.", Toast.LENGTH_LONG).show();
                         }
+                        else if (("Quiz "+quizNo.getText().toString()).equals(hasQuizNum)){
+                            quizNo.setError("Quiz Number is already available.");
+                            Toast.makeText(getApplicationContext(), "Quiz Number is already available.", Toast.LENGTH_LONG).show();
+                        }
                         else if (TextUtils.isEmpty(quizPassMark.getText().toString())) {
                             quizPassMark.setError("Please enter Quiz Pass Mark.");
                             Toast.makeText(getApplicationContext(), "Please enter Quiz Pass Mark.", Toast.LENGTH_LONG).show();
@@ -271,7 +277,7 @@ public class CreateQuiz extends AppCompatActivity {
                             /////////////// NOTIFICATION  ////////////////////
 
                             // Create Explicit Intent to navigate from Notification --> QuizList Activity
-                            Intent intentNotify = new Intent(CreateQuiz.this, login_bio.class);
+                            Intent intentNotify = new Intent(CreateQuiz.this, lecturer_login.class);
                             intentNotify.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
                             ///////    Intent will be in Pending state until we tap on the Notification

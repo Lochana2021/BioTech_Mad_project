@@ -4,8 +4,13 @@ package com.example.biotechgeneral;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +33,10 @@ public class QuizStudent extends AppCompatActivity {
     TextView q1,q2,q3;
     Button q1a1,q1a2,q1a3,q1a4,q2a1,q2a2,q2a3,q2a4,q3a1,q3a2,q3a3,q3a4,submit,attQuiz;
     DatabaseReference reff;
+
+    String name = "Notification_channel";
+    String CHANNEL_ID = "ID_1";
+    String description = "Project Notification";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +62,20 @@ public class QuizStudent extends AppCompatActivity {
         q3a4 = (Button)findViewById(R.id.q3a4);
         submit = (Button)findViewById(R.id.submitQS);
         attQuiz = (Button)findViewById(R.id.attemptQuiz);
+
+
+        //notification
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+
+            //Register the channel with the system
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
 
         attQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -350,11 +373,22 @@ public class QuizStudent extends AppCompatActivity {
 
     public void AddNotification(){
         String passValue = String.valueOf(right);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+
+        Intent intent = new Intent(QuizStudent.this, activity_quiz_attendance.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
+
+        PendingIntent pendingIntent = PendingIntent.getActivities(QuizStudent.this,0, new Intent[]{intent},0);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_message)
                 .setContentTitle("Your quiz result")
                 .setContentText(passValue)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(QuizStudent.this);
+        notificationManager.notify(0,builder.build());
 
     }
 

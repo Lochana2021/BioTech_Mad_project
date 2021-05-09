@@ -168,6 +168,16 @@
     <string name="title_std">student_01</string>
     <string name="input_marks">Enter Marks : </string>
     <string name="weekEnter">Enter the week</string>
+    <string name="testView_week_te"></string>
+    <string name="techStdMarksInputBtn">Save</string>
+    <string name="lecLogOutBtn">LogOut</string>
+    <string name="lecDashName">BioTech Lecturer</string>
+    <string name="btnLogOut">Log Out</string>
+    <string name="labelDeadline_View"></string>
+    <string name="labelInputDeadline_View"></string>
+
+
+
     <!--End of Loch-->
 
 

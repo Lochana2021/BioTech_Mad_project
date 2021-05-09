@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#E0ECEA"
         tools:context=".ViewQuiz">
-
         <TextView
-            android:id="@+id/StuQuizName"
+            android:id="@+id/idLabelTopCreateQuiz_View"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
@@ -27,7 +23,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginLeft="35dp" />
-
         <View
             android:id="@+id/idDivider_View"
             android:layout_width="match_parent"
@@ -35,10 +30,8 @@
             android:layout_marginTop="20dp"
             android:background="#355723"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/StuQuizName" />
-
+            app:layout_constraintTop_toBottomOf="@+id/idLabelTopCreateQuiz_View" />
         <!-- Pass List -->
-
         <ImageButton
             android:id="@+id/idBtnIconPassList"
             android:layout_width="82dp"
@@ -69,25 +62,23 @@
             app:layout_constraintEnd_toStartOf="@+id/idBtnIconPassList"
             app:layout_constraintTop_toBottomOf="@+id/idDivider_View" />
 
-        <!-- Quiz Number -->
+        <!-- Quiz Number --><TextView
+        android:id="@+id/idLabelQuizNumber_View"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="90dp"
+        android:fontFamily="@font/allerta"
+        android:text="@string/labelQuizNumber_View"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idDivider_View"
+        android:layout_marginLeft="35dp" />
 
         <TextView
-            android:id="@+id/QQ"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="90dp"
-            android:fontFamily="@font/allerta"
-            android:text="@string/labelQuizNumber_View"
-            android:textColor="#000000"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idDivider_View"
-            android:layout_marginLeft="35dp" />
-
-        <TextView
-            android:id="@+id/QuizNumber"
+            android:id="@+id/idInputQuizNumber_View"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="90dp"
@@ -97,25 +88,23 @@
             android:textColor="#355723"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/QQ"
+            app:layout_constraintStart_toEndOf="@+id/idLabelQuizNumber_View"
             app:layout_constraintTop_toBottomOf="@+id/idDivider_View"
             android:gravity="center_horizontal" />
-
-
         <!--Pass Mark-->
 
         <TextView
-            android:id="@+id/idLabelPassMark_View"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="90dp"
-            android:fontFamily="@font/allerta"
-            android:text="@string/labelPassMark_View"
-            android:textColor="#000000"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/idInputPassMark_View"
-            app:layout_constraintTop_toBottomOf="@+id/idDivider_View" />
+        android:id="@+id/idLabelPassMark_View"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:fontFamily="@font/allerta"
+        android:text="@string/labelPassMark_View"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/idInputPassMark_View"
+        app:layout_constraintTop_toBottomOf="@+id/idDivider_View" />
 
         <TextView
             android:id="@+id/idInputPassMark_View"
@@ -134,10 +123,38 @@
             android:gravity="center_horizontal"
             android:layout_marginRight="30dp" />
 
-        <!--Question 1-->
-
+        <!--Deadline-->
         <TextView
-            android:id="@+id/StuQue1"
+            android:id="@+id/idLabelDeadline_View"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/allerta"
+            android:text="@string/labelDeadline_View"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idLabelQuizNumber_View"
+            android:layout_marginLeft="35dp" />
+        <TextView
+            android:id="@+id/idInputDeadline_View"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:text="@string/labelInputDeadline_View"
+            android:textAlignment="center"
+            android:textColor="#355723"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/idLabelDeadline_View"
+            app:layout_constraintTop_toBottomOf="@+id/idLabelQuizNumber_View"
+            android:gravity="center_horizontal" />
+        <!--Question 1-->
+        <TextView
+            android:id="@+id/idLabelInputQ1_View"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
@@ -148,13 +165,13 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/QQ"
+            app:layout_constraintTop_toBottomOf="@+id/idLabelDeadline_View"
             android:layout_marginLeft="35dp" />
 
         <TextView
-            android:id="@+id/que1"
+            android:id="@+id/idInputQ1_View"
             android:layout_width="343dp"
-            android:layout_height="43dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="35dp"
@@ -166,10 +183,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/StuQue1" />
-
+            app:layout_constraintTop_toBottomOf="@+id/idLabelInputQ1_View" />
         <TextView
-            android:id="@+id/q1a1"
+            android:id="@+id/inputQ1Ans1_View"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -179,11 +195,10 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/que1"
+            app:layout_constraintTop_toBottomOf="@+id/idInputQ1_View"
             android:layout_marginLeft="60dp" />
-
         <TextView
-            android:id="@+id/q1a2"
+            android:id="@+id/inputQ1Ans2_View"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -193,11 +208,10 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/q1a1"
+            app:layout_constraintTop_toBottomOf="@+id/inputQ1Ans1_View"
             android:layout_marginLeft="60dp" />
-
         <TextView
-            android:id="@+id/q1a3"
+            android:id="@+id/inputQ1Ans3_View"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -207,11 +221,10 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/q1a2"
+            app:layout_constraintTop_toBottomOf="@+id/inputQ1Ans2_View"
             android:layout_marginLeft="60dp" />
-
         <TextView
-            android:id="@+id/q1a4"
+            android:id="@+id/inputQ1Ans4_View"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -221,11 +234,10 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/q1a3"
+            app:layout_constraintTop_toBottomOf="@+id/inputQ1Ans3_View"
             android:layout_marginLeft="60dp" />
 
         <!--Correct Answer 1 -->
-
         <TextView
             android:id="@+id/idLabelInputCorrectQ1_View"
             android:layout_width="wrap_content"
@@ -241,9 +253,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/q1a4"
+            app:layout_constraintTop_toBottomOf="@+id/inputQ1Ans4_View"
             android:layout_marginLeft="35dp" />
-
 
         <TextView
             android:id="@+id/inputCorrectQ1_View"
@@ -258,11 +269,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/idLabelInputCorrectQ1_View" />
-
         <!--Question 2-->
-
         <TextView
-            android:id="@+id/StuQue2"
+            android:id="@+id/idLabelInputQ2_View"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
@@ -275,11 +284,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idLabelInputCorrectQ1_View"
             android:layout_marginLeft="35dp" />
-
         <TextView
-            android:id="@+id/que2"
+            android:id="@+id/idInputQ2_View"
             android:layout_width="343dp"
-            android:layout_height="43dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="35dp"
@@ -291,10 +299,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/StuQue2" />
-
+            app:layout_constraintTop_toBottomOf="@+id/idLabelInputQ2_View" />
         <TextView
-            android:id="@+id/q2a1"
+            android:id="@+id/inputQ2Ans1_View"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -304,11 +311,13 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/que2"
+            app:layout_constraintTop_toBottomOf="@+id/idInputQ2_View"
             android:layout_marginLeft="60dp" />
 
+        [11:49 AM] Wijerathna L.M. it19971490
+
         <TextView
-            android:id="@+id/q2a2"
+            android:id="@+id/inputQ2Ans2_View"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -318,11 +327,10 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/q2a1"
+            app:layout_constraintTop_toBottomOf="@+id/inputQ2Ans1_View"
             android:layout_marginLeft="60dp" />
-
         <TextView
-            android:id="@+id/q2a3"
+            android:id="@+id/inputQ2Ans3_View"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -332,11 +340,10 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/q2a2"
+            app:layout_constraintTop_toBottomOf="@+id/inputQ2Ans2_View"
             android:layout_marginLeft="60dp" />
-
         <TextView
-            android:id="@+id/q2a4"
+            android:id="@+id/inputQ2Ans4_View"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -346,9 +353,8 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/q2a3"
+            app:layout_constraintTop_toBottomOf="@+id/inputQ2Ans3_View"
             android:layout_marginLeft="60dp" />
-
         <!--Correct Answer 2 -->
         <TextView
             android:id="@+id/idLabelInputCorrectQ2_View"
@@ -365,9 +371,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/q2a4"
+            app:layout_constraintTop_toBottomOf="@+id/inputQ2Ans4_View"
             android:layout_marginLeft="35dp" />
-
 
         <TextView
             android:id="@+id/inputCorrectQ2_View"
@@ -382,11 +387,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/idLabelInputCorrectQ2_View" />
-
         <!--Question 3-->
+        ​[11:49 AM] Wijerathna L.M. it19971490
 
         <TextView
-            android:id="@+id/StuQue3"
+            android:id="@+id/idLabelInputQ3_View"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
@@ -399,11 +404,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idLabelInputCorrectQ2_View"
             android:layout_marginLeft="35dp" />
-
         <TextView
-            android:id="@+id/que3"
+            android:id="@+id/idInputQ3_View"
             android:layout_width="343dp"
-            android:layout_height="43dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="35dp"
@@ -415,10 +419,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/StuQue3" />
-
+            app:layout_constraintTop_toBottomOf="@+id/idLabelInputQ3_View" />
         <TextView
-            android:id="@+id/q3a1"
+            android:id="@+id/inputQ3Ans1_View"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -428,11 +431,10 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/que3"
+            app:layout_constraintTop_toBottomOf="@+id/idInputQ3_View"
             android:layout_marginLeft="60dp" />
-
         <TextView
-            android:id="@+id/q3a2"
+            android:id="@+id/inputQ3Ans2_View"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -442,11 +444,10 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/q3a1"
+            app:layout_constraintTop_toBottomOf="@+id/inputQ3Ans1_View"
             android:layout_marginLeft="60dp" />
-
         <TextView
-            android:id="@+id/q3a3"
+            android:id="@+id/inputQ3Ans3_View"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -456,11 +457,10 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/q3a2"
+            app:layout_constraintTop_toBottomOf="@+id/inputQ3Ans2_View"
             android:layout_marginLeft="60dp" />
-
         <TextView
-            android:id="@+id/q3a4"
+            android:id="@+id/inputQ3Ans4_View"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -470,10 +470,11 @@
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/q3a3"
+            app:layout_constraintTop_toBottomOf="@+id/inputQ3Ans3_View"
             android:layout_marginLeft="60dp" />
-
         <!--Correct Answer 3 -->
+        ​[11:50 AM] Wijerathna L.M. it19971490
+
         <TextView
             android:id="@+id/idLabelInputCorrectQ3_View"
             android:layout_width="wrap_content"
@@ -486,14 +487,13 @@
             android:textColor="#355723"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+            app:layout_constraintBottom_toTopOf="@+id/idTeacher_navigation_view"
             app:layout_constraintEnd_toStartOf="@+id/inputCorrectQ3_View"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/q3a4"
+            app:layout_constraintTop_toBottomOf="@+id/inputQ3Ans4_View"
             android:layout_marginLeft="35dp" />
-
 
         <TextView
             android:id="@+id/inputCorrectQ3_View"
@@ -509,44 +509,39 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/idLabelInputCorrectQ3_View" />
 
-
         <!--CANCEL button
-        <Button
-            android:id="@+id/idBtnCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="25dp"
-            android:backgroundTint="#000000"
-            android:text="@string/btnCancel"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/navigation_view"
-            app:layout_constraintEnd_toStartOf="@+id/idBtnSave"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idLabelInputCorrectQ3" />
-
-         ////////SAVE button
-        <Button
-            android:id="@+id/idBtnSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#000000"
-            android:onClick="gotoQuizListActivity"
-            android:text="@string/btnSave"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintBaseline_toBaselineOf="@+id/idBtnCancel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/idBtnCancel" />
-
-            -->
-
+                <Button
+                    android:id="@+id/idBtnCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="25dp"
+                    android:backgroundTint="#000000"
+                    android:text="@string/btnCancel"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+                    app:layout_constraintEnd_toStartOf="@+id/idBtnSave"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/idLabelInputCorrectQ3" />
+                 ////////SAVE button
+                <Button
+                    android:id="@+id/idBtnSave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#000000"
+                    android:onClick="gotoQuizListActivity"
+                    android:text="@string/btnSave"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/idBtnCancel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/idBtnCancel" />
+                    -->
         <!--Bottom Navigation-->
-
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/navigation_view"
+            android:id="@+id/idTeacher_navigation_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -558,7 +553,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/navigation_menu" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>

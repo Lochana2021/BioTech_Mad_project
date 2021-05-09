@@ -31,9 +31,9 @@ public class TeacherDashboard extends AppCompatActivity {
 
 
     public void TeacherDashtoForum (View view) {
-        Intent intentQuizList = new Intent(this, PassList.class);
+        Intent intentQuizList = new Intent(this, Forum_Dashboard.class);
         startActivity(intentQuizList);
-        Toast.makeText(getApplicationContext(), "Navigating to QuizList", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Navigating to Forum", Toast.LENGTH_SHORT).show();
     }
 
     public void TeacherDashtoAssignment (View view) {
@@ -43,9 +43,9 @@ public class TeacherDashboard extends AppCompatActivity {
     }
 
     public void TeacherDashtoTeacherProfle (View view) {
-        Intent intentQuizList = new Intent(this, PassList.class);
+        Intent intentQuizList = new Intent(this, LecturerProfile.class);
         startActivity(intentQuizList);
-        Toast.makeText(getApplicationContext(), "Navigating to QuizList", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Navigating to Lecturer Profile", Toast.LENGTH_SHORT).show();
     }
 
 

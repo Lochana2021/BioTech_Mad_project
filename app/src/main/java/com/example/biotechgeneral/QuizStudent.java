@@ -3,8 +3,14 @@ package com.example.biotechgeneral;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,20 +34,17 @@ public class QuizStudent extends AppCompatActivity {
     Button q1a1,q1a2,q1a3,q1a4,q2a1,q2a2,q2a3,q2a4,q3a1,q3a2,q3a3,q3a4,submit,attQuiz;
     DatabaseReference reff;
 
+    String name = "Notification_channel";
+    String CHANNEL_ID = "ID_1";
+    String description = "Project Notification";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_student);
 
-        QuizNo = findViewById(R.id.QuizNumber);
-        //qn = QuizNo.getText().toString().trim();
-
-
-
-       /* StringBuilder builder = new StringBuilder("");
-        builder.append("Quiz ").append(qn);
-        String text =builder.toString();*/
-
+        //Assigning xml designs with variables
+        QuizNo = (EditText)findViewById(R.id.QuizNumber);
         q1 = (TextView)findViewById(R.id.que1);
         q2 = (TextView)findViewById(R.id.que2);
         q3 = (TextView)findViewById(R.id.que3);
@@ -60,18 +63,29 @@ public class QuizStudent extends AppCompatActivity {
         submit = (Button)findViewById(R.id.submitQS);
         attQuiz = (Button)findViewById(R.id.attemptQuiz);
 
+
+        //notification
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+
+            //Register the channel with the system
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+
         attQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reff = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("Quiz "+QuizNo.getText().toString().trim());
-                //Toast.makeText(getApplicationContext(), qn, Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), QuizNo.getText().toString().trim(), Toast.LENGTH_LONG).show();
-
+                reff = FirebaseDatabase.getInstance().getReference().child("QuizClass").child("Quiz "+ QuizNo.getText().toString().trim());
                 reff.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-
+                        //Assigning database values to variables
                         String qe1 = snapshot.child("quizQ1").getValue().toString();
                         String Q1a1 = snapshot.child("quizQ1A1").getValue().toString();
                         String Q1a2 = snapshot.child("quizQ1A2").getValue().toString();
@@ -96,7 +110,7 @@ public class QuizStudent extends AppCompatActivity {
                         String Q3CA = snapshot.child("quizQ3CorrectAnswer").getValue().toString();
 
 
-
+                        //set data
                         q1.setText(qe1);
 
                         q1a1.setText(Q1a1);
@@ -261,12 +275,13 @@ public class QuizStudent extends AppCompatActivity {
                                     {
                                         right ++;
                                         count ++;
+                                        Toast.makeText(QuizStudent.this,"Submit your answers",Toast.LENGTH_LONG).show();
                                     }
                                     else
                                     {
                                         wrong ++;
                                         count ++;
-                                        Toast.makeText(QuizStudent.this,qn,Toast.LENGTH_LONG).show();
+                                        Toast.makeText(QuizStudent.this,"Submit your answers",Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
@@ -278,12 +293,13 @@ public class QuizStudent extends AppCompatActivity {
                                     {
                                         right ++;
                                         count ++;
+                                        Toast.makeText(QuizStudent.this,"Submit your answers",Toast.LENGTH_LONG).show();
                                     }
                                     else
                                     {
                                         wrong ++;
                                         count ++;
-                                        Toast.makeText(QuizStudent.this,qn,Toast.LENGTH_LONG).show();
+                                        Toast.makeText(QuizStudent.this,"Submit your answers",Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
@@ -295,12 +311,13 @@ public class QuizStudent extends AppCompatActivity {
                                     {
                                         right ++;
                                         count ++;
+                                        Toast.makeText(QuizStudent.this,"Submit your answers",Toast.LENGTH_LONG).show();
                                     }
                                     else
                                     {
                                         wrong ++;
                                         count ++;
-                                        Toast.makeText(QuizStudent.this,qn,Toast.LENGTH_LONG).show();
+                                        Toast.makeText(QuizStudent.this,"Submit your answers",Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
@@ -312,12 +329,13 @@ public class QuizStudent extends AppCompatActivity {
                                     {
                                         right ++;
                                         count ++;
+                                        Toast.makeText(QuizStudent.this,"Submit your answers",Toast.LENGTH_LONG).show();
                                     }
                                     else
                                     {
                                         wrong ++;
                                         count ++;
-                                        Toast.makeText(QuizStudent.this,qn,Toast.LENGTH_LONG).show();
+                                        Toast.makeText(QuizStudent.this,"Submit your answers",Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
@@ -341,11 +359,36 @@ public class QuizStudent extends AppCompatActivity {
             public void onClick(View v) {
                 String passValue = String.valueOf(right);
                 Intent intent = new Intent(QuizStudent.this,activity_quiz_attendance.class);
+
+                //Passing quiz results to activity_quiz_attendance class
                 intent.putExtra("total", passValue);
                 startActivity(intent);
+
+                AddNotification();
             }
         });
 
+
+    }
+
+    public void AddNotification(){
+        String passValue = String.valueOf(right);
+
+        Intent intent = new Intent(QuizStudent.this, activity_quiz_attendance.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
+
+        PendingIntent pendingIntent = PendingIntent.getActivities(QuizStudent.this,0, new Intent[]{intent},0);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_message)
+                .setContentTitle("Your quiz result")
+                .setContentText(passValue)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(QuizStudent.this);
+        notificationManager.notify(0,builder.build());
 
     }
 

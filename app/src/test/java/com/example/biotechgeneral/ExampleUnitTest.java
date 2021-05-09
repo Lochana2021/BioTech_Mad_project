@@ -13,6 +13,8 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     private sigle_type singleType;
     private PassList passListObj;
+    private ForumResponse response;
+
 
     /*Loch*/
     @Before
@@ -25,6 +27,9 @@ public class ExampleUnitTest {
     public void setPassListObj(){
         passListObj = new PassList();
     }
+
+    @Before
+    public  void setResponse(){response = new ForumResponse();}
 
     @Test
     public void addition_isCorrect() {
@@ -44,5 +49,25 @@ public class ExampleUnitTest {
         double passPercent = passListObj.calcPassPercentage(2 , 3);
         assertEquals(66.67, passPercent, 0.001);
     }
+
+
+// Forum Test
+
+    @Test
+    public void calcResponsStudent(){
+        double passPercent = response.calcResponse(10 , 20);
+        assertEquals(50.00, passPercent, 0.001);
+    }
+
+
+    @Test
+    public void calcRespons_Student(){
+        double passPercent = response.calcResponse(2 , 20);
+        assertEquals(10.00, passPercent, 0.001);
+    }
+
+
+
+
 
 }

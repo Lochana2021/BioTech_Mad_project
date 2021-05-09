@@ -17,20 +17,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Forum_QuetionView extends AppCompatActivity {
+
+    // Declare variables
     List<ForumQuetions> forumQuetionsList;
     RecyclerView recyclerView;
 
+// create object to adapter class
     ForumQDisplayAdapter forumQDisplayAdapter;
+
+    // create reference object to database
     DatabaseReference F_dbRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum__quetion_view);
+
+        //create connection with xml widgets
         recyclerView = findViewById(R.id.QDisplay_View);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         forumQuetionsList = new ArrayList<>();
 
+       // create database connection
         F_dbRef = FirebaseDatabase.getInstance().getReference("ForumQuetions");
         F_dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

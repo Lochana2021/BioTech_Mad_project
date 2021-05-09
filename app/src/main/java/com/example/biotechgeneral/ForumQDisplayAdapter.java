@@ -14,9 +14,12 @@ import java.util.List;
 
 public class ForumQDisplayAdapter extends RecyclerView.Adapter {
 
+    // Create List Variables
+
     List<ForumQuetions> forumQuetionsList;
     Context context;
 
+    // Create Constructor
 
     public ForumQDisplayAdapter(List<ForumQuetions> forumQuetionsList) {
         this.forumQuetionsList = forumQuetionsList;
@@ -56,6 +59,8 @@ public class ForumQDisplayAdapter extends RecyclerView.Adapter {
         static TextView name;
         static TextView quetionNo;
         static TextView quetion;
+
+        // Declare ViewHolder class
 
         public ViewHolderclass(@NonNull View itemView) {
             super(itemView);

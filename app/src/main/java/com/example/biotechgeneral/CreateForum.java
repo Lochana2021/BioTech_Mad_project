@@ -19,6 +19,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class CreateForum extends AppCompatActivity {
 
+
+// create Variables.....
     EditText fName, description, fType;
     Button Create;
     DatabaseReference F_dbRef;
@@ -29,13 +31,18 @@ public class CreateForum extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_forum);
 
+    // create connection with xml widgets...
 
         fName = findViewById(R.id.txt_Fname);
         description = findViewById(R.id.txt_description);
         fType = findViewById(R.id.txt_Ftype);
         Create = findViewById(R.id.btn_forumcreate);
 
+        // Create connection with firebase database
         F_dbRef = FirebaseDatabase.getInstance().getReference().child("Forum");
+
+        //create notification
+
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             NotificationChannel channel = new NotificationChannel("Forum Response", "Forum Response", NotificationManager.IMPORTANCE_DEFAULT);
             NotificationManager manager = getSystemService(NotificationManager.class);
@@ -44,7 +51,11 @@ public class CreateForum extends AppCompatActivity {
         Create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // calling insert method
                 insertForum();
+
+                //Create Notification
 
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(CreateForum.this,"Forum Response");
                 builder.setContentTitle("New Forum");
@@ -59,6 +70,8 @@ public class CreateForum extends AppCompatActivity {
 
     }
 
+
+// Declare method body
     private void insertForum(){
         String Name = fName.getText().toString();
         String Description= description.getText().toString();
@@ -67,6 +80,8 @@ public class CreateForum extends AppCompatActivity {
         Forum forum = new Forum(Name, Description,Type);
 
         F_dbRef.push().setValue(forum);
+
+        //toast message
         Toast.makeText(CreateForum.this,"data  inserted",Toast.LENGTH_SHORT).show();
         Intent i = new Intent(this,Forum_Dashboard.class);
         startActivity(i);
@@ -75,7 +90,7 @@ public class CreateForum extends AppCompatActivity {
 
 
     }
-
+    // cancel button
     public void onCancel(View view) {
         Intent i = new Intent(this,ForumList.class);
         startActivity(i);

@@ -10,12 +10,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Forum_Dashboard extends AppCompatActivity {
 
+    // Declare button variables
+
     Button button1, button2, button3, button4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum__dashboard);
+
+        // create connection with button and xml widgets
 
         button1 = findViewById(R.id.FDash_FList);
         button2 = findViewById(R.id.FDash_PostAnswer);
@@ -67,5 +71,10 @@ public class Forum_Dashboard extends AppCompatActivity {
 
 
 
+    }
+
+    public void Response(View view) {
+        Intent i = new Intent(this,ForumResponse.class);
+        startActivity(i);
     }
 }

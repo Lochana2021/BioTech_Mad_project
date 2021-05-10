@@ -35,6 +35,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -89,7 +90,8 @@ public class CreateQuiz extends AppCompatActivity {
 
         Intent getIntentQList = getIntent();
 
-        String hasQuizNum = getIntentQList.getStringExtra("HAS_QUIZ_NUM");
+        //String hasQuizNum = getIntentQList.getStringExtra("HAS_QUIZ_NUM");
+        ArrayList<String> hasQuizNum = (ArrayList<String>) getIntent().getSerializableExtra("HAS_QUIZ_NUM");
 
         quiz = new QuizClass();
         dbRef = FirebaseDatabase.getInstance().getReference().child("QuizClass");
@@ -197,11 +199,13 @@ public class CreateQuiz extends AppCompatActivity {
             public void onClick(View v) {
 
                     try {
+                        // VALIDATIONS
+
                         if (TextUtils.isEmpty(quizNo.getText().toString())){
                             quizNo.setError("Please enter Quiz Number.");
                             Toast.makeText(getApplicationContext(), "Please enter Quiz Number.", Toast.LENGTH_LONG).show();
                         }
-                        else if (("Quiz "+quizNo.getText().toString()).equals(hasQuizNum)){
+                        else if (hasQuizNum.contains("Quiz "+quizNo.getText().toString())){
                             quizNo.setError("Quiz Number is already available.");
                             Toast.makeText(getApplicationContext(), "Quiz Number is already available.", Toast.LENGTH_LONG).show();
                         }
@@ -348,6 +352,8 @@ public class CreateQuiz extends AppCompatActivity {
                         break;
 
                     case R.id.action_TProfile:
+                        Intent intentPrfT = new Intent(getApplicationContext(), LecturerProfile.class);
+                        startActivity(intentPrfT);
                         break;
                 }
                 return false;
@@ -356,16 +362,6 @@ public class CreateQuiz extends AppCompatActivity {
 
 
     }// end of onCreate
-/*
-
-    public void navigateToTeacherQuizList (View view) {
-
-        Intent btmNavIntent = new Intent(CreateQuiz.this, QuizList.class);
-        startActivity(btmNavIntent);
-
-        Toast.makeText(getApplicationContext(), "Navigating....", Toast.LENGTH_SHORT).show();
-    }
-*/
 
 
 }

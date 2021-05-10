@@ -121,6 +121,8 @@ public class QuizList extends AppCompatActivity {
                         break;
 
                     case R.id.action_TProfile:
+                        Intent intentPrfT = new Intent(getApplicationContext(), LecturerProfile.class);
+                        startActivity(intentPrfT);
                         break;
                 }
                 return false;
@@ -134,7 +136,9 @@ public class QuizList extends AppCompatActivity {
     public void gotoCreateQuizActivity (View view) {
 
         Intent intentCreateQuiz = new Intent(this, CreateQuiz.class);
-        intentCreateQuiz.putExtra("HAS_QUIZ_NUM", "Quiz "+quizMapped);
+        //intentCreateQuiz.putExtra("HAS_QUIZ_NUM", "Quiz "+quizMapped);
+        intentCreateQuiz.putExtra("HAS_QUIZ_NUM", quizArrayList);
+
         startActivity(intentCreateQuiz);
 
         Toast.makeText(getApplicationContext(), "Navigating....", Toast.LENGTH_SHORT).show();

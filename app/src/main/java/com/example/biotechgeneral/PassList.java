@@ -128,6 +128,8 @@ public class PassList extends AppCompatActivity {
                         break;
 
                     case R.id.action_TProfile:
+                        Intent intentPrfT = new Intent(getApplicationContext(), LecturerProfile.class);
+                        startActivity(intentPrfT);
                         break;
                 }
                 return false;

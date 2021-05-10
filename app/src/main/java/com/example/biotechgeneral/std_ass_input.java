@@ -139,7 +139,7 @@ public class std_ass_input extends AppCompatActivity {
                          txtWeek.setError("Week must be filled out");
                          return;
                      }
-                     else if (Integer.parseInt(txtWeek.getText().toString()) > 14){
+                      else if (Integer.parseInt(txtWeek.getText().toString()) > 14){
                          txtWeek.setError("Invalid week: (1 - 14)");
                          return;
                      }

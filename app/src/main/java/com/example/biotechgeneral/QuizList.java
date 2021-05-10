@@ -33,6 +33,7 @@ public class QuizList extends AppCompatActivity {
     ArrayAdapter<String> quizArrayAdapter;
 
     public BottomNavigationView bottomNavigationView;
+    public String quizMapped;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,7 @@ public class QuizList extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
                 // Get the value from the DataSnapshot and add it to the quiz' list
-                String quizMapped = snapshot.child("quizNo").getValue(String.class);
+                quizMapped = snapshot.child("quizNo").getValue(String.class);
                 quizArrayList.add("Quiz "+quizMapped);
                // quizArrayList.add(quizMapped);
 
@@ -133,26 +134,11 @@ public class QuizList extends AppCompatActivity {
     public void gotoCreateQuizActivity (View view) {
 
         Intent intentCreateQuiz = new Intent(this, CreateQuiz.class);
+        intentCreateQuiz.putExtra("HAS_QUIZ_NUM", "Quiz "+quizMapped);
         startActivity(intentCreateQuiz);
 
         Toast.makeText(getApplicationContext(), "Navigating....", Toast.LENGTH_SHORT).show();
     }
 
-    /*
-    public void gotoViewQuizActivity (View view) {
 
-        Intent intent2 = new Intent(this, ViewQuiz.class);
-        startActivity(intent2);
-
-        Toast.makeText(getApplicationContext(), "Navigating....", Toast.LENGTH_SHORT).show();
-    }
-
-    public void gotoCreateQuizActivity (View view) {
-
-        Intent intent = new Intent(this, CreateQuiz.class);
-        startActivity(intent);
-
-        Toast.makeText(getApplicationContext(), "Navigating....", Toast.LENGTH_SHORT).show();
-    }
-    */
 }

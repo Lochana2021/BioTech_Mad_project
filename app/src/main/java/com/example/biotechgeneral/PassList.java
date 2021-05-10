@@ -71,7 +71,8 @@ public class PassList extends AppCompatActivity {
                 int allStdCount = allArrayList.size();
 
                 if(resultMapped >= passMark){
-                    passArrayList.add("Student ID: " + stdIDMapped + "  Result: " + resultMapped);
+                    passArrayList.add(stdIDMapped);
+                    //passArrayList.add("Student ID: " + stdIDMapped + "  Result: " + resultMapped);
 
                     // Notify the ArrayAdapter that there was a change
                     passArrayAdapter.notifyDataSetChanged();
@@ -135,6 +136,7 @@ public class PassList extends AppCompatActivity {
 
     } //onCreate ends
 
+    //CALCULATION - Calculate Pass Students percentage
     public static double calcPassPercentage(int stdPassCount, int stdAllCount){
         calcPassPercent = (stdPassCount*100.0)/stdAllCount;
 

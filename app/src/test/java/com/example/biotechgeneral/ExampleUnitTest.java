@@ -40,9 +40,15 @@ public class ExampleUnitTest {
 
     /*Achi*/
     @Test
-    public void passPercentage_isCorrect(){
+    public void passPercentage_isCorrect_1(){
         double passPercent = passListObj.calcPassPercentage(2 , 3);
         assertEquals(66.67, passPercent, 0.001);
+    }
+
+    @Test
+    public void passPercentage_isCorrect_2(){
+        double passPercent = passListObj.calcPassPercentage(3 , 5);
+        assertEquals(60.00, passPercent, 0.001);
     }
 
 }

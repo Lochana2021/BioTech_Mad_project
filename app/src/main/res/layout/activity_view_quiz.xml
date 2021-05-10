@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:layout_marginTop="20dp"
-            android:background="#355723"
+            android:background="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idLabelTopCreateQuiz_View" />
 
@@ -49,7 +49,7 @@
             android:contentDescription="@string/descriptBtnIconPassList"
             android:onClick="gotoPassListActivity"
             android:scaleType="fitCenter"
-            android:tint="#355723"
+            android:tint="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idDivider_View"
             app:srcCompat="@drawable/ic_baseline_verified_24"
@@ -514,7 +514,7 @@
             android:layout_marginBottom="100dp"
             android:fontFamily="@font/allerta"
             android:text="@string/labelInputCorrectQ3_View"
-            android:textColor="#355723"
+            android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/idTeacher_navigation_view"
@@ -532,7 +532,7 @@
             android:layout_height="56dp"
             android:ems="10"
             android:text="@string/lbl_InputCorrectQ3_View"
-            android:textColor="#355723"
+            android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintBaseline_toBaselineOf="@+id/idLabelInputCorrectQ3_View"
@@ -581,13 +581,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="#A9355723"
-            app:itemIconTint="@color/black"
-            app:itemTextColor="#2D2F31"
+            android:background="#BF004E63"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="#FFFFFF"
             app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/navigation_menu" />
+            app:menu="@menu/teacher_bottom_nav_menu" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

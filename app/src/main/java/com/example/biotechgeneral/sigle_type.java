@@ -39,6 +39,8 @@ public class sigle_type extends AppCompatActivity {
     int attCount = 0;
     private static float percentage = (float) 0.0;
 
+    public String assMapped;
+
     public BottomNavigationView bottomNavigationView;
 
 
@@ -79,7 +81,7 @@ public class sigle_type extends AppCompatActivity {
         dbRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String assMapped = snapshot.child("stdAssID").getValue(String.class);
+                assMapped = snapshot.child("stdAssID").getValue(String.class);
                 assStdArrayList.add(assMapped);
                 assStdArrayAdapter.notifyDataSetChanged();
 
